@@ -1,0 +1,61 @@
+site_name: valet.sh
+theme:
+  palette:
+    primary: black
+  name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  custom_dir: overrides
+  features:
+    - navigation.indexes
+extra:
+  homepage: https://valet.sh
+  generator: false
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+plugins:
+  - search
+  - awesome-pages
+  - redirects:
+      redirect_maps:
+        'display/VSH/Privacy.md': 'privacy.md'
+        'display/VSH/PHP.md': 'services/php.md'
+        'display/VSH/MySQL.md': 'services/mysql.md'
+        'display/VSH/Elasticsearch.md': 'services/elasticsearch.md'
+        'display/VSH/service.md': 'commands/service.md'
+        'display/VSH/config.md': 'commands/config.md'
+        'display/VSH/Installation.md': 'getting-started/installation.md'
+        'display/VSH/xdebug.md': 'commands/xdebug.md'
+        'display/VSH/Imprint.md': 'imprint.md'
+        'display/VSH/link.md': 'commands/link.md'
+        'display/VSH/db.md': 'commands/db.md'
+        'display/VSH/Mailhog.md': 'services/mailhog.md'
+        'display/VSH/Rabbitmq.md': 'services/rabbitmq.md'
+        'display/VSH/Services.md': 'services/index.md'
+        'display/VSH/Changelog.md': 'changelog.md'
+        'display/VSH/Setup+magento+project.md': 'how-to-articles/setup-a-magento-project.md'
+        'display/VSH/How-to+articles.md': 'how-to-articles/index.md'
+        'display/VSH/Project+configuration+via+.valet-sh.yml.md': 'how-to-articles/project-configuration-via-valet-sh-yml.md'
+        'display/VSH/%5BMacOS%5D+Install+IonCube+Loader.md': 'how-to-articles/install-ioncube-loader.md'
+        'display/VSH/%5BMacOS%5D+Profile+using+XHProf+or+Blackfire.md': 'how-to-articles/install-and-use-profiler-xhprof-or-blackfire.md'
+
+site_url: https://valet.sh
+edit_uri: https://github.com/valet-sh/docs/edit/master/docs
+repo_url: https://github.com/valet-sh/valet-sh
+copyright: Copyright &copy; 2022 TechDivision GmbH
+custom:
+  footer_links:
+    - target: /privacy
+      name: Privacy
+    - target: /imprint
+      name: Imprint

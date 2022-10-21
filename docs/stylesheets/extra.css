@@ -1,0 +1,32 @@
+.md-copyright__links {
+    font-size: .64rem;
+    margin: .64rem;
+}
+
+.md-copyright__links span{
+    padding: 1rem;
+}
+
+:root > * {
+    --md-primary-fg-color:        #000000;
+    --md-primary-fg-color--light: #000000;
+    --md-primary-fg-color--dark:  #000000;
+    --md-typeset-a-color:         #56BCAB;
+    --md-accent-fg-color:         #56BCAB;
+}
+
+.md-grid {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 75rem;
+}
+
+.cross-mark {
+    color: red;
+    font-size: 1.5em;
+}
+
+.check-mark {
+    color: green;
+    font-size: 1.5em;
+}
