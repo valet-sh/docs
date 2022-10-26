@@ -13,7 +13,7 @@
     {% endif %}
 </div>
 <div class="md-copyright__links">
-    {% for footerlink in config.custom.footer_links %}
+    {% for footerlink in config.extra.footer_links %}
     <span><a href="{{ footerlink.target }}" title="{{ footerlink.name }}">{{ footerlink.name }}</a></span>
     {% endfor %}
 </div>

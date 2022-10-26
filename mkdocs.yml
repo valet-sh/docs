@@ -11,6 +11,11 @@ theme:
 extra:
   homepage: https://valet.sh
   generator: false
+  footer_links:
+    - target: /privacy
+      name: Privacy
+    - target: /imprint
+      name: Imprint
 extra_css:
   - stylesheets/extra.css
 
@@ -53,9 +58,3 @@ site_url: https://valet.sh
 edit_uri: https://github.com/valet-sh/docs/edit/master/docs
 repo_url: https://github.com/valet-sh/valet-sh
 copyright: Copyright &copy; 2022 TechDivision GmbH
-custom:
-  footer_links:
-    - target: /privacy
-      name: Privacy
-    - target: /imprint
-      name: Imprint
