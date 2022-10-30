@@ -9,6 +9,11 @@ hide:
 
 With the service command you are able to define the state (enabled/disabled) of a service and set the default version for PHP, Composer, Xdebug, Elasticsearch, and MySQL.
 
+!!! Information
+    All changes are "install" stable. This means "valet.sh install" will not override your state or default settings.
+
+    To reduce the load on your system, its makes sense to stop all services you don't need!
+
 ## Overview
 
 * *[list](/commands/service/#list)*
@@ -29,7 +34,7 @@ valet.sh service list
 +----------------+-------+
 |    Service     | State |
 +----------------+-------+
-| elasticsearch1 |   0   |
+| elasticsearch1 |   False   |
 +----------------+-------+
 | elasticsearch2 |   0   |
 +----------------+-------+
@@ -55,19 +60,26 @@ valet.sh service list
 +----------------+-------+
 |    mysql80     |   0   |
 +----------------+-------+
+|    mariadb104  |   0   |
++----------------+-------+
 |    rabbitmq    |   0   |
 +----------------+-------+
 |     redis      |   1   |
 +----------------+-------+
- 
+|     nginx      |   1   |
++----------------+-------+ 
 +-----------------+
 | Default-Service |
++-----------------+
+|    composer1    |
 +-----------------+
 | elasticsearch6  |
 +-----------------+
 |     mysql57     |
 +-----------------+
-|      php73      |
+|      php74      |
++-----------------+
+|     xdebug3     |
 +-----------------+
 ```
 

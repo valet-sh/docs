@@ -14,7 +14,4 @@ The <strong>rabbitmq_management</strong> plugin will be installed by default. Yo
 ```bash
 https://rabbitmq.test
 ```
-Use `guest as the username and `guest` as the password to log in.
-
-
-
+Use `guest` as the username and `guest` as the password to log in.

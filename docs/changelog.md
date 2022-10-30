@@ -5,7 +5,7 @@ hide:
 
 # Changelog
 
-## *[2.8.0](https://github.com/valet-sh/valet-sh/releases/tag/2.8.0)*
+## *[2.8.0 (19/09/2022)](https://github.com/valet-sh/valet-sh/releases/tag/2.8.0)*
 
 <strong>Issues that have been solved</strong>
 
@@ -29,7 +29,7 @@ hide:
 * PATH variable is now set in PHP-FPM services (*[#242](https://github.com/valet-sh/valet-sh/issues/242)*)
 
 
-## *[2.7.0](https://github.com/valet-sh/valet-sh/releases/tag/2.7.0)*
+## *[2.7.0 (21/04/2022)](https://github.com/valet-sh/valet-sh/releases/tag/2.7.0)*
 
 <strong>Issues that have been solved</strong>
 
@@ -52,7 +52,7 @@ hide:
 * PHP version definition will now be passed through to sub folders (see commit)
 
 
-## *[2.6.0](https://github.com/valet-sh/valet-sh/releases/tag/2.6.0)*
+## *[2.6.0 (29/11/2021)](https://github.com/valet-sh/valet-sh/releases/tag/2.6.0)*
 <strong>Issues that have been solved</strong>
 
 * (none)
@@ -64,7 +64,7 @@ hide:
 * Support for PHP8.1
 
 
-## *[2.5.0](https://github.com/valet-sh/valet-sh/releases/tag/2.5.0)*
+## *[2.5.0 (29/10/2021)](https://github.com/valet-sh/valet-sh/releases/tag/2.5.0)*
 
 <strong>Issues that have been solved</strong>
 
@@ -79,7 +79,7 @@ hide:
 * MariaDB 10.4 service is now available (https://github.com/valet-sh/valet-sh/pull/176)
 
 
-## *[2.4.0](https://github.com/valet-sh/valet-sh/releases/tag/2.4.0)*
+## *[2.4.0 (29/08/2021)](https://github.com/valet-sh/valet-sh/releases/tag/2.4.0)*
 
 <strong>Issues that have been solved</strong>
 
@@ -91,7 +91,7 @@ hide:
 * composer2 is now available (please see Composer)
 
 
-## *[2.3.0](https://github.com/valet-sh/valet-sh/releases/tag/2.3.0)*
+## *[2.3.0 (24/08/2021)](https://github.com/valet-sh/valet-sh/releases/tag/2.3.0)*
 
 <strong>Issues that have been solved</strong>
 
@@ -104,7 +104,7 @@ hide:
 * "valet.sh link" now supports typo3
 
 
-## *[2.2.0](https://github.com/valet-sh/valet-sh/releases/tag/2.2.0)*
+## *[2.2.0 (02/08/2021)](https://github.com/valet-sh/valet-sh/releases/tag/2.2.0)*
 
 <strong>Issues that have been solved</strong>
 
@@ -115,14 +115,14 @@ hide:
 * Neos-Workflows for "init-instance" and "restore" command are now available
 
 
-## *[2.1.1](https://github.com/valet-sh/valet-sh/releases/tag/2.1.1)*
+## *[2.1.1 (05/07/2021)](https://github.com/valet-sh/valet-sh/releases/tag/2.1.1)*
 
 <strong>Issues that have been solved</strong>
 
 * invalid ansible version dependency
 
 
-## *[2.1.0](https://github.com/valet-sh/valet-sh/releases/tag/2.1.0)*
+## *[2.1.0 (05/07/2021)](https://github.com/valet-sh/valet-sh/releases/tag/2.1.0)*
 
 <strong>Issues that have been solved</strong>
 
@@ -139,7 +139,7 @@ hide:
     * default node version is now 14
 
 
-## *[2.0.1](https://github.com/valet-sh/valet-sh/releases/tag/2.0.1)*
+## *[2.0.1 (16/04/2021)](https://github.com/valet-sh/valet-sh/releases/tag/2.0.1)*
 
 <strong>Issues that have been solved</strong>
 

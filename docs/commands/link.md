@@ -7,7 +7,7 @@ hide:
 
 ## Description
 
-Linking of projects including automatic provisioning of nginx vhosts for a specific web application (e.g. magento). See also unlink.
+Linking of projects including automatic provisioning of nginx vhosts for a specific web application (e.g. magento). See also *[unlink](/commands/unlink)*.
 
 ## Usage
 

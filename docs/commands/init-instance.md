@@ -8,7 +8,7 @@ hide:
 ## Description
 
 Sets up the project according to the .valet-sh.yml file in the current directory.
-See also the init command to generate a plain configuration file and the Project configuration via .valet-sh.yml guide.
+See also the *[init](/commands/init)* command to generate a plain configuration file and the *[Project configuration via .valet-sh.yml](/how-to-articles/project-configuration-via-valet-sh-yml/)* guide.
 
 ## Usage
 

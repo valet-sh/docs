@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - getting-started
     - services
     - commands

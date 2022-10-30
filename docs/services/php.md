@@ -11,19 +11,19 @@ at the moment PHP5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0 and 8.1 are installed by vale
 
 | Version| Linux socket| MacOS socket| Servicename |xdebug 2.*|xdebug 3.*|FPM service running by default|
 |-----------------|--------|-------|-------|------|-------|------|
-| php-5.6 | /var/run/php/php5.6-fpm.sock | /tmp/vsh-php56.sock | php56 | YES | NO | NO |
-| php-7.0 | /var/run/php/php7.0-fpm.sock | /tmp/vsh-php70.sock | php70 | YES | NO | NO |
-| php-7.1 | /var/run/php/php7.1-fpm.sock | /tmp/vsh-php71.sock | php71 | YES | NO | NO |
-| php-7.2 | /var/run/php/php7.2-fpm.sock | /tmp/vsh-php72.sock | php72 | YES | NO | YES |
-| php-7.3 | /var/run/php/php7.3-fpm.sock | /tmp/vsh-php73.sock | php73 | YES | YES | YES |
-| php-7.4 | /var/run/php/php7.4-fpm.sock | /tmp/vsh-php74.sock | php74 | YES | YES | YES |
-| php-8.0 | /var/run/php/php8.0-fpm.sock | /tmp/vsh-php80.sock | php80 | NO | YES | NO |
-| php-8.1 | /var/run/php/php8.1-fpm.sock | /tmp/vsh-php81.sock | php81 | NO | YES | NO |
+| php-5.6 | /var/run/php/php5.6-fpm.sock | /tmp/vsh-php56.sock | php56 | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
+| php-7.0 | /var/run/php/php7.0-fpm.sock | /tmp/vsh-php70.sock | php70 | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
+| php-7.1 | /var/run/php/php7.1-fpm.sock | /tmp/vsh-php71.sock | php71 | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
+| php-7.2 | /var/run/php/php7.2-fpm.sock | /tmp/vsh-php72.sock | php72 | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } |
+| php-7.3 | /var/run/php/php7.3-fpm.sock | /tmp/vsh-php73.sock | php73 | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-check:{ .check-mark } |
+| php-7.4 | /var/run/php/php7.4-fpm.sock | /tmp/vsh-php74.sock | php74 | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-check:{ .check-mark } |
+| php-8.0 | /var/run/php/php8.0-fpm.sock | /tmp/vsh-php80.sock | php80 | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
+| php-8.1 | /var/run/php/php8.1-fpm.sock | /tmp/vsh-php81.sock | php81 | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
 
 
 ## manage services
 
-to manage the state (enable/disable/start/stop) of each php version, use the service command (Read more about the service command here).
+to manage the state (enable/disable/start/stop) of each php version, use the service command (Read more about the service command *[here](/services)*).
 
 
 ```bash

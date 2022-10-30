@@ -16,7 +16,7 @@ The use of this website is possible without providing any personal data. Insofar
 For safety reasons and in order to protect the transmission of confidential information you send to us as site operators, our website uses a SSL and/or TLS encryption. You may recognize the encrypted connection by the “https://“ URL and the lock icon in the address line.
 
 ## COOKIES
-This website just uses a technically necessary session cookie (JSESSIONID), which will be deleted after your session. Furthermore we do not use any other cookies and will not track you.
+We do not use any cookies and will not track you.
 
 ## SERVER LOG FILES
 The provider of the pages automatically collects and stores information in so-called server log files which your browser transmits automatically to us. These are:

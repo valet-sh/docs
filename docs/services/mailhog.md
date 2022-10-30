@@ -6,7 +6,7 @@ hide:
 # MailHog
 
 !!! Quote
-    "Mailhog is an email testing tool for developers" - please visit https://github.com/mailhog/MailHog for more information.
+    "Mailhog is an email testing tool for developers" - please visit *[https://github.com/mailhog/MailHog](https://github.com/mailhog/MailHog)* for more information.
 
 
 ## Usage
