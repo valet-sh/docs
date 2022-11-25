@@ -39,6 +39,37 @@ valet.sh link xhprof php74
 brew install graphviz
 ```
 
+Save this patch as `xhprof.patch` inside `~/Workspace/git/xhprof` and execute `git apply xhprof.patch`:
+
+```diff
+diff --git a/xhprof_html/index.php b/xhprof_html/index.php
+index f21d32f..71c89e7 100644
+--- a/xhprof_html/index.php
++++ b/xhprof_html/index.php
+@@ -80,7 +80,7 @@ $vbbar = ' class="vbbar"';
+ $vrbar = ' class="vrbar"';
+ $vgbar = ' class="vgbar"';
+ 
+-$xhprof_runs_impl = new XHProfRuns_Default();
++$xhprof_runs_impl = new XHProfRuns_Default(__DIR__.'/files');
+ 
+ displayXHProfReport($xhprof_runs_impl, $params, $source, $run, $wts,
+                     $symbol, $sort, $run1, $run2);
+diff --git a/xhprof_lib/utils/xhprof_lib.php b/xhprof_lib/utils/xhprof_lib.php
+index 507e669..4067391 100644
+--- a/xhprof_lib/utils/xhprof_lib.php
++++ b/xhprof_lib/utils/xhprof_lib.php
+@@ -908,7 +908,7 @@ function xhprof_param_init($params) {
+     }
+ 
+     if ($k === 'run') {
+-      $p = implode(',', array_filter(explode(',', $p), 'ctype_xdigit'));
++      #$p = implode(',', array_filter(explode(',', $p), 'ctype_xdigit'));
+     }
+ 
+     if ($k == 'symbol') {
+```
+
 ### Usage
 
 ```php
@@ -69,8 +100,11 @@ if ($useXhprof) {
 }
 ```
 
-* Execute profiled code with XHPROF_ENABLE parameter (Example: https://myproject.test/en_us/imprint?XHPROF_ENABLE=1)
-* Open https://xhprof.test/ to show the results (the result dumps are stored under /var/tmp/*.xhprof)
+* Ensure `/usr/local/etc/vsh-php81/conf.d/ext-blackfire.ini` does not exist or is commented out and restart
+  PHP `valet.sh service restart all`
+* Execute profiled code with `XHPROF_ENABLE` parameter (Example: https://myproject.test/en_us/imprint?XHPROF_ENABLE=1)
+* Open https://xhprof.test/ to show the results (the result dumps are stored under `/var/tmp/*.xhprof`
+  / `~/Workspace/git/xhprof/xhprof_html/files/*.xhprof`)
 
 ## Blackfire
 
@@ -127,5 +161,9 @@ brew services restart blackfire-agent
   the *[Chrome extension](https://chrome.google.com/webstore/detail/blackfire-profiler/miefikpgahefdbcgoiicnmpbeeomffld)*
 
 ### Usage
+
+Ensure `/usr/local/etc/vsh-php81/php.ini` (replace `php81` with correct PHP version) does not
+contain `extension="xhprof.so"` or it is commented out and restart
+PHP `valet.sh service restart all`.
 
 Click the profile button (of the Chrome extension) on a webpage using the PHP version Blackfire has been enabled for.
