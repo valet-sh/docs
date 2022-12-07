@@ -37,7 +37,7 @@ valet.sh install
 ```bash
 
 brew update
-brew uppgrade
+brew upgrade
 
 valet.sh self-upgrade
 valet.sh install
