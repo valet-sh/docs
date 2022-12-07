@@ -49,9 +49,9 @@ valet.sh install
 ```bash
 
 brew_x86 update
-brew_x86 uppgrade
+brew_x86 upgrade
 brew update
-brew uppgrade
+brew upgrade
 
 valet.sh self-upgrade
 valet.sh install
