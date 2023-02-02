@@ -10,11 +10,12 @@ hide:
 Version 5.7 and 8.0 of MySQL will be installed on your host. You can use each version at the same time, as different TCP ports are used.
 
 
-| Type    | Version |TCP port|running by default|
-|---------|---------|--------|-------|
-| MySQL   | 5.7     | 3307    |YES|
-| MySQL   | 8.0     | 3308    |NO|
-| Mariadb | 10.4 | 3317    |NO|
+| Type    | Version | TCP port |running by default|
+|---------|---------|----------|-------|
+| MySQL   | 5.7     | 3307     |YES|
+| MySQL   | 8.0     | 3308     |NO|
+| Mariadb | 10.4    | 3317     |NO|
+| Mariadb | 10.6    | 3319     |NO|
 
 
 !!! Warning
@@ -43,6 +44,12 @@ valet.sh service disable mariadb104
  
 # start and enable MariaDB 10.4
 valet.sh service enable mariadb104
+
+# stop and disable MariaDB 10.6
+valet.sh service disable mariadb106
+ 
+# start and enable MariaDB 10.6
+valet.sh service enable mariadb106
 ```
 
 !!! Warning
@@ -75,4 +82,4 @@ MySQL via valet.sh only uses TCP for the connection. Unix sockets are deactivate
 | root     | root     |
 
 !!! Info
-    Use "mariadb10.4" and "mariadump10.4" to work with MariaDB on CLI!
+    Use "mariadb10.4"/"mariadump10.4" or "mariadb10.6"/"mariadump10.6" to work with MariaDB on CLI!

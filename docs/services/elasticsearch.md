@@ -19,9 +19,10 @@ Version 1,2,5,6,7 and 8 of Elasticsearch and Version 1 of OpenSearch will be ins
 |8.x|9208|NO|
 
 
-| OpenSearch version |TCP port|running by default|
-|--------------------|--------|-------|
-| 1.x                |9221|NO|
+| OpenSearch version | TCP port |running by default|
+|--------------------|----------|-------|
+| 1.x                | 9221     |NO|
+| 2.x                | 9222     |NO|
 
 
 !!! Info
@@ -83,6 +84,9 @@ elasticsearch pugin installation on Ubuntu
  
 # opensearch 1
 /usr/local/valet-sh/packages/opensearch1/bin/opensearch-plugin install <pluginname>
+
+# opensearch 2
+/usr/local/valet-sh/packages/opensearch2/bin/opensearch-plugin install <pluginname>
 ```
 
 
@@ -108,5 +112,8 @@ elasticsearch pugin installation on MacOS
  
 # opensearch 1
 /usr/local/opt/vsh-opensearch1/libexec/bin/opensearch-plugin install <pluginname>
+
+# opensearch 2
+/usr/local/opt/vsh-opensearch2/libexec/bin/opensearch-plugin install <pluginname>
 ```
 
