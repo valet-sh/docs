@@ -82,4 +82,4 @@ MySQL via valet.sh only uses TCP for the connection. Unix sockets are deactivate
 | root     | root     |
 
 !!! Info
-    Use "mariadb10.4"/"mariadump10.4" or "mariadb10.6"/"mariadump10.6" to work with MariaDB on CLI!
+    Use `mariadb10.4`,`mariadump10.4` or `mariadb10.6`,`mariadump10.6` to work with MariaDB on CLI!
