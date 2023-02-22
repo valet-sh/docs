@@ -6,19 +6,20 @@ hide:
 # PHP
 
 ## Versions
-at the moment PHP5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0 and 8.1 are installed by valet.sh
+at the moment PHP5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1 and 8.2 are installed by valet.sh
 
 
-| Version| Linux socket| MacOS socket| Servicename |xdebug 2.*|xdebug 3.*|FPM service running by default|
-|-----------------|--------|-------|-------|------|-------|------|
-| php-5.6 | /var/run/php/php5.6-fpm.sock | /tmp/vsh-php56.sock | php56 | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
-| php-7.0 | /var/run/php/php7.0-fpm.sock | /tmp/vsh-php70.sock | php70 | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
-| php-7.1 | /var/run/php/php7.1-fpm.sock | /tmp/vsh-php71.sock | php71 | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
-| php-7.2 | /var/run/php/php7.2-fpm.sock | /tmp/vsh-php72.sock | php72 | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } |
-| php-7.3 | /var/run/php/php7.3-fpm.sock | /tmp/vsh-php73.sock | php73 | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-check:{ .check-mark } |
-| php-7.4 | /var/run/php/php7.4-fpm.sock | /tmp/vsh-php74.sock | php74 | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-check:{ .check-mark } |
-| php-8.0 | /var/run/php/php8.0-fpm.sock | /tmp/vsh-php80.sock | php80 | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
-| php-8.1 | /var/run/php/php8.1-fpm.sock | /tmp/vsh-php81.sock | php81 | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
+| Version | Linux socket                 | MacOS socket        | Servicename |xdebug 2.*|xdebug 3.*|FPM service running by default|
+|---------|------------------------------|---------------------|-------------|------|-------|------|
+| php-5.6 | /var/run/php/php5.6-fpm.sock | /tmp/vsh-php56.sock | php56       | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
+| php-7.0 | /var/run/php/php7.0-fpm.sock | /tmp/vsh-php70.sock | php70       | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
+| php-7.1 | /var/run/php/php7.1-fpm.sock | /tmp/vsh-php71.sock | php71       | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
+| php-7.2 | /var/run/php/php7.2-fpm.sock | /tmp/vsh-php72.sock | php72       | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } |
+| php-7.3 | /var/run/php/php7.3-fpm.sock | /tmp/vsh-php73.sock | php73       | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-check:{ .check-mark } |
+| php-7.4 | /var/run/php/php7.4-fpm.sock | /tmp/vsh-php74.sock | php74       | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-check:{ .check-mark } |
+| php-8.0 | /var/run/php/php8.0-fpm.sock | /tmp/vsh-php80.sock | php80       | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
+| php-8.1 | /var/run/php/php8.1-fpm.sock | /tmp/vsh-php81.sock | php81       | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
+| php-8.2 | /var/run/php/php8.2-fpm.sock | /tmp/vsh-php82.sock | php82       | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
 
 
 ## manage services

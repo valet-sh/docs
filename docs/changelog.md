@@ -5,6 +5,18 @@ hide:
 
 # Changelog
 
+## *[2.9.0 (05/03/2022)](https://github.com/valet-sh/valet-sh/releases/tag/2.9.0)*
+
+<strong>Issues that have been solved</strong>
+
+* Support for Mariadb 10.6 (*[#256](https://github.com/valet-sh/valet-sh/issues/256)*)
+* Support for PHP 8.2 (*[#255](https://github.com/valet-sh/valet-sh/issues/255)*)
+* Support for OpenSearch 2 (*[#232](https://github.com/valet-sh/valet-sh/issues/232)*)
+* Add possibility to define default collation as UTF8MB4 (*[#252](https://github.com/valet-sh/valet-sh/issues/252)*)
+* Add cleanup parameter to init-instance #254 (*[#254](https://github.com/valet-sh/valet-sh/issues/254)*)
+
+
+
 ## *[2.8.0 (19/09/2022)](https://github.com/valet-sh/valet-sh/releases/tag/2.8.0)*
 
 <strong>Issues that have been solved</strong>

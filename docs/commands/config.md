@@ -36,6 +36,7 @@ valet.sh config remove varname
 
 ## Available configurations
 
-| config var | default value  | allowed values | comment |
-|----------- |-----------|-------------|------------|
-| default_shell | zsh | bash,zsh | `valet.sh install` is required after changing the configuration |
+| config var    | default value | allowed values | comment |
+|---------------|---------------|----------------|------------|
+| default_shell | zsh           | bash,zsh       | `valet.sh install` is required after changing the configuration |
+| default_nvm   | nvm           | volta,nvm  | `valet.sh install` is required after changing the configuration |
