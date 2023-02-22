@@ -7,7 +7,7 @@ hide:
 
 ## *[2.9.0 (05/03/2022)](https://github.com/valet-sh/valet-sh/releases/tag/2.9.0)*
 
-<strong>Issues that have been solved</strong>
+<strong>Changes</strong>
 
 * Support for Mariadb 10.6 (*[#256](https://github.com/valet-sh/valet-sh/issues/256)*)
 * Support for PHP 8.2 (*[#255](https://github.com/valet-sh/valet-sh/issues/255)*)
