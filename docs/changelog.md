@@ -5,7 +5,7 @@ hide:
 
 # Changelog
 
-## *[2.9.0 (22/02/2022)](https://github.com/valet-sh/valet-sh/releases/tag/2.9.0)*
+## *[2.9.0 (22/02/2023)](https://github.com/valet-sh/valet-sh/releases/tag/2.9.0)*
 
 <strong>Changes</strong>
 
