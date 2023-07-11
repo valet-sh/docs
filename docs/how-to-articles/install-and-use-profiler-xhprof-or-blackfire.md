@@ -1,7 +1,7 @@
 ---
 hide:
 
-- footer
+  - footer
 
 ---
 
@@ -112,21 +112,21 @@ if ($useXhprof) {
 
 ```bash
 brew tap blackfireio/homebrew-blackfire
-brew install blackfire-agent
+brew install blackfire
 ```
 
-### Installation
+### Install PHP Probe
 
-See [this url](https://blackfire.io/docs/up-and-running/installation?action=install&mode=full&location=local&os=manual&language=php&agent=23d91fab-ddee-4d1c-b260-f367622b166c&version=latest&forced_os=darwin)
+See [this url](https://blackfire.io/docs/up-and-running/installation?action=install&mode=full&version=latest&mode=full&location=local&os=manual&language=php)
 .
 
 Example for PHP7.4
 
 ```bash
-curl https://packages.blackfire.io/binaries/blackfire-php/1.58.0/blackfire-php-darwin_amd64-php-74.so -o blackfire.so
+curl https://packages.blackfire.io/binaries/blackfire-php/1.88.1/blackfire-php-darwin_amd64-php-74.so -o blackfire.so
 sudo cp blackfire.so /usr/local/Cellar/vsh-php74/7.4.*/lib/vsh-php74/20*/
 rm blackfire.so
-sudo echo "extension=blackfire.so" > /usr/local/etc/vsh-php74/conf.d/ext-blackfire.ini
+mkdir -p /usr/local/var/run/
 valet.sh service restart php74
 ```
 
@@ -136,29 +136,53 @@ Example for PHP8.1
 curl https://packages.blackfire.io/binaries/blackfire-php/1.85.0/blackfire-php-darwin_amd64-php-81.so -o blackfire.so
 sudo cp blackfire.so /usr/local/Cellar/vsh-php81/8.1.*/lib/vsh-php81/20*/
 rm blackfire.so
-sudo echo "extension=blackfire.so" > /usr/local/etc/vsh-php81/conf.d/ext-blackfire.ini
+mkdir -p /usr/local/var/run/
 valet.sh service restart php81
+```
+
+### Add config file
+
+Create file `/usr/local/etc/vsh-php74/conf.d/ext-blackfire.ini` with content
+
+```editorconfig
+[blackfire]
+extension = blackfire.so
+blackfire.server_id = xxx
+blackfire.server_token = xxx
+
+; Log verbosity level:
+;   4: debug
+;   3: info
+;   2: warning;
+;   1: error
+blackfire.log_level = 2
+
+; Log file (STDERR by default)
+;blackfire.log_file = /tmp/blackfire.log
+
+; Sets the socket where the agent is listening.
+; Possible value can be a unix socket or a TCP address.
+; Defaults values are:
+;   - Linux: unix:///var/run/blackfire/agent.sock
+;   - macOS amd64: unix:///usr/local/var/run/blackfire-agent.sock
+;   - macOS arm64 (M1): unix:///opt/homebrew/var/run/blackfire-agent.sock
+;   - Windows: tcp://127.0.0.1:8307
+blackfire.agent_socket = unix:///opt/homebrew/var/run/blackfire-agent.sock
+
+; Enables Blackfire Monitoring
+; Enabled by default since version 1.61.0
+;blackfire.apm_enabled = 1
 ```
 
 ### Configure
 
-* Setup *[your account](https://blackfire.io/my/settings/credentials)*
-* Configure the server ID with `blackfire-agent -register`
-* and restart the agent with either
-
-```bash
-launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.blackfire-agent.plist
-launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.blackfire-agent.plist
-```
-
-_or_
-
-```bash
-brew services restart blackfire-agent
-```
+* Set up *[your account](https://blackfire.io/my/settings/credentials)*
+* Configure the server ID with `blackfire agent:config --server-id=xxx --server-token=xxx`
+* and restart the agent with `brew services restart blackfire`
 
 * Install
-  the *[Chrome extension](https://chrome.google.com/webstore/detail/blackfire-profiler/miefikpgahefdbcgoiicnmpbeeomffld)*
+  the
+  *[Chrome extension](https://chrome.google.com/webstore/detail/blackfire-profiler/miefikpgahefdbcgoiicnmpbeeomffld)*
 
 ### Usage
 
