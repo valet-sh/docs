@@ -18,5 +18,5 @@ valet.sh is currently working on the following operating systems:
 | MacOS 12 (M1)    | :fontawesome-solid-check:{ .check-mark } |
 | MacOS 13 (Intel) | :fontawesome-solid-check:{ .check-mark } |
 | MacOS 13 (M1)    | :fontawesome-solid-check:{ .check-mark } |
-| MacOS 14 (Intel) | :fontawesome-solid-xmark:{ .cross-mark } |
-| MacOS 14 (M1)    | :fontawesome-solid-xmark:{ .cross-mark } |
+| MacOS 14 (Intel) | :fontawesome-solid-check:{ .check-mark } |
+| MacOS 14 (M1)    | :fontawesome-solid-check:{ .check-mark } |
