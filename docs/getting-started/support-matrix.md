@@ -13,7 +13,7 @@ valet.sh is currently working on the following operating systems:
 | Ubuntu 20.04     | :fontawesome-solid-check:{ .check-mark } |
 | Ubuntu 22.04     | :fontawesome-solid-check:{ .check-mark } |
 | MacOS 10.15      | :fontawesome-solid-xmark:{ .cross-mark } |
-| MacOS 11 (Intel) | :fontawesome-solid-check:{ .check-mark } |
+| MacOS 11 (Intel) | :fontawesome-solid-xmark:{ .cross-mark } |
 | MacOS 12 (Intel) | :fontawesome-solid-check:{ .check-mark } |
 | MacOS 12 (M1)    | :fontawesome-solid-check:{ .check-mark } |
 | MacOS 13 (Intel) | :fontawesome-solid-check:{ .check-mark } |
