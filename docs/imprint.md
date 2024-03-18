@@ -16,8 +16,7 @@ D-83059 Kolbermoor
 
 
 <strong>Represented by:</strong>  
-Stefan Willkommer / CEO  
-Josef Willkommer / CMO  
+Stefan Willkommer / CEO
 Tim Wagner / CTO
 
 
