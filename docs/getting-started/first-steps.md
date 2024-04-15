@@ -20,7 +20,7 @@ valet.sh update-dev-ca
 ## Manage your needed services
 
 valet.sh comes with a bunch of services that can require a lot amount of RAM and CPU.
-Therefor you should disable/enable only the services you really need. Use <strong>valet.sh service list</strong> to get a list of all services and their states. Use <strong>valet.sh service enable <service></strong> respectively <strong>valet.sh service disable <service></strong>  enable or disable a service.
+Therefore you should disable/enable only the services you really need. Use <strong>valet.sh service list</strong> to get a list of all services and their states. Use <strong>valet.sh service enable <service></strong> respectively <strong>valet.sh service disable <service></strong>  enable or disable a service.
 
 You can find more information about handling service status *[here](/services)*.
 
