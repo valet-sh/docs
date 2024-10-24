@@ -6,7 +6,7 @@ hide:
 
 This website is the common web presence of the OpenSource software project valet.sh and is proudly provided to you by TechDivision GmbH. If you have any questions or problems, just get in touch with us and we'll work it out!
 
-# INFORMATION ACCORDING TO § 5 TMG:
+# INFORMATION ACCORDING TO § 5 DDG:
 
 
 <strong>TechDivision GmbH</strong>  
@@ -23,7 +23,6 @@ Tim Wagner / CTO
 
 <strong>Contact:</strong>  
 Phone: +49 8031 / 22 10 55 0  
-Fax: +49 8031 / 22 10 55 22  
 Email: info@techdivision.com
 
 
