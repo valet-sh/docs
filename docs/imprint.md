@@ -38,7 +38,7 @@ VAT number: DE249664276
 
 
 
-<strong>Responsible for the content according to § 55 para. 2 RStV:</strong>  
+<strong>Responsible for the content according to § 18 para. 2 MStV:</strong>  
 Josef Willkommer  
 An der Alten Spinnerei 2 A  
 D-83059 Kolbermoor
