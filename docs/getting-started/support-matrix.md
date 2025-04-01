@@ -15,11 +15,11 @@ valet.sh is currently working on the following operating systems:
 | Ubuntu 24.04             | :fontawesome-solid-xmark:{ .cross-mark } |
 | MacOS 10.15              | :fontawesome-solid-xmark:{ .cross-mark } |
 | MacOS 11 (Intel)         | :fontawesome-solid-xmark:{ .cross-mark } |
-| MacOS 12 (Intel)         | :fontawesome-solid-check:{ .check-mark } |
-| MacOS 12 (Apple Silicon) | :fontawesome-solid-check:{ .check-mark } |
+| MacOS 12 (Intel)         | :fontawesome-solid-xmark:{ .cross-mark } |
+| MacOS 12 (Apple Silicon) | :fontawesome-solid-xmark:{ .cross-mark } |
 | MacOS 13 (Intel)         | :fontawesome-solid-check:{ .check-mark } |
 | MacOS 13 (Apple Silicon) | :fontawesome-solid-check:{ .check-mark } |
 | MacOS 14 (Intel)         | :fontawesome-solid-check:{ .check-mark } |
 | MacOS 14 (Apple Silicon) | :fontawesome-solid-check:{ .check-mark } |
-| MacOS 15 (Intel)         | :fontawesome-solid-xmark:{ .cross-mark } |
-| MacOS 15 (Apple Silicon) | :fontawesome-solid-xmark:{ .cross-mark } |
+| MacOS 15 (Intel)         | :fontawesome-solid-check:{ .check-mark } |
+| MacOS 15 (Apple Silicon) | :fontawesome-solid-check:{ .check-mark } |
