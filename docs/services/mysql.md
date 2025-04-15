@@ -7,16 +7,17 @@ hide:
 
 ## Version
 
-Version 5.7 and 8.0 of MySQL will be installed on your host. You can use each version at the same time, as different TCP ports are used.
+Version 5.7, 8.0 and 8.4 of MySQL will be installed on your host. You can use each version at the same time, as different TCP ports are used.
 
 
 | Type    | Version | TCP port |running by default|
 |---------|---------|----------|-------|
 | MySQL   | 5.7     | 3307     |YES|
 | MySQL   | 8.0     | 3308     |NO|
+| MySQL   | 8.4     | 3309     |NO|
 | Mariadb | 10.4    | 3317     |NO|
 | Mariadb | 10.6    | 3319     |NO|
-
+| Mariadb | 11.4    | 3329     |NO|
 
 !!! Warning
     The default MySQL can also be accessed via TCP port <string>3306</strong>!
