@@ -16,8 +16,7 @@ valet.sh install
 ```
 
 
-updates can be carried out using the standard upgrade command
-
+Updates can be executed with the standard upgrade command
 ```bash
 valet.sh self-upgrade
 ```
