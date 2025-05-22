@@ -5,6 +5,16 @@ hide:
 
 # Changelog
 
+## *[2.10.0 (22/05/2025)](https://github.com/valet-sh/valet-sh/releases/tag/2.9.0)*
+
+<strong>Changes</strong>
+
+* Support for Ubuntu 24.04
+* Support for Mariadb 11.4
+* Support for MySQL 8.4
+* Support for PHP 8.4
+
+
 ## *[2.9.0 (22/02/2023)](https://github.com/valet-sh/valet-sh/releases/tag/2.9.0)*
 
 <strong>Changes</strong>
