@@ -8,7 +8,7 @@ hide:
 Each new version is first tested in the "next" branch. Follow the steps to switch to the next branch:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/valet-sh/install/next/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/valet-sh/install/master/install.sh)
 
 /usr/local/valet-sh/installer/valet-sh-installer release-channel next
 valet.sh self-upgrade
