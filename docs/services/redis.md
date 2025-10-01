@@ -10,7 +10,7 @@ Redis is installed and enabled by default. There are no plans to support multipl
 
 | Version | Path | Default version |
 |---------|------|-----------------|
-| 5       | 6379 | YES             |
+| <depends on operating system>       | 6379 | YES             |
 
 
 You can also use the cli tools to connect to Redis
