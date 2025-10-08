@@ -17,6 +17,7 @@ Version 5.7, 8.0 and 8.4 of MySQL will be installed on your host. You can use ea
 | MySQL   | 8.4     | 3309     |NO|
 | Mariadb | 10.4    | 3317     |NO|
 | Mariadb | 10.6    | 3319     |NO|
+| Mariadb | 10.11   | 3324     |NO|
 | Mariadb | 11.4    | 3329     |NO|
 
 !!! Warning

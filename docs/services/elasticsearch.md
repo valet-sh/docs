@@ -7,7 +7,7 @@ hide:
 
 ## Version
 
-Version 1,2,5,6,7 and 8 of Elasticsearch and Version 1 of OpenSearch will be installed on your host. You can use each version at the same time, because different TCP ports are used.
+Version 1,2,5,6,7 and 8 of Elasticsearch and Version 1,2 and 3 of OpenSearch will be installed on your host. You can use each version at the same time, because different TCP ports are used.
 
 |Elasticsearch version|TCP port|running by default|
 |-------------|--------|-------|
@@ -23,6 +23,7 @@ Version 1,2,5,6,7 and 8 of Elasticsearch and Version 1 of OpenSearch will be ins
 |--------------------|----------|-------|
 | 1.x                | 9221     |NO|
 | 2.x                | 9222     |NO|
+| 3.x                | 9223     |NO|
 
 
 !!! Info

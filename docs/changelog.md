@@ -5,7 +5,17 @@ hide:
 
 # Changelog
 
-## *[2.10.0 (22/05/2025)](https://github.com/valet-sh/valet-sh/releases/tag/2.9.0)*
+## *[2.11.0 (08/10/2025)](https://github.com/valet-sh/valet-sh/releases/tag/2.11.0)*
+
+<strong>Changes</strong>
+
+* Support for macOS 26
+* Support for MariaDB 10.11
+* Support for Valkey 8
+* Support for Opensearch 3
+* Mailpit as a replacement for Mailhog
+
+## *[2.10.0 (22/05/2025)](https://github.com/valet-sh/valet-sh/releases/tag/2.10.0)*
 
 <strong>Changes</strong>
 

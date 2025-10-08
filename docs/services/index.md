@@ -18,3 +18,4 @@ valet.sh will install the following services on your machine. You can not skip t
 * *[PHP](/services/php)*
 * *[Rabbitmq](/services/rabbitmq)*
 * *[Redis](/services/redis)*
+* *[Valkey](/services/valkey)*
