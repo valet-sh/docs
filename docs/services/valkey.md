@@ -3,7 +3,7 @@ hide:
 - footer
 ---
 
-# Redis
+# Valkey
 
 Valkey is installed but disabled by default.
 
