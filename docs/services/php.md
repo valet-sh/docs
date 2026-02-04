@@ -6,7 +6,7 @@ hide:
 # PHP
 
 ## Versions
-at the moment PHP5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3 and 8.4 are installed by valet.sh
+at the moment PHP 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3, 8.4 and 8.5 are installed by valet.sh
 
 
 | Version | Linux socket                 | MacOS socket        | Servicename |xdebug 2.*|xdebug 3.*|FPM service running by default|
@@ -22,6 +22,7 @@ at the moment PHP5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3 and 8.4 are in
 | php-8.2 | /var/run/php/php8.2-fpm.sock | /tmp/vsh-php82.sock | php82       | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
 | php-8.3 | /var/run/php/php8.3-fpm.sock | /tmp/vsh-php83.sock | php83       | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
 | php-8.4 | /var/run/php/php8.4-fpm.sock | /tmp/vsh-php84.sock | php84       | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
+| php-8.5 | /var/run/php/php8.5-fpm.sock | /tmp/vsh-php85.sock | php85       | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } | :fontawesome-solid-xmark:{ .cross-mark } |
 
 
 ## manage services
