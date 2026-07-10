@@ -5,17 +5,30 @@ hide:
 
 # Services
 
-valet.sh will install the following services on your machine. You can not skip the installation of a specific service, but you are able to stop/disable them afterwards.
+Most services are **optional**: valet.sh only installs a small, essential baseline on every machine, everything else
+you install and uninstall yourself as needed, via *[install](../commands/install.md)* and *[uninstall](../commands/uninstall.md)*.
 
-* *[Composer](/services/composer)*
-* *[Elasticsearch](/services/elasticsearch)*
-* *[Mailhog](/services/mailhog)*
-* *[MariaDB](/services/mariadb)*
-* *[MySQL](/services/mysql)*
-* *[Nginx](/services/nginx)*
-* *[NodeJS](/services/nodejs)*
-* *[OpenSearch](/services/opensearch)*
-* *[PHP](/services/php)*
-* *[Rabbitmq](/services/rabbitmq)*
-* *[Redis](/services/redis)*
-* *[Valkey](/services/valkey)*
+## Essential (always installed)
+
+* *[Mailpit](mailpit.md)*
+* *[Nginx](nginx.md)*
+* dnsmasq (internal, not user-configurable)
+
+## Optional (install on demand)
+
+* *[Composer](composer.md)*
+* *[Elasticsearch](elasticsearch.md)*
+* *[MariaDB](mariadb.md)*
+* *[MySQL](mysql.md)*
+* *[NodeJS](nodejs.md)*
+* *[OpenSearch](opensearch.md)*
+* *[PHP](php.md)*
+* *[Rabbitmq](rabbitmq.md)*
+* *[Redis](redis.md)*
+* *[Valkey](valkey.md)*
+
+!!! note
+    A project's *[.valet-sh.yml](../how-to-articles/project-configuration-via-valet-sh-yml.md)* can still declare which
+    service versions it needs - *[init-instance](../commands/init-instance.md)* will install any of them automatically
+    if they aren't installed yet. This applies to all project types (Magento2, AEM, Neos), though it may not yet be
+    implemented for every one of them.

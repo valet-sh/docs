@@ -7,26 +7,37 @@ hide:
 
 ## Version
 
-Version 5.7, 8.0 and 8.4 of MySQL will be installed on your host. You can use each version at the same time, as different TCP ports are used.
+MySQL and MariaDB are optional and not installed by default - install the version(s) you need via
+*[install](../commands/install.md)*, e.g. `valet.sh install mysql57`. You can install and run multiple versions
+of each at the same time, as different TCP ports are used.
 
+On Ubuntu, services run directly on the host and are reachable via `127.0.0.1` and their port. On macOS, services
+run as Apple containers and are additionally reachable via DNS on the `vsh-services` network, using the same port.
 
-| Type    | Version | TCP port |running by default|
-|---------|---------|----------|-------|
-| MySQL   | 5.7     | 3307     |YES|
-| MySQL   | 8.0     | 3308     |NO|
-| MySQL   | 8.4     | 3309     |NO|
-| Mariadb | 10.4    | 3317     |NO|
-| Mariadb | 10.6    | 3319     |NO|
-| Mariadb | 10.11   | 3324     |NO|
-| Mariadb | 11.4    | 3329     |NO|
+| Type    | Version | Ubuntu           | macOS                              |
+|---------|---------|------------------|--------------------------------------|
+| MySQL   | 5.7     | 127.0.0.1:3307   | vsh-mysql57.vsh-services:3307        |
+| MySQL   | 8.0     | 127.0.0.1:3308   | vsh-mysql80.vsh-services:3308        |
+| MySQL   | 8.4     | 127.0.0.1:3309   | vsh-mysql84.vsh-services:3309        |
+| MariaDB | 10.4    | 127.0.0.1:3317   | vsh-mariadb104.vsh-services:3317     |
+| MariaDB | 10.6    | 127.0.0.1:3319   | vsh-mariadb106.vsh-services:3319     |
+| MariaDB | 10.11   | 127.0.0.1:3324   | vsh-mariadb1011.vsh-services:3324    |
+| MariaDB | 11.4    | 127.0.0.1:3329   | vsh-mariadb114.vsh-services:3329     |
+| MariaDB | 11.8    | 127.0.0.1:3333   | vsh-mariadb118.vsh-services:3333     |
+| MariaDB | 12.3    | 127.0.0.1:3337   | vsh-mariadb123.vsh-services:3337     |
 
 !!! Warning
-    The default MySQL can also be accessed via TCP port <string>3306</strong>!
+    MariaDB 10.4 is deprecated and disabled - it can no longer be installed.
+
+!!! Warning
+    The default MySQL/MariaDB is also accessed via TCP port <strong>3306</strong>!
 
 
 ## Manage MySQL services
 
-Only MySQL 5.7 is running by default to reduce overall load and memory consumption. You can start/stop and enable/disable each mysql version via valet.sh.
+Whichever version you install first becomes the default (reachable via port 3306 and the plain `mysql` CLI command)
+unless you set a different one via *[service default](../commands/service.md)*. You can start/stop and enable/disable
+each installed version via valet.sh.
 
 ```bash
 # stop and disable MySQL 5.7
@@ -41,22 +52,12 @@ valet.sh service disable mysql80
 # start and enable MySQL 8.0
 valet.sh service enable mysql80
  
-# stop and disable MariaDB 10.4
-valet.sh service disable mariadb104
- 
-# start and enable MariaDB 10.4
-valet.sh service enable mariadb104
-
 # stop and disable MariaDB 10.6
 valet.sh service disable mariadb106
  
 # start and enable MariaDB 10.6
 valet.sh service enable mariadb106
 ```
-
-!!! Warning
-    You are able to start/stop a service via systemd (Ubuntu) or launchctl (macOS), but you might face some issues when running the "valet.sh install" command. 
-
 
 ## Access MySQL
 
@@ -84,4 +85,4 @@ MySQL via valet.sh only uses TCP for the connection. Unix sockets are deactivate
 | root     | root     |
 
 !!! Info
-    Use `mariadb10.4`,`mariadump10.4` or `mariadb10.6`,`mariadump10.6` to work with MariaDB on CLI!
+    Use `mariadb10.6`,`mariadump10.6` or `mariadb10.11`,`mariadump10.11` to work with a specific MariaDB version on CLI!

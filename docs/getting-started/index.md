@@ -5,7 +5,7 @@ hide:
 
 # Getting started
 
-* *[Installation](installation)*
-* *[First steps](first-steps)*
-* *[Support-Matrix](support-matrix)*
-* *[What's new in valet.sh 2.x](whats-new)*
+* *[Installation](installation.md)*
+* *[First steps](first-steps.md)*
+* *[Support-Matrix](support-matrix.md)*
+* *[What's new in valet.sh 2.x](whats-new.md)*

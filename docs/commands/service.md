@@ -7,7 +7,11 @@ hide:
 
 ## Description
 
-With the service command you are able to define the state (enabled/disabled) of a service and set the default version for PHP, Composer, Xdebug, Elasticsearch, and MySQL.
+With the service command you are able to define the state (enabled/disabled) of an installed service and set the
+default version for services that support multiple parallel versions (e.g. PHP, Elasticsearch, MySQL).
+
+The command only operates on services that are currently *[installed](install.md)* - use `install`/`uninstall`
+to add or remove a service before managing its state here.
 
 !!! Information
     All changes are "install" stable. This means "valet.sh install" will not override your state or default settings.
@@ -16,72 +20,25 @@ With the service command you are able to define the state (enabled/disabled) of 
 
 ## Overview
 
-* *[list](/commands/service/#list)*
-* *[enable](/commands/service/#list)*
-* *[disable](/commands/service/#list)*
-* *[start](/commands/service/#list)*
-* *[stop](/commands/service/#list)*
-* *[restart](/commands/service/#list)*
-* *[default](/commands/service/#list)*
+* *[list](service.md#list)*
+* *[enable](service.md#list)*
+* *[disable](service.md#list)*
+* *[start](service.md#list)*
+* *[stop](service.md#list)*
+* *[restart](service.md#list)*
+* *[default](service.md#list)*
 
 ### list
 
-This command shows you the state (enabled/disabled on system startup) of each service and which one is the default.
-To identify which services are currently started or stopped, you can use brew services list (macOS).
+This command lists all currently *installed* services (essential and optional) in a table with the columns
+`Type`, `Name`, `Default` and `Autostart`, so you can see at a glance which services are installed, which one
+is the default per family (e.g. which PHP or MySQL version), and whether autostart is enabled.
 
+```bash
 valet.sh service list
-``` bash
-+----------------+-------+
-|    Service     | State |
-+----------------+-------+
-| elasticsearch1 |   False   |
-+----------------+-------+
-| elasticsearch2 |   0   |
-+----------------+-------+
-| elasticsearch5 |   0   |
-+----------------+-------+
-| elasticsearch6 |   1   |
-+----------------+-------+
-| elasticsearch7 |   0   |
-+----------------+-------+
-|     php56      |   0   |
-+----------------+-------+
-|     php70      |   0   |
-+----------------+-------+
-|     php71      |   0   |
-+----------------+-------+
-|     php72      |   1   |
-+----------------+-------+
-|     php73      |   1   |
-+----------------+-------+
-|     php74      |   1   |
-+----------------+-------+
-|    mysql57     |   1   |
-+----------------+-------+
-|    mysql80     |   0   |
-+----------------+-------+
-|    mariadb104  |   0   |
-+----------------+-------+
-|    rabbitmq    |   0   |
-+----------------+-------+
-|     redis      |   1   |
-+----------------+-------+
-|     nginx      |   1   |
-+----------------+-------+ 
-+-----------------+
-| Default-Service |
-+-----------------+
-|    composer1    |
-+-----------------+
-| elasticsearch6  |
-+-----------------+
-|     mysql57     |
-+-----------------+
-|      php74      |
-+-----------------+
-|     xdebug3     |
-+-----------------+
 ```
+
+To identify which services are currently started or stopped, you can use brew services list (macOS).
 
 
 ### enable
@@ -124,14 +81,16 @@ valet.sh service restart mysql80
 
 ### default
 
-set a default service. Only PHP, Elasticsearch and mysql are "defaultable" services. 
+set a default version for a service. Any service that supports multiple parallel versions is "defaultable" -
+that's every service configured with a `versions` array in valet.sh's bundle definitions (currently PHP, MySQL,
+MariaDB, Elasticsearch, OpenSearch, Redis, Valkey and RabbitMQ).
 ```bash
 valet.sh service default mysql80
 ```
 
 * PHP: setting a default php only changes the default php on cli. You can still use any other installed PHP versions by appending the version number, e.g. "php7.0"
-* Elasticsearch: the default elasticsearch is listening on port 9200. You can still use any other installed Elasticsearch version by accessing the version specific port (see *[Elasticsearch service documentation](/services/elasticsearch/)*)
-* MySQL: changes the default mysql command on cli and the version listening on port 3306. You can still access any other installed MySQL versions by appending the version number, e.g "mysql5.7", or using the version specific port (see *[MySQL service documentation](/services/mysql/)*)
+* Elasticsearch: the default elasticsearch is listening on port 9200. You can still use any other installed Elasticsearch version by accessing the version specific port (see *[Elasticsearch service documentation](../services/elasticsearch.md)*)
+* MySQL: changes the default mysql command on cli and the version listening on port 3306. You can still access any other installed MySQL versions by appending the version number, e.g "mysql5.7", or using the version specific port (see *[MySQL service documentation](../services/mysql.md)*)
 
 
 !!! warning

@@ -18,7 +18,7 @@ This creates the file `.valet-sh.yml` in the current folder, thus make sure to
 
 After having created the stub file, make sure to configure the settings as required for your project.
 
-The documentation for the command above can be found [here](https://valet.sh/display/VSH/init).
+The documentation for the command above can be found [here](../commands/init.md).
 
 Configuration settings
 ----------------------
@@ -80,6 +80,13 @@ To set up your project (aka initialize your instance) using an existing `.valet-
 valet.sh init-instance
 ```
 
+!!! note
+    Most services (PHP, MySQL, MariaDB, Elasticsearch, Redis, ...) are optional and not installed by default -
+    see *[Services](../services/index.md)*. If a service version declared under `services` above isn't installed yet,
+    `init-instance` will install it for you automatically, so you don't have to manually run
+    *[install](../commands/install.md)* first. This applies regardless of project type (Magento2, AEM, Neos),
+    though it may not yet be implemented for every one of them.
 
 
-The documentation for this command can be found [here](https://valet.sh/display/VSH/init-instance).
+
+The documentation for this command can be found [here](../commands/init-instance.md).

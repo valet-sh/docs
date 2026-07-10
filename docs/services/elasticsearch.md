@@ -7,31 +7,39 @@ hide:
 
 ## Version
 
-Version 1,2,5,6,7 and 8 of Elasticsearch and Version 1,2 and 3 of OpenSearch will be installed on your host. You can use each version at the same time, because different TCP ports are used.
+Elasticsearch and OpenSearch are optional and not installed by default - install the version(s) you need via
+*[install](../commands/install.md)*, e.g. `valet.sh install elasticsearch7`. Versions 1,2,5,6,7 and 8 of Elasticsearch
+and versions 1,2 and 3 of OpenSearch are supported. You can install and run each version at the same time, because
+different TCP ports are used.
 
-|Elasticsearch version|TCP port|running by default|
-|-------------|--------|-------|
-|1.x|9201|NO|
-|2.x|9202|NO|
-|5.x|9205|NO|
-|6.x|9206|YES|
-|7.x|9207|NO|
-|8.x|9208|NO|
+On Ubuntu, services run directly on the host and are reachable via `127.0.0.1` and their port. On macOS, services
+run as Apple containers and are additionally reachable via DNS on the `vsh-services` network, using the same port.
+
+|Elasticsearch version|Ubuntu|macOS|
+|-------------|--------|--------|
+|1.x|127.0.0.1:9201|vsh-elasticsearch1.vsh-services:9201|
+|2.x|127.0.0.1:9202|vsh-elasticsearch2.vsh-services:9202|
+|5.x|127.0.0.1:9205|vsh-elasticsearch5.vsh-services:9205|
+|6.x|127.0.0.1:9206|vsh-elasticsearch6.vsh-services:9206|
+|7.x|127.0.0.1:9207|vsh-elasticsearch7.vsh-services:9207|
+|8.x|127.0.0.1:9208|vsh-elasticsearch8.vsh-services:9208|
 
 
-| OpenSearch version | TCP port |running by default|
-|--------------------|----------|-------|
-| 1.x                | 9221     |NO|
-| 2.x                | 9222     |NO|
-| 3.x                | 9223     |NO|
+| OpenSearch version | Ubuntu | macOS |
+|--------------------|----------|----------|
+| 1.x                | 127.0.0.1:9221 | vsh-opensearch1.vsh-services:9221 |
+| 2.x                | 127.0.0.1:9222 | vsh-opensearch2.vsh-services:9222 |
+| 3.x                | 127.0.0.1:9223 | vsh-opensearch3.vsh-services:9223 |
 
 
 !!! Info
-    The default Elasticsearch can also be accessed via TCP port 9200!
+    The default Elasticsearch/OpenSearch is also accessed via TCP port 9200!
 
 ## manage Elasticsearch services
 
-Only Elasticsearch 6 is running by default to reduce overall load and memory consumption. You can start/stop and enable/disable each elasticsearch version via valet.sh.
+Whichever version you install first becomes the default (also reachable via port 9200) unless you set a different
+one via *[service default](../commands/service.md)*. You can start/stop and enable/disable each installed
+elasticsearch version via valet.sh.
 
 ```bash
 # stop and disable elasticsearch 5
@@ -40,9 +48,6 @@ valet.sh service disable elasticsearch5
 # start and enable elasticsearch 5
 valet.sh service enable elasticsearch5
 ```
-
-!!! Warning
-    You are able to start/stop a service via systemd (Ubuntu) or launchctl (macOS), but you might face some issues when running the "valet.sh install" command.
 
 ## Update Elasticsearch (Ubuntu only!)
 
