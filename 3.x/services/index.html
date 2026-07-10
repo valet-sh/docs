@@ -436,7 +436,7 @@
   <span class="md-ellipsis">
     
   
-    What's new in valet.sh 2.x
+    What's new in valet.sh 3.x
   
 
     
@@ -955,6 +955,8 @@
       
         
       
+        
+      
     
     
     
@@ -1243,6 +1245,34 @@
     
   
     Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/uninstall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uninstall
   
 
     
@@ -1705,6 +1735,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#essential-always-installed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Essential (always installed)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-install-on-demand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional (install on demand)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1726,21 +1786,34 @@
 
 
 <h1 id="services">Services</h1>
-<p>valet.sh will install the following services on your machine. You can not skip the installation of a specific service, but you are able to stop/disable them afterwards.</p>
+<p>Most services are <strong>optional</strong>: valet.sh only installs a small, essential baseline on every machine, everything else
+you install and uninstall yourself as needed, via <em><a href="../commands/install/">install</a></em> and <em><a href="../commands/uninstall/">uninstall</a></em>.</p>
+<h2 id="essential-always-installed">Essential (always installed)</h2>
 <ul>
-<li><em><a href="/services/composer">Composer</a></em></li>
-<li><em><a href="/services/elasticsearch">Elasticsearch</a></em></li>
-<li><em><a href="/services/mailhog">Mailhog</a></em></li>
-<li><em><a href="/services/mariadb">MariaDB</a></em></li>
-<li><em><a href="/services/mysql">MySQL</a></em></li>
-<li><em><a href="/services/nginx">Nginx</a></em></li>
-<li><em><a href="/services/nodejs">NodeJS</a></em></li>
-<li><em><a href="/services/opensearch">OpenSearch</a></em></li>
-<li><em><a href="/services/php">PHP</a></em></li>
-<li><em><a href="/services/rabbitmq">Rabbitmq</a></em></li>
-<li><em><a href="/services/redis">Redis</a></em></li>
-<li><em><a href="/services/valkey">Valkey</a></em></li>
+<li><em><a href="mailpit/">Mailpit</a></em></li>
+<li><em><a href="nginx/">Nginx</a></em></li>
+<li>dnsmasq (internal, not user-configurable)</li>
 </ul>
+<h2 id="optional-install-on-demand">Optional (install on demand)</h2>
+<ul>
+<li><em><a href="composer/">Composer</a></em></li>
+<li><em><a href="elasticsearch/">Elasticsearch</a></em></li>
+<li><em><a href="mariadb/">MariaDB</a></em></li>
+<li><em><a href="mysql/">MySQL</a></em></li>
+<li><em><a href="nodejs/">NodeJS</a></em></li>
+<li><em><a href="opensearch/">OpenSearch</a></em></li>
+<li><em><a href="php/">PHP</a></em></li>
+<li><em><a href="rabbitmq/">Rabbitmq</a></em></li>
+<li><em><a href="redis/">Redis</a></em></li>
+<li><em><a href="valkey/">Valkey</a></em></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A project's <em><a href="../how-to-articles/project-configuration-via-valet-sh-yml/">.valet-sh.yml</a></em> can still declare which
+service versions it needs - <em><a href="../commands/init-instance/">init-instance</a></em> will install any of them automatically
+if they aren't installed yet. This applies to all project types (Magento2, AEM, Neos), though it may not yet be
+implemented for every one of them.</p>
+</div>
 
 
 
@@ -1775,7 +1848,7 @@
       <div class="md-copyright">
     
     <div class="md-copyright__highlight">
-        Copyright &copy; 2022 TechDivision GmbH
+        Copyright &copy; 2022 - 2026 TechDivision GmbH
     </div>
     
 

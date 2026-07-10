@@ -436,7 +436,7 @@
   <span class="md-ellipsis">
     
   
-    What's new in valet.sh 2.x
+    What's new in valet.sh 3.x
   
 
     
@@ -1013,6 +1013,8 @@
       
         
       
+        
+      
     
     
     
@@ -1301,6 +1303,34 @@
     
   
     Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/uninstall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uninstall
   
 
     
@@ -1807,10 +1837,38 @@
 <p class="admonition-title">Quote</p>
 <p>"An email and SMTP testing tool with API for developers" - please visit <em><a href="https://github.com/axllent/mailpit">https://github.com/axllent/mailpit</a></em> for more information.</p>
 </div>
+<div class="admonition information">
+<p class="admonition-title">Information</p>
+<p>Mailpit is part of the essential baseline stack and always installed - it cannot be uninstalled.</p>
+</div>
 <h2 id="usage">Usage</h2>
 <p>You can access the UI via <em><a href="https://mailpit.test">https://mailpit.test</a></em></p>
-<p>PHP is configured to use mailpit automatically (e.g. the mail() function), but you can use SMTP with host <strong>localhost</strong> and port <strong>8025</strong> as well.</p>
-<p><img align="left" alt="Image title" src="/assets/mailhog.png" /></p>
+<p>PHP is configured to use mailpit automatically (e.g. the mail() function), but you can also connect directly via SMTP.</p>
+<p>On Ubuntu, the service runs directly on the host and is reachable via <code>127.0.0.1</code> and its port. On macOS, the
+service runs as an Apple container and is additionally reachable via DNS on the <code>vsh-services</code> network, using the
+same port.</p>
+<table>
+<thead>
+<tr>
+<th>Protocol</th>
+<th>Ubuntu</th>
+<th>macOS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTTP (UI)</td>
+<td>127.0.0.1:8025</td>
+<td>vsh-mailpit.vsh-services:8025</td>
+</tr>
+<tr>
+<td>SMTP</td>
+<td>127.0.0.1:1025</td>
+<td>vsh-mailpit.vsh-services:1025</td>
+</tr>
+</tbody>
+</table>
+<p><img align="left" alt="Image title" src="../../assets/mailhog.png" /></p>
 
 
 
@@ -1845,7 +1903,7 @@
       <div class="md-copyright">
     
     <div class="md-copyright__highlight">
-        Copyright &copy; 2022 TechDivision GmbH
+        Copyright &copy; 2022 - 2026 TechDivision GmbH
     </div>
     
 

@@ -436,7 +436,7 @@
   <span class="md-ellipsis">
     
   
-    What's new in valet.sh 2.x
+    What's new in valet.sh 3.x
   
 
     
@@ -618,17 +618,6 @@
     <span class="md-ellipsis">
       
         Versions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#change-the-default-version" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Change the default version
       
     </span>
   </a>
@@ -1024,6 +1013,8 @@
       
         
       
+        
+      
     
     
     
@@ -1312,6 +1303,34 @@
     
   
     Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/uninstall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uninstall
   
 
     
@@ -1791,17 +1810,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#change-the-default-version" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Change the default version
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1825,38 +1833,29 @@
 
 
 <h1 id="composer">Composer</h1>
+<p>Composer is optional and not installed by default - install it via <em><a href="../../commands/install/">install</a></em>:
+<div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>install<span class="w"> </span>composer2
+</code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Composer 1 has been removed - only Composer 2 is available.</p>
+</div>
 <h2 id="versions">Versions</h2>
 <table>
 <thead>
 <tr>
 <th>Version</th>
 <th>Path</th>
-<th>Plugins</th>
-<th>Default version</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>composer1.x</td>
-<td>/usr/local/bin/composer1</td>
-<td>hirak/prestissimo</td>
-<td>YES</td>
-</tr>
-<tr>
 <td>composer2.x</td>
 <td>/usr/local/bin/composer2</td>
-<td></td>
-<td>NO</td>
 </tr>
 </tbody>
 </table>
-<h2 id="change-the-default-version">Change the default version</h2>
-<p>to change the default version of composer when using the "composer" command (without the version suffix at the end) on cli, you need to change it via valet.sh</p>
-<p>change the default composer version to 2
-<div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>service<span class="w"> </span>default<span class="w"> </span>composer2
-</code></pre></div></p>
-<p>composer 2 is now your default version</p>
-<p><img align="left" alt="Image title" src="/assets/valet-sh-composer2.png" /></p>
+<p><img align="left" alt="Image title" src="../../assets/valet-sh-composer2.png" /></p>
 
 
 
@@ -1891,7 +1890,7 @@
       <div class="md-copyright">
     
     <div class="md-copyright__highlight">
-        Copyright &copy; 2022 TechDivision GmbH
+        Copyright &copy; 2022 - 2026 TechDivision GmbH
     </div>
     
 

@@ -14,7 +14,7 @@
         <link rel="prev" href="../self-upgrade/">
       
       
-        <link rel="next" href="../unlink/">
+        <link rel="next" href="../uninstall/">
       
       
         
@@ -436,7 +436,7 @@
   <span class="md-ellipsis">
     
   
-    What's new in valet.sh 2.x
+    What's new in valet.sh 3.x
   
 
     
@@ -955,6 +955,8 @@
       
         
       
+        
+      
     
     
     
@@ -1403,6 +1405,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uninstall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uninstall
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1992,7 +2022,10 @@
 
 <h1 id="service">Service</h1>
 <h2 id="description">Description</h2>
-<p>With the service command you are able to define the state (enabled/disabled) of a service and set the default version for PHP, Composer, Xdebug, Elasticsearch, and MySQL.</p>
+<p>With the service command you are able to define the state (enabled/disabled) of an installed service and set the
+default version for services that support multiple parallel versions (e.g. PHP, Elasticsearch, MySQL).</p>
+<p>The command only operates on services that are currently <em><a href="../install/">installed</a></em> - use <code>install</code>/<code>uninstall</code>
+to add or remove a service before managing its state here.</p>
 <div class="admonition information">
 <p class="admonition-title">Information</p>
 <p>All changes are "install" stable. This means "valet.sh install" will not override your state or default settings.</p>
@@ -2000,69 +2033,21 @@
 </div>
 <h2 id="overview">Overview</h2>
 <ul>
-<li><em><a href="/commands/service/#list">list</a></em></li>
-<li><em><a href="/commands/service/#list">enable</a></em></li>
-<li><em><a href="/commands/service/#list">disable</a></em></li>
-<li><em><a href="/commands/service/#list">start</a></em></li>
-<li><em><a href="/commands/service/#list">stop</a></em></li>
-<li><em><a href="/commands/service/#list">restart</a></em></li>
-<li><em><a href="/commands/service/#list">default</a></em></li>
+<li><em><a href="./#list">list</a></em></li>
+<li><em><a href="./#list">enable</a></em></li>
+<li><em><a href="./#list">disable</a></em></li>
+<li><em><a href="./#list">start</a></em></li>
+<li><em><a href="./#list">stop</a></em></li>
+<li><em><a href="./#list">restart</a></em></li>
+<li><em><a href="./#list">default</a></em></li>
 </ul>
 <h3 id="list">list</h3>
-<p>This command shows you the state (enabled/disabled on system startup) of each service and which one is the default.
-To identify which services are currently started or stopped, you can use brew services list (macOS).</p>
-<p>valet.sh service list
-<div class="highlight"><pre><span></span><code>+----------------+-------+
-<span class="p">|</span><span class="w">    </span>Service<span class="w">     </span><span class="p">|</span><span class="w"> </span>State<span class="w"> </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w"> </span>elasticsearch1<span class="w"> </span><span class="p">|</span><span class="w">   </span>False<span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w"> </span>elasticsearch2<span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w"> </span>elasticsearch5<span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w"> </span>elasticsearch6<span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="m">1</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w"> </span>elasticsearch7<span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w">     </span>php56<span class="w">      </span><span class="p">|</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w">     </span>php70<span class="w">      </span><span class="p">|</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w">     </span>php71<span class="w">      </span><span class="p">|</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w">     </span>php72<span class="w">      </span><span class="p">|</span><span class="w">   </span><span class="m">1</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w">     </span>php73<span class="w">      </span><span class="p">|</span><span class="w">   </span><span class="m">1</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w">     </span>php74<span class="w">      </span><span class="p">|</span><span class="w">   </span><span class="m">1</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w">    </span>mysql57<span class="w">     </span><span class="p">|</span><span class="w">   </span><span class="m">1</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w">    </span>mysql80<span class="w">     </span><span class="p">|</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w">    </span>mariadb104<span class="w">  </span><span class="p">|</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w">    </span>rabbitmq<span class="w">    </span><span class="p">|</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w">     </span>redis<span class="w">      </span><span class="p">|</span><span class="w">   </span><span class="m">1</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+
-<span class="p">|</span><span class="w">     </span>nginx<span class="w">      </span><span class="p">|</span><span class="w">   </span><span class="m">1</span><span class="w">   </span><span class="p">|</span>
-+----------------+-------+<span class="w"> </span>
-+-----------------+
-<span class="p">|</span><span class="w"> </span>Default-Service<span class="w"> </span><span class="p">|</span>
-+-----------------+
-<span class="p">|</span><span class="w">    </span>composer1<span class="w">    </span><span class="p">|</span>
-+-----------------+
-<span class="p">|</span><span class="w"> </span>elasticsearch6<span class="w">  </span><span class="p">|</span>
-+-----------------+
-<span class="p">|</span><span class="w">     </span>mysql57<span class="w">     </span><span class="p">|</span>
-+-----------------+
-<span class="p">|</span><span class="w">      </span>php74<span class="w">      </span><span class="p">|</span>
-+-----------------+
-<span class="p">|</span><span class="w">     </span>xdebug3<span class="w">     </span><span class="p">|</span>
-+-----------------+
-</code></pre></div></p>
+<p>This command lists all currently <em>installed</em> services (essential and optional) in a table with the columns
+<code>Type</code>, <code>Name</code>, <code>Default</code> and <code>Autostart</code>, so you can see at a glance which services are installed, which one
+is the default per family (e.g. which PHP or MySQL version), and whether autostart is enabled.</p>
+<div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>service<span class="w"> </span>list
+</code></pre></div>
+<p>To identify which services are currently started or stopped, you can use brew services list (macOS).</p>
 <h3 id="enable">enable</h3>
 <p>start the service and put in autostart
 <div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>service<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mysql80
@@ -2088,13 +2073,15 @@ To identify which services are currently started or stopped, you can use brew se
 <p>Since 2.6.3 `valet.sh service restart all restarts all enabled services!</p>
 </div>
 <h3 id="default">default</h3>
-<p>set a default service. Only PHP, Elasticsearch and mysql are "defaultable" services. 
+<p>set a default version for a service. Any service that supports multiple parallel versions is "defaultable" -
+that's every service configured with a <code>versions</code> array in valet.sh's bundle definitions (currently PHP, MySQL,
+MariaDB, Elasticsearch, OpenSearch, Redis, Valkey and RabbitMQ).
 <div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>service<span class="w"> </span>default<span class="w"> </span>mysql80
 </code></pre></div></p>
 <ul>
 <li>PHP: setting a default php only changes the default php on cli. You can still use any other installed PHP versions by appending the version number, e.g. "php7.0"</li>
-<li>Elasticsearch: the default elasticsearch is listening on port 9200. You can still use any other installed Elasticsearch version by accessing the version specific port (see <em><a href="/services/elasticsearch/">Elasticsearch service documentation</a></em>)</li>
-<li>MySQL: changes the default mysql command on cli and the version listening on port 3306. You can still access any other installed MySQL versions by appending the version number, e.g "mysql5.7", or using the version specific port (see <em><a href="/services/mysql/">MySQL service documentation</a></em>)</li>
+<li>Elasticsearch: the default elasticsearch is listening on port 9200. You can still use any other installed Elasticsearch version by accessing the version specific port (see <em><a href="../../services/elasticsearch/">Elasticsearch service documentation</a></em>)</li>
+<li>MySQL: changes the default mysql command on cli and the version listening on port 3306. You can still access any other installed MySQL versions by appending the version number, e.g "mysql5.7", or using the version specific port (see <em><a href="../../services/mysql/">MySQL service documentation</a></em>)</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -2134,7 +2121,7 @@ To identify which services are currently started or stopped, you can use brew se
       <div class="md-copyright">
     
     <div class="md-copyright__highlight">
-        Copyright &copy; 2022 TechDivision GmbH
+        Copyright &copy; 2022 - 2026 TechDivision GmbH
     </div>
     
 

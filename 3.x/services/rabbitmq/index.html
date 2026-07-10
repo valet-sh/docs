@@ -436,7 +436,7 @@
   <span class="md-ellipsis">
     
   
-    What's new in valet.sh 2.x
+    What's new in valet.sh 3.x
   
 
     
@@ -965,6 +965,8 @@
       
         
       
+        
+      
     
     
     
@@ -1253,6 +1255,34 @@
     
   
     Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/uninstall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uninstall
   
 
     
@@ -1736,13 +1766,102 @@
 
 
 <h1 id="rabbitmq">RabbitMQ</h1>
-<p>rabbitmq is installed but disabled by default. To use it, you need to enable it first.
-<div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>service<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>rabbitmq
-</code></pre></div></p>
-<p>The <strong>rabbitmq_management</strong> plugin will be installed by default. You can reach the rabbitmq web interface at the following URL
-<div class="highlight"><pre><span></span><code>https://rabbitmq.test
-</code></pre></div>
+<p>RabbitMQ is optional and not installed by default - install the version you need via <em><a href="../../commands/install/">install</a></em>,
+e.g. <code>valet.sh install rabbitmq312</code>. You can install and run multiple versions at the same time, as different TCP
+ports are used.</p>
+<p>On Ubuntu, services run directly on the host and are reachable via <code>127.0.0.1</code> and their port. On macOS, services
+run as Apple containers and are additionally reachable via DNS on the <code>vsh-services</code> network, using the same port.</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Protocol</th>
+<th>Ubuntu</th>
+<th>macOS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3.12</td>
+<td>AMQP</td>
+<td>127.0.0.1:5673</td>
+<td>vsh-rabbitmq312.vsh-services:5673</td>
+</tr>
+<tr>
+<td>3.12</td>
+<td>Management</td>
+<td>127.0.0.1:15673</td>
+<td>vsh-rabbitmq312.vsh-services:15673</td>
+</tr>
+<tr>
+<td>3.13</td>
+<td>AMQP</td>
+<td>127.0.0.1:5674</td>
+<td>vsh-rabbitmq313.vsh-services:5674</td>
+</tr>
+<tr>
+<td>3.13</td>
+<td>Management</td>
+<td>127.0.0.1:15674</td>
+<td>vsh-rabbitmq313.vsh-services:15674</td>
+</tr>
+<tr>
+<td>4.0</td>
+<td>AMQP</td>
+<td>127.0.0.1:5675</td>
+<td>vsh-rabbitmq40.vsh-services:5675</td>
+</tr>
+<tr>
+<td>4.0</td>
+<td>Management</td>
+<td>127.0.0.1:15675</td>
+<td>vsh-rabbitmq40.vsh-services:15675</td>
+</tr>
+<tr>
+<td>4.1</td>
+<td>AMQP</td>
+<td>127.0.0.1:5676</td>
+<td>vsh-rabbitmq41.vsh-services:5676</td>
+</tr>
+<tr>
+<td>4.1</td>
+<td>Management</td>
+<td>127.0.0.1:15676</td>
+<td>vsh-rabbitmq41.vsh-services:15676</td>
+</tr>
+<tr>
+<td>4.2</td>
+<td>AMQP</td>
+<td>127.0.0.1:5677</td>
+<td>vsh-rabbitmq42.vsh-services:5677</td>
+</tr>
+<tr>
+<td>4.2</td>
+<td>Management</td>
+<td>127.0.0.1:15677</td>
+<td>vsh-rabbitmq42.vsh-services:15677</td>
+</tr>
+<tr>
+<td>4.3</td>
+<td>AMQP</td>
+<td>127.0.0.1:5678</td>
+<td>vsh-rabbitmq43.vsh-services:5678</td>
+</tr>
+<tr>
+<td>4.3</td>
+<td>Management</td>
+<td>127.0.0.1:15678</td>
+<td>vsh-rabbitmq43.vsh-services:15678</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>rabbitmq_management</strong> plugin is installed by default for every version. You can reach a version's
+web interface at its management port, e.g. <em><a href="https://127.0.0.1:15673">https://127.0.0.1:15673</a></em> for RabbitMQ 3.12.
 Use <code>guest</code> as the username and <code>guest</code> as the password to log in.</p>
+<p>Manage an installed version the same way as any other service:
+<div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>service<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>rabbitmq312
+valet.sh<span class="w"> </span>service<span class="w"> </span>disable<span class="w"> </span>rabbitmq312
+</code></pre></div></p>
 
 
 
@@ -1777,7 +1896,7 @@ Use <code>guest</code> as the username and <code>guest</code> as the password to
       <div class="md-copyright">
     
     <div class="md-copyright__highlight">
-        Copyright &copy; 2022 TechDivision GmbH
+        Copyright &copy; 2022 - 2026 TechDivision GmbH
     </div>
     
 

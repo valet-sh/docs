@@ -436,7 +436,7 @@
   <span class="md-ellipsis">
     
   
-    What's new in valet.sh 2.x
+    What's new in valet.sh 3.x
   
 
     
@@ -1046,6 +1046,8 @@
       
         
       
+        
+      
     
     
     
@@ -1334,6 +1336,34 @@
     
   
     Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/uninstall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uninstall
   
 
     
@@ -1870,45 +1900,50 @@
 
 <h1 id="elasticsearch">ElasticSearch</h1>
 <h2 id="version">Version</h2>
-<p>Version 1,2,5,6,7 and 8 of Elasticsearch and Version 1,2 and 3 of OpenSearch will be installed on your host. You can use each version at the same time, because different TCP ports are used.</p>
+<p>Elasticsearch and OpenSearch are optional and not installed by default - install the version(s) you need via
+<em><a href="../../commands/install/">install</a></em>, e.g. <code>valet.sh install elasticsearch7</code>. Versions 1,2,5,6,7 and 8 of Elasticsearch
+and versions 1,2 and 3 of OpenSearch are supported. You can install and run each version at the same time, because
+different TCP ports are used.</p>
+<p>On Ubuntu, services run directly on the host and are reachable via <code>127.0.0.1</code> and their port. On macOS, services
+run as Apple containers and are additionally reachable via DNS on the <code>vsh-services</code> network, using the same port.</p>
 <table>
 <thead>
 <tr>
 <th>Elasticsearch version</th>
-<th>TCP port</th>
-<th>running by default</th>
+<th>Ubuntu</th>
+<th>macOS</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1.x</td>
-<td>9201</td>
-<td>NO</td>
+<td>127.0.0.1:9201</td>
+<td>vsh-elasticsearch1.vsh-services:9201</td>
 </tr>
 <tr>
 <td>2.x</td>
-<td>9202</td>
-<td>NO</td>
+<td>127.0.0.1:9202</td>
+<td>vsh-elasticsearch2.vsh-services:9202</td>
 </tr>
 <tr>
 <td>5.x</td>
-<td>9205</td>
-<td>NO</td>
+<td>127.0.0.1:9205</td>
+<td>vsh-elasticsearch5.vsh-services:9205</td>
 </tr>
 <tr>
 <td>6.x</td>
-<td>9206</td>
-<td>YES</td>
+<td>127.0.0.1:9206</td>
+<td>vsh-elasticsearch6.vsh-services:9206</td>
 </tr>
 <tr>
 <td>7.x</td>
-<td>9207</td>
-<td>NO</td>
+<td>127.0.0.1:9207</td>
+<td>vsh-elasticsearch7.vsh-services:9207</td>
 </tr>
 <tr>
 <td>8.x</td>
-<td>9208</td>
-<td>NO</td>
+<td>127.0.0.1:9208</td>
+<td>vsh-elasticsearch8.vsh-services:9208</td>
 </tr>
 </tbody>
 </table>
@@ -1916,44 +1951,42 @@
 <thead>
 <tr>
 <th>OpenSearch version</th>
-<th>TCP port</th>
-<th>running by default</th>
+<th>Ubuntu</th>
+<th>macOS</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1.x</td>
-<td>9221</td>
-<td>NO</td>
+<td>127.0.0.1:9221</td>
+<td>vsh-opensearch1.vsh-services:9221</td>
 </tr>
 <tr>
 <td>2.x</td>
-<td>9222</td>
-<td>NO</td>
+<td>127.0.0.1:9222</td>
+<td>vsh-opensearch2.vsh-services:9222</td>
 </tr>
 <tr>
 <td>3.x</td>
-<td>9223</td>
-<td>NO</td>
+<td>127.0.0.1:9223</td>
+<td>vsh-opensearch3.vsh-services:9223</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The default Elasticsearch can also be accessed via TCP port 9200!</p>
+<p>The default Elasticsearch/OpenSearch is also accessed via TCP port 9200!</p>
 </div>
 <h2 id="manage-elasticsearch-services">manage Elasticsearch services</h2>
-<p>Only Elasticsearch 6 is running by default to reduce overall load and memory consumption. You can start/stop and enable/disable each elasticsearch version via valet.sh.</p>
+<p>Whichever version you install first becomes the default (also reachable via port 9200) unless you set a different
+one via <em><a href="../../commands/service/">service default</a></em>. You can start/stop and enable/disable each installed
+elasticsearch version via valet.sh.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># stop and disable elasticsearch 5</span>
 valet.sh<span class="w"> </span>service<span class="w"> </span>disable<span class="w"> </span>elasticsearch5
 
 <span class="c1"># start and enable elasticsearch 5</span>
 valet.sh<span class="w"> </span>service<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>elasticsearch5
 </code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>You are able to start/stop a service via systemd (Ubuntu) or launchctl (macOS), but you might face some issues when running the "valet.sh install" command.</p>
-</div>
 <h2 id="update-elasticsearch-ubuntu-only">Update Elasticsearch (Ubuntu only!)</h2>
 <p>We do not have any update mechanism for minor or patch level releases at this point of time. To enforce an update simply stop the daemon and remove the package directory, <code>valet.sh install</code> will reinstall deleted elasticsearch version. </p>
 <div class="admonition warning">
@@ -2051,7 +2084,7 @@ valet.sh<span class="w"> </span>install
       <div class="md-copyright">
     
     <div class="md-copyright__highlight">
-        Copyright &copy; 2022 TechDivision GmbH
+        Copyright &copy; 2022 - 2026 TechDivision GmbH
     </div>
     
 

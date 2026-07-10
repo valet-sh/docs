@@ -436,7 +436,7 @@
   <span class="md-ellipsis">
     
   
-    What's new in valet.sh 2.x
+    What's new in valet.sh 3.x
   
 
     
@@ -955,6 +955,8 @@
       
         
       
+        
+      
     
     
     
@@ -1312,6 +1314,34 @@
     
   
     Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uninstall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uninstall
   
 
     
@@ -1826,11 +1856,25 @@
 
 <h1 id="install">Install</h1>
 <h2 id="description">Description</h2>
-<p>Installation of all necessary services for a full development environment.
-If valet.sh triggers errors, please re-install all requirements via this command. You may want to <em><a href="/commands/self-upgrade">upgrade to the newest version</a></em> before.</p>
+<p>Installs services on your machine. Only a small set of services (currently <code>nginx</code>, <code>dnsmasq</code> and <code>mailpit</code>) is
+essential and always installed - everything else (PHP, MySQL, MariaDB, Elasticsearch, OpenSearch, Redis, Valkey,
+RabbitMQ, Node.js, Composer, Magerun, ...) is optional and only installed when you explicitly ask for it, either
+via this command or automatically on demand by <em><a href="../init-instance/">init-instance</a></em> based on your project's
+<em><a href="../../how-to-articles/project-configuration-via-valet-sh-yml/">.valet-sh.yml</a></em>.</p>
+<p>If valet.sh triggers errors, please re-run this command without arguments to repair/re-install the essential stack.
+You may want to <em><a href="../self-upgrade/">upgrade to the newest version</a></em> before.</p>
 <h2 id="usage">Usage</h2>
+<p>Install (or repair) only the essential baseline stack:
 <div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>install
-</code></pre></div>
+</code></pre></div></p>
+<p>Install one or more specific, optional services in addition to the essential stack:
+<div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>install<span class="w"> </span>php81,mysql57,elasticsearch7
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See the <em><a href="../service/">Service command</a></em> to enable/disable, start/stop or set the default version
+for an installed service, and <em><a href="../uninstall/">Uninstall</a></em> to remove one again.</p>
+</div>
 
 
 
@@ -1865,7 +1909,7 @@ If valet.sh triggers errors, please re-install all requirements via this command
       <div class="md-copyright">
     
     <div class="md-copyright__highlight">
-        Copyright &copy; 2022 TechDivision GmbH
+        Copyright &copy; 2022 - 2026 TechDivision GmbH
     </div>
     
 

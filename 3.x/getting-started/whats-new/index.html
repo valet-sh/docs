@@ -25,7 +25,7 @@
     
     
       
-        <title>What's new in valet.sh 2.x - valet.sh</title>
+        <title>What's new in valet.sh 3.x - valet.sh</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#whats-new-in-valetsh-2x" class="md-skip">
+        <a href="#whats-new-in-valetsh-3x" class="md-skip">
           Skip to content
         </a>
       
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              What's new in valet.sh 2.x
+              What's new in valet.sh 3.x
             
           </span>
         </div>
@@ -447,7 +447,7 @@
   <span class="md-ellipsis">
     
   
-    What's new in valet.sh 2.x
+    What's new in valet.sh 3.x
   
 
     
@@ -965,6 +965,8 @@
       
         
       
+        
+      
     
     
     
@@ -1253,6 +1255,34 @@
     
   
     Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/uninstall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uninstall
   
 
     
@@ -1735,6 +1765,25 @@
   
 
 
+<h1 id="whats-new-in-valetsh-3x">What's new in valet.sh 3.x</h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>valet.sh 3.x is still under active development - this page and the rest of the 3.x documentation may change
+without notice. Use the version selector above to switch back to the current stable 2.x documentation.</p>
+</div>
+<p>The biggest change in 3.x is that most services are now <strong>optional</strong> and installed/removed on demand instead of
+being bundled with every installation:</p>
+<ul>
+<li>Only a small essential baseline (<code>nginx</code>, <code>dnsmasq</code>, <code>mailpit</code>) is installed automatically - see <em><a href="../../services/">Services</a></em>.</li>
+<li>Everything else (PHP, MySQL, MariaDB, Elasticsearch, OpenSearch, Redis, Valkey, RabbitMQ, Node.js, Composer, Magerun)
+  is installed only when you ask for it, via <em><a href="../../commands/install/">install</a></em>.</li>
+<li>New <em><a href="../../commands/uninstall/">uninstall</a></em> command to remove a service you no longer need.</li>
+<li><em><a href="../../commands/init-instance/">init-instance</a></em> automatically installs whatever service versions your project's
+  <em><a href="../../how-to-articles/project-configuration-via-valet-sh-yml/">.valet-sh.yml</a></em> declares, if they aren't installed yet.</li>
+<li>Mailhog has been fully replaced by <em><a href="../../services/mailpit/">Mailpit</a></em>, which is now part of the essential baseline.</li>
+</ul>
+<p>See also <em><a href="../../changelog/">Changelog</a></em>.</p>
+<hr />
 <h1 id="whats-new-in-valetsh-2x">What's new in valet.sh 2.x</h1>
 <p>Here is a short list of all the new main features of valet.sh 2.x (compared to 1.x).</p>
 <ul>
@@ -1746,7 +1795,6 @@
 </ul>
 </li>
 </ul>
-<p>See also <em><a href="/changelog">Changelog</a></em>.</p>
 
 
 
@@ -1781,7 +1829,7 @@
       <div class="md-copyright">
     
     <div class="md-copyright__highlight">
-        Copyright &copy; 2022 TechDivision GmbH
+        Copyright &copy; 2022 - 2026 TechDivision GmbH
     </div>
     
 

@@ -446,10 +446,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manage-your-needed-services" class="md-nav__link">
+  <a href="#install-and-manage-the-services-you-need" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manage your needed services
+        Install and manage the services you need
       
     </span>
   </a>
@@ -507,7 +507,7 @@
   <span class="md-ellipsis">
     
   
-    What's new in valet.sh 2.x
+    What's new in valet.sh 3.x
   
 
     
@@ -1024,6 +1024,8 @@
       
         
       
+        
+      
     
     
     
@@ -1312,6 +1314,34 @@
     
   
     Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/uninstall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uninstall
   
 
     
@@ -1792,10 +1822,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manage-your-needed-services" class="md-nav__link">
+  <a href="#install-and-manage-the-services-you-need" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manage your needed services
+        Install and manage the services you need
       
     </span>
   </a>
@@ -1826,27 +1856,30 @@
 
 <h1 id="first-steps">First steps</h1>
 <h2 id="development-ssl-certificates">Development SSL Certificates</h2>
-<p>make sure the development CA has been imported into your browser. To test this, just go to <strong>https://mailhog.test</strong> in your browser.  You shouldn't get a certificate warning from your browser.    If you have any issue please try to start the certificate import manually.</p>
+<p>make sure the development CA has been imported into your browser. To test this, just go to <strong>https://mailpit.test</strong> in your browser.  You shouldn't get a certificate warning from your browser.    If you have any issue please try to start the certificate import manually.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Under Ubuntu, the certificate must be imported separately into each browser.  If you install a new browser, you must import the certificate with this command.</p>
 </div>
 <div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>update-dev-ca
 </code></pre></div>
-<h2 id="manage-your-needed-services">Manage your needed services</h2>
-<p>valet.sh comes with a bunch of services that can require a lot amount of RAM and CPU.
-Therefore you should disable/enable only the services you really need. Use <strong>valet.sh service list</strong> to get a list of all services and their states. Use <strong>valet.sh service enable <service></strong> respectively <strong>valet.sh service disable <service></strong>  enable or disable a service.</p>
-<p>You can find more information about handling service status <em><a href="/services">here</a></em>.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># select php7.4 as default version. If you run &quot;PHP&quot; on the console you will automatically get PHP 7.4. All other versions can still be reached via the version e.g. php7.2</span>
-valet.sh<span class="w"> </span>service<span class="w"> </span>default<span class="w"> </span>php74
+<h2 id="install-and-manage-the-services-you-need">Install and manage the services you need</h2>
+<p>A fresh installation only comes with the essential baseline (<code>nginx</code>, <code>dnsmasq</code>, <code>mailpit</code>) - no PHP, database,
+search engine, cache or anything else is installed yet. Install only what you actually need:</p>
+<div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>install<span class="w"> </span>php81,mysql57,elasticsearch7
+</code></pre></div>
+<p>Once a service is installed, use <strong>valet.sh service list</strong> to see all installed services and their
+state. Use <strong>valet.sh service enable <service></strong> respectively <strong>valet.sh service disable <service></strong> to enable or disable one, and <strong>valet.sh service default <service></strong> to set a service as the default for its family, e.g.:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># select php81 as default version. If you run &quot;PHP&quot; on the console you will automatically get PHP 8.1. All other installed versions can still be reached via the version e.g. php7.4</span>
+valet.sh<span class="w"> </span>service<span class="w"> </span>default<span class="w"> </span>php81
 
 <span class="c1"># select elasticsearch7 as default version. Elasticsearch 7 now running on port 9200, but all other version can still be reached via their own ports</span>
 valet.sh<span class="w"> </span>service<span class="w"> </span>default<span class="w"> </span>elasticsearch7
 
-<span class="c1"># select mysql80 as default version. MySQL 8.0 now running on port 3306 and you will reach it on CLI automatically via &quot;mysql&quot;</span>
-valet.sh<span class="w"> </span>service<span class="w"> </span>default<span class="w"> </span>mysql80
+<span class="c1"># select mysql57 as default version. MySQL 5.7 now running on port 3306 and you will reach it on CLI automatically via &quot;mysql&quot;</span>
+valet.sh<span class="w"> </span>service<span class="w"> </span>default<span class="w"> </span>mysql57
 </code></pre></div>
-<p>If you have any questions about the available services or versions, please check out the <em><a href="/services">service documentation</a></em>.</p>
+<p>If you have any questions about the available services or versions, please check out the <em><a href="../../services/">service documentation</a></em>.</p>
 
 
 
@@ -1881,7 +1914,7 @@ valet.sh<span class="w"> </span>service<span class="w"> </span>default<span clas
       <div class="md-copyright">
     
     <div class="md-copyright__highlight">
-        Copyright &copy; 2022 TechDivision GmbH
+        Copyright &copy; 2022 - 2026 TechDivision GmbH
     </div>
     
 

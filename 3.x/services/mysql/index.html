@@ -436,7 +436,7 @@
   <span class="md-ellipsis">
     
   
-    What's new in valet.sh 2.x
+    What's new in valet.sh 3.x
   
 
     
@@ -1080,6 +1080,8 @@
       
         
       
+        
+      
     
     
     
@@ -1368,6 +1370,34 @@
     
   
     Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/uninstall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uninstall
   
 
     
@@ -1938,67 +1968,89 @@
 
 <h1 id="mysql">MySQL</h1>
 <h2 id="version">Version</h2>
-<p>Version 5.7, 8.0 and 8.4 of MySQL will be installed on your host. You can use each version at the same time, as different TCP ports are used.</p>
+<p>MySQL and MariaDB are optional and not installed by default - install the version(s) you need via
+<em><a href="../../commands/install/">install</a></em>, e.g. <code>valet.sh install mysql57</code>. You can install and run multiple versions
+of each at the same time, as different TCP ports are used.</p>
+<p>On Ubuntu, services run directly on the host and are reachable via <code>127.0.0.1</code> and their port. On macOS, services
+run as Apple containers and are additionally reachable via DNS on the <code>vsh-services</code> network, using the same port.</p>
 <table>
 <thead>
 <tr>
 <th>Type</th>
 <th>Version</th>
-<th>TCP port</th>
-<th>running by default</th>
+<th>Ubuntu</th>
+<th>macOS</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>MySQL</td>
 <td>5.7</td>
-<td>3307</td>
-<td>YES</td>
+<td>127.0.0.1:3307</td>
+<td>vsh-mysql57.vsh-services:3307</td>
 </tr>
 <tr>
 <td>MySQL</td>
 <td>8.0</td>
-<td>3308</td>
-<td>NO</td>
+<td>127.0.0.1:3308</td>
+<td>vsh-mysql80.vsh-services:3308</td>
 </tr>
 <tr>
 <td>MySQL</td>
 <td>8.4</td>
-<td>3309</td>
-<td>NO</td>
+<td>127.0.0.1:3309</td>
+<td>vsh-mysql84.vsh-services:3309</td>
 </tr>
 <tr>
-<td>Mariadb</td>
+<td>MariaDB</td>
 <td>10.4</td>
-<td>3317</td>
-<td>NO</td>
+<td>127.0.0.1:3317</td>
+<td>vsh-mariadb104.vsh-services:3317</td>
 </tr>
 <tr>
-<td>Mariadb</td>
+<td>MariaDB</td>
 <td>10.6</td>
-<td>3319</td>
-<td>NO</td>
+<td>127.0.0.1:3319</td>
+<td>vsh-mariadb106.vsh-services:3319</td>
 </tr>
 <tr>
-<td>Mariadb</td>
+<td>MariaDB</td>
 <td>10.11</td>
-<td>3324</td>
-<td>NO</td>
+<td>127.0.0.1:3324</td>
+<td>vsh-mariadb1011.vsh-services:3324</td>
 </tr>
 <tr>
-<td>Mariadb</td>
+<td>MariaDB</td>
 <td>11.4</td>
-<td>3329</td>
-<td>NO</td>
+<td>127.0.0.1:3329</td>
+<td>vsh-mariadb114.vsh-services:3329</td>
+</tr>
+<tr>
+<td>MariaDB</td>
+<td>11.8</td>
+<td>127.0.0.1:3333</td>
+<td>vsh-mariadb118.vsh-services:3333</td>
+</tr>
+<tr>
+<td>MariaDB</td>
+<td>12.3</td>
+<td>127.0.0.1:3337</td>
+<td>vsh-mariadb123.vsh-services:3337</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The default MySQL can also be accessed via TCP port <string>3306</strong>!</p>
+<p>MariaDB 10.4 is deprecated and disabled - it can no longer be installed.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The default MySQL/MariaDB is also accessed via TCP port <strong>3306</strong>!</p>
 </div>
 <h2 id="manage-mysql-services">Manage MySQL services</h2>
-<p>Only MySQL 5.7 is running by default to reduce overall load and memory consumption. You can start/stop and enable/disable each mysql version via valet.sh.</p>
+<p>Whichever version you install first becomes the default (reachable via port 3306 and the plain <code>mysql</code> CLI command)
+unless you set a different one via <em><a href="../../commands/service/">service default</a></em>. You can start/stop and enable/disable
+each installed version via valet.sh.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># stop and disable MySQL 5.7</span>
 valet.sh<span class="w"> </span>service<span class="w"> </span>disable<span class="w"> </span>mysql57
 
@@ -2011,22 +2063,12 @@ valet.sh<span class="w"> </span>service<span class="w"> </span>disable<span clas
 <span class="c1"># start and enable MySQL 8.0</span>
 valet.sh<span class="w"> </span>service<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mysql80
 
-<span class="c1"># stop and disable MariaDB 10.4</span>
-valet.sh<span class="w"> </span>service<span class="w"> </span>disable<span class="w"> </span>mariadb104
-
-<span class="c1"># start and enable MariaDB 10.4</span>
-valet.sh<span class="w"> </span>service<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mariadb104
-
 <span class="c1"># stop and disable MariaDB 10.6</span>
 valet.sh<span class="w"> </span>service<span class="w"> </span>disable<span class="w"> </span>mariadb106
 
 <span class="c1"># start and enable MariaDB 10.6</span>
 valet.sh<span class="w"> </span>service<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mariadb106
 </code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>You are able to start/stop a service via systemd (Ubuntu) or launchctl (macOS), but you might face some issues when running the "valet.sh install" command. </p>
-</div>
 <h2 id="access-mysql">Access MySQL</h2>
 <p>MySQL via valet.sh only uses TCP for the connection. Unix sockets are deactivated! Instead of using "localhost" as host definition in your application, you have to use "127.0.0.1" and in most cases, when there is no separate port definition,  append the port to the host string. e.g "127.0.0.1:3306"</p>
 <h3 id="default-credentials">Default Credentials:</h3>
@@ -2070,7 +2112,7 @@ valet.sh<span class="w"> </span>service<span class="w"> </span><span class="nb">
 </table>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Use <code>mariadb10.4</code>,<code>mariadump10.4</code> or <code>mariadb10.6</code>,<code>mariadump10.6</code> to work with MariaDB on CLI!</p>
+<p>Use <code>mariadb10.6</code>,<code>mariadump10.6</code> or <code>mariadb10.11</code>,<code>mariadump10.11</code> to work with a specific MariaDB version on CLI!</p>
 </div>
 
 
@@ -2106,7 +2148,7 @@ valet.sh<span class="w"> </span>service<span class="w"> </span><span class="nb">
       <div class="md-copyright">
     
     <div class="md-copyright__highlight">
-        Copyright &copy; 2022 TechDivision GmbH
+        Copyright &copy; 2022 - 2026 TechDivision GmbH
     </div>
     
 
