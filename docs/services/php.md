@@ -27,7 +27,7 @@ at the moment PHP 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3, 8.4 and 8.5 
 
 ## manage services
 
-to manage the state (enable/disable/start/stop) of each php version, use the service command (Read more about the service command *[here](/services)*).
+to manage the state (enable/disable/start/stop) of each php version, use the service command (Read more about the service command *[here](index.md)*).
 
 
 ```bash
@@ -69,7 +69,7 @@ valet.sh xdebug on 7.4
 ```
 * xdebug2 is now enabled for php7.4!
 
-![Image title](/assets/valet-sh-xdebug-php74.png)
+![Image title](../assets/valet-sh-xdebug-php74.png)
 
 
 !!! Info

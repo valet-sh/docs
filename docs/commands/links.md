@@ -8,7 +8,7 @@ hide:
 
 ## Description
 
-Output all links in a list that have been created with *[link](/commands/link)*.
+Output all links in a list that have been created with *[link](link.md)*.
 
 ## Usage
 

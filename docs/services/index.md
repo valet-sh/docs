@@ -7,15 +7,15 @@ hide:
 
 valet.sh will install the following services on your machine. You can not skip the installation of a specific service, but you are able to stop/disable them afterwards.
 
-* *[Composer](/services/composer)*
-* *[Elasticsearch](/services/elasticsearch)*
-* *[Mailhog](/services/mailhog)*
-* *[MariaDB](/services/mariadb)*
-* *[MySQL](/services/mysql)*
-* *[Nginx](/services/nginx)*
-* *[NodeJS](/services/nodejs)*
-* *[OpenSearch](/services/opensearch)*
-* *[PHP](/services/php)*
-* *[Rabbitmq](/services/rabbitmq)*
-* *[Redis](/services/redis)*
-* *[Valkey](/services/valkey)*
+* *[Composer](composer.md)*
+* *[Elasticsearch](elasticsearch.md)*
+* *[Mailhog](mailhog.md)*
+* *[MariaDB](mariadb.md)*
+* *[MySQL](mysql.md)*
+* *[Nginx](nginx.md)*
+* *[NodeJS](nodejs.md)*
+* *[OpenSearch](opensearch.md)*
+* *[PHP](php.md)*
+* *[Rabbitmq](rabbitmq.md)*
+* *[Redis](redis.md)*
+* *[Valkey](valkey.md)*

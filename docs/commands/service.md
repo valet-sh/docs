@@ -16,13 +16,13 @@ With the service command you are able to define the state (enabled/disabled) of 
 
 ## Overview
 
-* *[list](/commands/service/#list)*
-* *[enable](/commands/service/#list)*
-* *[disable](/commands/service/#list)*
-* *[start](/commands/service/#list)*
-* *[stop](/commands/service/#list)*
-* *[restart](/commands/service/#list)*
-* *[default](/commands/service/#list)*
+* *[list](service.md#list)*
+* *[enable](service.md#list)*
+* *[disable](service.md#list)*
+* *[start](service.md#list)*
+* *[stop](service.md#list)*
+* *[restart](service.md#list)*
+* *[default](service.md#list)*
 
 ### list
 
@@ -130,8 +130,8 @@ valet.sh service default mysql80
 ```
 
 * PHP: setting a default php only changes the default php on cli. You can still use any other installed PHP versions by appending the version number, e.g. "php7.0"
-* Elasticsearch: the default elasticsearch is listening on port 9200. You can still use any other installed Elasticsearch version by accessing the version specific port (see *[Elasticsearch service documentation](/services/elasticsearch/)*)
-* MySQL: changes the default mysql command on cli and the version listening on port 3306. You can still access any other installed MySQL versions by appending the version number, e.g "mysql5.7", or using the version specific port (see *[MySQL service documentation](/services/mysql/)*)
+* Elasticsearch: the default elasticsearch is listening on port 9200. You can still use any other installed Elasticsearch version by accessing the version specific port (see *[Elasticsearch service documentation](../services/elasticsearch.md)*)
+* MySQL: changes the default mysql command on cli and the version listening on port 3306. You can still access any other installed MySQL versions by appending the version number, e.g "mysql5.7", or using the version specific port (see *[MySQL service documentation](../services/mysql.md)*)
 
 
 !!! warning

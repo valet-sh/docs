@@ -24,4 +24,4 @@ valet.sh service default composer2
 
 composer 2 is now your default version
 
-![Image title](/assets/valet-sh-composer2.png){ align=left }
+![Image title](../assets/valet-sh-composer2.png){ align=left }

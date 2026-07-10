@@ -22,7 +22,7 @@ valet.sh update-dev-ca
 valet.sh comes with a bunch of services that can require a lot amount of RAM and CPU.
 Therefore you should disable/enable only the services you really need. Use <strong>valet.sh service list</strong> to get a list of all services and their states. Use <strong>valet.sh service enable <service></strong> respectively <strong>valet.sh service disable <service></strong>  enable or disable a service.
 
-You can find more information about handling service status *[here](/services)*.
+You can find more information about handling service status *[here](../services/index.md)*.
 
 ``` bash
 # select php7.4 as default version. If you run "PHP" on the console you will automatically get PHP 7.4. All other versions can still be reached via the version e.g. php7.2
@@ -35,6 +35,6 @@ valet.sh service default elasticsearch7
 valet.sh service default mysql80
 ```
 
-If you have any questions about the available services or versions, please check out the *[service documentation](/services)*.
+If you have any questions about the available services or versions, please check out the *[service documentation](../services/index.md)*.
 
 

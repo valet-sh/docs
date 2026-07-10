@@ -17,4 +17,4 @@ valet.sh provides uniform, stable and high-performance development environments 
 valet.sh is completely open source available on *[GitHub](https://github.com/valet-sh/valet-sh)*
 
 ## Interested?
-Let's *[get started using valet.sh](/getting-started/)*
+Let's *[get started using valet.sh](getting-started/index.md)*

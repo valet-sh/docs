@@ -15,4 +15,4 @@ Here is a short list of all the new main features of valet.sh 2.x (compared to 1
     * Manage a default service for PHP, Elasticsearch and MySQL (more information)
 
 
-See also *[Changelog](/changelog)*.
+See also *[Changelog](../changelog.md)*.

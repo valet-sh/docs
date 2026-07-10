@@ -18,7 +18,7 @@ This creates the file `.valet-sh.yml` in the current folder, thus make sure to
 
 After having created the stub file, make sure to configure the settings as required for your project.
 
-The documentation for the command above can be found [here](https://valet.sh/display/VSH/init).
+The documentation for the command above can be found [here](../commands/init.md).
 
 Configuration settings
 ----------------------
@@ -82,4 +82,4 @@ valet.sh init-instance
 
 
 
-The documentation for this command can be found [here](https://valet.sh/display/VSH/init-instance).
+The documentation for this command can be found [here](../commands/init-instance.md).

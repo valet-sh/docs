@@ -11,7 +11,7 @@ Create, drop, import, export, ls, reset of mysql databases
 
 !!! note
 
-    The commands are only executed on the default mySQL database server. You must change the default database if you want to work with these commands. Read more about how to change the default MySQL service *[here](https://valet.sh/commands/service)*.
+    The commands are only executed on the default mySQL database server. You must change the default database if you want to work with these commands. Read more about how to change the default MySQL service *[here](service.md)*.
 
 ## Usage
 

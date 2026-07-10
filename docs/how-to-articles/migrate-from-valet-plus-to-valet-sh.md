@@ -8,7 +8,7 @@ hide:
 Please read all instructions carefully and run command by command. If you run into any errors, please report them before continuing to ensure the issue gets fixed for the next person to upgrade.
 
 !!! Info
-    Please be sure to be on a supported operating system version before continuing. See *[Support-Matrix](/getting-started/support-matrix)*.
+    Please be sure to be on a supported operating system version before continuing. See *[Support-Matrix](../getting-started/support-matrix.md)*.
 
 !!! Warning
     Caution: Your MySQL databases will not be migrated.
