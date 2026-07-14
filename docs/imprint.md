@@ -21,7 +21,6 @@ Tim Wagner / CTO
 Kilian Orschau
 
 
-
 <strong>Contact:</strong>  
 Phone: +49 8031 / 22 10 55 0  
 Email: info@techdivision.com
