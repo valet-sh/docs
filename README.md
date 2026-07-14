@@ -19,6 +19,7 @@ open `http://127.0.0.1:8000/` in your browser
 
 ## versioning
 
+
 Docs are versioned with [mike](https://github.com/jimporter/mike), mirroring the
 `2.x`/`3.x` branches of the main [valet-sh](https://github.com/valet-sh/valet-sh) project:
 
