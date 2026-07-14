@@ -14,6 +14,6 @@
 </div>
 <div class="md-copyright__links">
     {% for footerlink in config.extra.footer_links %}
-    <span><a href="{{ footerlink.target }}" title="{{ footerlink.name }}">{{ footerlink.name }}</a></span>
+    <span><a href="{{ base_url }}/{{ footerlink.target }}/" title="{{ footerlink.name }}">{{ footerlink.name }}</a></span>
     {% endfor %}
 </div>

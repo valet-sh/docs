@@ -14,9 +14,9 @@ extra:
   homepage: https://valet.sh
   generator: false
   footer_links:
-    - target: /privacy
+    - target: privacy
       name: Privacy
-    - target: /imprint
+    - target: imprint
       name: Imprint
 extra_css:
   - stylesheets/extra.css
