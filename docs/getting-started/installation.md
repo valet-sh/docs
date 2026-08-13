@@ -12,7 +12,7 @@ hide:
 ## Install valet.sh
 
 ``` bash
-bash <(curl -fsSL https://raw.githubusercontent.com/valet-sh/install/master/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/valet-sh/install/2.x/install.sh)
 ```
 
 
@@ -21,7 +21,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/valet-sh/install/master/inst
 
     ``` bash
     /usr/sbin/softwareupdate --install-rosetta --agree-to-license
-    bash <(curl -fsSL https://raw.githubusercontent.com/valet-sh/install/master/install.sh)
+    bash <(curl -fsSL https://raw.githubusercontent.com/valet-sh/install/2.x/install.sh)
     ```
 
 
