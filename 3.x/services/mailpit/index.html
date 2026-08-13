@@ -289,6 +289,8 @@
       
         
       
+        
+      
     
     
     
@@ -353,6 +355,34 @@
     
   
     Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/upgrade-from-2x/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrade from valet.sh 2.x to 3.x
   
 
     
@@ -1844,9 +1874,9 @@
 <h2 id="usage">Usage</h2>
 <p>You can access the UI via <em><a href="https://mailpit.test">https://mailpit.test</a></em></p>
 <p>PHP is configured to use mailpit automatically (e.g. the mail() function), but you can also connect directly via SMTP.</p>
-<p>On Ubuntu, the service runs directly on the host and is reachable via <code>127.0.0.1</code> and its port. On macOS, the
-service runs as an Apple container and is additionally reachable via DNS on the <code>vsh-services</code> network, using the
-same port.</p>
+<p>Mailpit runs in a container on both operating systems. On Ubuntu, Podman is used with the host network, so it stays
+reachable via <code>127.0.0.1</code> and its port. On macOS, it runs as an Apple container with its own IP address and is
+reachable via its DNS name in the <code>.vsh</code> domain, using the same port.</p>
 <table>
 <thead>
 <tr>
@@ -1859,12 +1889,12 @@ same port.</p>
 <tr>
 <td>HTTP (UI)</td>
 <td>127.0.0.1:8025</td>
-<td>vsh-mailpit.vsh-services:8025</td>
+<td>vsh-mailpit.vsh:8025</td>
 </tr>
 <tr>
 <td>SMTP</td>
 <td>127.0.0.1:1025</td>
-<td>vsh-mailpit.vsh-services:1025</td>
+<td>vsh-mailpit.vsh:1025</td>
 </tr>
 </tbody>
 </table>

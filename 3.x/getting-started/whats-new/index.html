@@ -291,6 +291,8 @@
       
         
       
+        
+      
     
     
     
@@ -355,6 +357,34 @@
     
   
     Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrade-from-2x/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrade from valet.sh 2.x to 3.x
   
 
     
@@ -1771,7 +1801,15 @@
 <p>valet.sh 3.x is still under active development - this page and the rest of the 3.x documentation may change
 without notice. Use the version selector above to switch back to the current stable 2.x documentation.</p>
 </div>
-<p>The biggest change in 3.x is that most services are now <strong>optional</strong> and installed/removed on demand instead of
+<div class="admonition info">
+<p class="admonition-title">Coming from valet.sh 2.x?</p>
+<p>3.x contains breaking changes and does not migrate any data. Follow the
+<em><a href="../upgrade-from-2x/">Upgrade from 2.x to 3.x</a></em> guide before you switch.</p>
+</div>
+<p>Data services (MySQL, MariaDB, Elasticsearch, OpenSearch, Redis, Valkey, RabbitMQ, Mailpit) no longer run as native
+packages but as <strong>containers</strong> - Apple Containers on macOS, Podman with systemd user units on Ubuntu. PHP, Nginx,
+dnsmasq, Composer, Node.js and Magerun still run natively.</p>
+<p>The second big change is that most services are now <strong>optional</strong> and installed/removed on demand instead of
 being bundled with every installation:</p>
 <ul>
 <li>Only a small essential baseline (<code>nginx</code>, <code>dnsmasq</code>, <code>mailpit</code>) is installed automatically - see <em><a href="../../services/">Services</a></em>.</li>

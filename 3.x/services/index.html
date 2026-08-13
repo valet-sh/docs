@@ -289,6 +289,8 @@
       
         
       
+        
+      
     
     
     
@@ -353,6 +355,34 @@
     
   
     Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/upgrade-from-2x/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrade from valet.sh 2.x to 3.x
   
 
     
@@ -1788,6 +1818,10 @@
 <h1 id="services">Services</h1>
 <p>Most services are <strong>optional</strong>: valet.sh only installs a small, essential baseline on every machine, everything else
 you install and uninstall yourself as needed, via <em><a href="../commands/install/">install</a></em> and <em><a href="../commands/uninstall/">uninstall</a></em>.</p>
+<p>The data services (MySQL, MariaDB, Elasticsearch, OpenSearch, Redis, Valkey, RabbitMQ, Mailpit) run in containers -
+Apple Containers on macOS, Podman with systemd user units on Ubuntu. Nginx, PHP, dnsmasq, Composer, NodeJS and
+Magerun still run natively. If you are coming from 2.x, see
+<em><a href="../getting-started/upgrade-from-2x/">Upgrade from 2.x to 3.x</a></em>.</p>
 <h2 id="essential-always-installed">Essential (always installed)</h2>
 <ul>
 <li><em><a href="mailpit/">Mailpit</a></em></li>

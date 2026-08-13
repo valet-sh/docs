@@ -289,6 +289,8 @@
       
         
       
+        
+      
     
     
     
@@ -353,6 +355,34 @@
     
   
     Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/upgrade-from-2x/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrade from valet.sh 2.x to 3.x
   
 
     
@@ -1865,6 +1895,15 @@
 removal of valet.sh from your machine:
 <div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>uninstall<span class="w"> </span>--all
 </code></pre></div></p>
+<p>Uninstall a service and additionally delete its data volume and container image:
+<div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>uninstall<span class="w"> </span>mysql57<span class="w"> </span>--purge
+</code></pre></div></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Without <code>--purge</code>, the data volume of a service (e.g. <code>vsh-mysql57-data</code>) is kept - installing the service
+again gives you your databases back. With <code>--purge</code> the data is deleted irreversibly, so create a backup
+first if you might still need it.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Running <code>valet.sh uninstall</code> without any arguments does nothing - you must either name at least one service

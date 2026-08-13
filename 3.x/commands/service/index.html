@@ -289,6 +289,8 @@
       
         
       
+        
+      
     
     
     
@@ -353,6 +355,34 @@
     
   
     Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/upgrade-from-2x/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrade from valet.sh 2.x to 3.x
   
 
     
@@ -2047,7 +2077,40 @@ to add or remove a service before managing its state here.</p>
 is the default per family (e.g. which PHP or MySQL version), and whether autostart is enabled.</p>
 <div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>service<span class="w"> </span>list
 </code></pre></div>
-<p>To identify which services are currently started or stopped, you can use brew services list (macOS).</p>
+<p>To identify which services are currently started or stopped, you can query the underlying runtime directly. The
+data services run as containers, everything else runs natively:</p>
+<table>
+<thead>
+<tr>
+<th>Services</th>
+<th>macOS</th>
+<th>Ubuntu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MySQL, MariaDB, Elasticsearch, OpenSearch, Redis, Valkey, RabbitMQ, Mailpit</td>
+<td><code>container list --all</code></td>
+<td><code>podman ps</code> or <code>systemctl --user list-units 'vsh-*'</code></td>
+</tr>
+<tr>
+<td>PHP-FPM</td>
+<td><code>brew services list</code></td>
+<td><code>systemctl status php8.3-fpm</code></td>
+</tr>
+<tr>
+<td>Nginx, dnsmasq</td>
+<td><code>sudo brew services list</code></td>
+<td><code>systemctl status nginx</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On Ubuntu the containers are started by systemd user units and are removed again when they stop, so <code>podman ps</code>
+only ever shows the services that are currently running - not even <code>podman ps -a</code> lists the stopped ones. Use
+<code>systemctl --user list-units 'vsh-*'</code> if you want to see the state of every managed service.</p>
+</div>
 <h3 id="enable">enable</h3>
 <p>start the service and put in autostart
 <div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>service<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mysql80

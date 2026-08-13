@@ -289,6 +289,8 @@
       
         
       
+        
+      
     
     
     
@@ -353,6 +355,34 @@
     
   
     Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/upgrade-from-2x/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrade from valet.sh 2.x to 3.x
   
 
     
@@ -1904,8 +1934,9 @@
 <em><a href="../../commands/install/">install</a></em>, e.g. <code>valet.sh install elasticsearch7</code>. Versions 1,2,5,6,7 and 8 of Elasticsearch
 and versions 1,2 and 3 of OpenSearch are supported. You can install and run each version at the same time, because
 different TCP ports are used.</p>
-<p>On Ubuntu, services run directly on the host and are reachable via <code>127.0.0.1</code> and their port. On macOS, services
-run as Apple containers and are additionally reachable via DNS on the <code>vsh-services</code> network, using the same port.</p>
+<p>Both operating systems run the services in containers. On Ubuntu, Podman is used with the host network, so a service
+stays reachable via <code>127.0.0.1</code> and its port. On macOS, each service runs as an Apple container with its own IP
+address and is reachable via its DNS name in the <code>.vsh</code> domain, using the same port.</p>
 <table>
 <thead>
 <tr>
@@ -1918,32 +1949,32 @@ run as Apple containers and are additionally reachable via DNS on the <code>vsh-
 <tr>
 <td>1.x</td>
 <td>127.0.0.1:9201</td>
-<td>vsh-elasticsearch1.vsh-services:9201</td>
+<td>vsh-elasticsearch1.vsh:9201</td>
 </tr>
 <tr>
 <td>2.x</td>
 <td>127.0.0.1:9202</td>
-<td>vsh-elasticsearch2.vsh-services:9202</td>
+<td>vsh-elasticsearch2.vsh:9202</td>
 </tr>
 <tr>
 <td>5.x</td>
 <td>127.0.0.1:9205</td>
-<td>vsh-elasticsearch5.vsh-services:9205</td>
+<td>vsh-elasticsearch5.vsh:9205</td>
 </tr>
 <tr>
 <td>6.x</td>
 <td>127.0.0.1:9206</td>
-<td>vsh-elasticsearch6.vsh-services:9206</td>
+<td>vsh-elasticsearch6.vsh:9206</td>
 </tr>
 <tr>
 <td>7.x</td>
 <td>127.0.0.1:9207</td>
-<td>vsh-elasticsearch7.vsh-services:9207</td>
+<td>vsh-elasticsearch7.vsh:9207</td>
 </tr>
 <tr>
 <td>8.x</td>
 <td>127.0.0.1:9208</td>
-<td>vsh-elasticsearch8.vsh-services:9208</td>
+<td>vsh-elasticsearch8.vsh:9208</td>
 </tr>
 </tbody>
 </table>
@@ -1959,17 +1990,17 @@ run as Apple containers and are additionally reachable via DNS on the <code>vsh-
 <tr>
 <td>1.x</td>
 <td>127.0.0.1:9221</td>
-<td>vsh-opensearch1.vsh-services:9221</td>
+<td>vsh-opensearch1.vsh:9221</td>
 </tr>
 <tr>
 <td>2.x</td>
 <td>127.0.0.1:9222</td>
-<td>vsh-opensearch2.vsh-services:9222</td>
+<td>vsh-opensearch2.vsh:9222</td>
 </tr>
 <tr>
 <td>3.x</td>
 <td>127.0.0.1:9223</td>
-<td>vsh-opensearch3.vsh-services:9223</td>
+<td>vsh-opensearch3.vsh:9223</td>
 </tr>
 </tbody>
 </table>
