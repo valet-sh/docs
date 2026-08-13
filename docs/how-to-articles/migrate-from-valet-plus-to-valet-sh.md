@@ -59,7 +59,7 @@ brew update && brew upgrade
 brew doctor
 brew cleanup
  
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/valet-sh/install/master/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/valet-sh/install/3.x/install.sh)"
 valet.sh self-upgrade
 valet.sh install
 ```
