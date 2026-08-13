@@ -9,7 +9,15 @@ hide:
     valet.sh 3.x is still under active development - this page and the rest of the 3.x documentation may change
     without notice. Use the version selector above to switch back to the current stable 2.x documentation.
 
-The biggest change in 3.x is that most services are now **optional** and installed/removed on demand instead of
+!!! Info "Coming from valet.sh 2.x?"
+    3.x contains breaking changes and does not migrate any data. Follow the
+    *[Upgrade from 2.x to 3.x](upgrade-from-2x.md)* guide before you switch.
+
+Data services (MySQL, MariaDB, Elasticsearch, OpenSearch, Redis, Valkey, RabbitMQ, Mailpit) no longer run as native
+packages but as **containers** - Apple Containers on macOS, Podman with systemd user units on Ubuntu. PHP, Nginx,
+dnsmasq, Composer, Node.js and Magerun still run natively.
+
+The second big change is that most services are now **optional** and installed/removed on demand instead of
 being bundled with every installation:
 
 * Only a small essential baseline (`nginx`, `dnsmasq`, `mailpit`) is installed automatically - see *[Services](../services/index.md)*.

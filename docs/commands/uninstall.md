@@ -22,6 +22,16 @@ removal of valet.sh from your machine:
 valet.sh uninstall --all
 ```
 
+Uninstall a service and additionally delete its data volume and container image:
+``` bash
+valet.sh uninstall mysql57 --purge
+```
+
+!!! warning
+    Without `--purge`, the data volume of a service (e.g. `vsh-mysql57-data`) is kept - installing the service
+    again gives you your databases back. With `--purge` the data is deleted irreversibly, so create a backup
+    first if you might still need it.
+
 !!! warning
     Running `valet.sh uninstall` without any arguments does nothing - you must either name at least one service
     or pass `--all`.

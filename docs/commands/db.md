@@ -43,6 +43,6 @@ valet.sh db import database.sql.gz projectX
 ```
 export a mysql database into given db-filename
 ``` bash
-valet.sh db export database.sql.gz projectX
+valet.sh db export database projectX
 ```
 

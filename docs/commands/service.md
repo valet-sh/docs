@@ -38,7 +38,19 @@ is the default per family (e.g. which PHP or MySQL version), and whether autosta
 valet.sh service list
 ```
 
-To identify which services are currently started or stopped, you can use brew services list (macOS).
+To identify which services are currently started or stopped, you can query the underlying runtime directly. The
+data services run as containers, everything else runs natively:
+
+| Services | macOS | Ubuntu |
+|----------|-------|--------|
+| MySQL, MariaDB, Elasticsearch, OpenSearch, Redis, Valkey, RabbitMQ, Mailpit | `container list --all` | `podman ps` or `systemctl --user list-units 'vsh-*'` |
+| PHP-FPM | `brew services list` | `systemctl status php8.3-fpm` |
+| Nginx, dnsmasq | `sudo brew services list` | `systemctl status nginx` |
+
+!!! note
+    On Ubuntu the containers are started by systemd user units and are removed again when they stop, so `podman ps`
+    only ever shows the services that are currently running - not even `podman ps -a` lists the stopped ones. Use
+    `systemctl --user list-units 'vsh-*'` if you want to see the state of every managed service.
 
 
 ### enable

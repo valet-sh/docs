@@ -12,24 +12,25 @@ Elasticsearch and OpenSearch are optional and not installed by default - install
 and versions 1,2 and 3 of OpenSearch are supported. You can install and run each version at the same time, because
 different TCP ports are used.
 
-On Ubuntu, services run directly on the host and are reachable via `127.0.0.1` and their port. On macOS, services
-run as Apple containers and are additionally reachable via DNS on the `vsh-services` network, using the same port.
+Both operating systems run the services in containers. On Ubuntu, Podman is used with the host network, so a service
+stays reachable via `127.0.0.1` and its port. On macOS, each service runs as an Apple container with its own IP
+address and is reachable via its DNS name in the `.vsh` domain, using the same port.
 
 |Elasticsearch version|Ubuntu|macOS|
 |-------------|--------|--------|
-|1.x|127.0.0.1:9201|vsh-elasticsearch1.vsh-services:9201|
-|2.x|127.0.0.1:9202|vsh-elasticsearch2.vsh-services:9202|
-|5.x|127.0.0.1:9205|vsh-elasticsearch5.vsh-services:9205|
-|6.x|127.0.0.1:9206|vsh-elasticsearch6.vsh-services:9206|
-|7.x|127.0.0.1:9207|vsh-elasticsearch7.vsh-services:9207|
-|8.x|127.0.0.1:9208|vsh-elasticsearch8.vsh-services:9208|
+|1.x|127.0.0.1:9201|vsh-elasticsearch1.vsh:9201|
+|2.x|127.0.0.1:9202|vsh-elasticsearch2.vsh:9202|
+|5.x|127.0.0.1:9205|vsh-elasticsearch5.vsh:9205|
+|6.x|127.0.0.1:9206|vsh-elasticsearch6.vsh:9206|
+|7.x|127.0.0.1:9207|vsh-elasticsearch7.vsh:9207|
+|8.x|127.0.0.1:9208|vsh-elasticsearch8.vsh:9208|
 
 
 | OpenSearch version | Ubuntu | macOS |
 |--------------------|----------|----------|
-| 1.x                | 127.0.0.1:9221 | vsh-opensearch1.vsh-services:9221 |
-| 2.x                | 127.0.0.1:9222 | vsh-opensearch2.vsh-services:9222 |
-| 3.x                | 127.0.0.1:9223 | vsh-opensearch3.vsh-services:9223 |
+| 1.x                | 127.0.0.1:9221 | vsh-opensearch1.vsh:9221 |
+| 2.x                | 127.0.0.1:9222 | vsh-opensearch2.vsh:9222 |
+| 3.x                | 127.0.0.1:9223 | vsh-opensearch3.vsh:9223 |
 
 
 !!! Info

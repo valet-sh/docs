@@ -3,6 +3,10 @@ hide:
 - footer
 ---
 
+!!! Info "Upgrading from valet.sh 2.x to 3.x?"
+    This page describes the routine upgrade within a release channel. For the major upgrade from 2.x to 3.x see
+    *[Upgrade from 2.x to 3.x](../getting-started/upgrade-from-2x.md)*.
+
 Every now and then we publish updates of valet.sh that you should adopt as fast as possible. In the past we often encountered the issue that people upgraded valet.sh  but did not seem to be able to use the newest features. Most of the time this was related to the two-step-upgrade required to actually roll out the upgrades on their machines not having been followed through.
 
 To properly roll out the latest upgrade of valet.sh on your machine, always perform the two following steps in the mentioned order:

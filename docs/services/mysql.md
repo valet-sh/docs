@@ -11,20 +11,21 @@ MySQL and MariaDB are optional and not installed by default - install the versio
 *[install](../commands/install.md)*, e.g. `valet.sh install mysql57`. You can install and run multiple versions
 of each at the same time, as different TCP ports are used.
 
-On Ubuntu, services run directly on the host and are reachable via `127.0.0.1` and their port. On macOS, services
-run as Apple containers and are additionally reachable via DNS on the `vsh-services` network, using the same port.
+Both operating systems run the services in containers. On Ubuntu, Podman is used with the host network, so a service
+stays reachable via `127.0.0.1` and its port. On macOS, each service runs as an Apple container with its own IP
+address and is reachable via its DNS name in the `.vsh` domain, using the same port.
 
 | Type    | Version | Ubuntu           | macOS                              |
 |---------|---------|------------------|--------------------------------------|
-| MySQL   | 5.7     | 127.0.0.1:3307   | vsh-mysql57.vsh-services:3307        |
-| MySQL   | 8.0     | 127.0.0.1:3308   | vsh-mysql80.vsh-services:3308        |
-| MySQL   | 8.4     | 127.0.0.1:3309   | vsh-mysql84.vsh-services:3309        |
-| MariaDB | 10.4    | 127.0.0.1:3317   | vsh-mariadb104.vsh-services:3317     |
-| MariaDB | 10.6    | 127.0.0.1:3319   | vsh-mariadb106.vsh-services:3319     |
-| MariaDB | 10.11   | 127.0.0.1:3324   | vsh-mariadb1011.vsh-services:3324    |
-| MariaDB | 11.4    | 127.0.0.1:3329   | vsh-mariadb114.vsh-services:3329     |
-| MariaDB | 11.8    | 127.0.0.1:3333   | vsh-mariadb118.vsh-services:3333     |
-| MariaDB | 12.3    | 127.0.0.1:3337   | vsh-mariadb123.vsh-services:3337     |
+| MySQL   | 5.7     | 127.0.0.1:3307   | vsh-mysql57.vsh:3307        |
+| MySQL   | 8.0     | 127.0.0.1:3308   | vsh-mysql80.vsh:3308        |
+| MySQL   | 8.4     | 127.0.0.1:3309   | vsh-mysql84.vsh:3309        |
+| MariaDB | 10.4    | 127.0.0.1:3317   | vsh-mariadb104.vsh:3317     |
+| MariaDB | 10.6    | 127.0.0.1:3319   | vsh-mariadb106.vsh:3319     |
+| MariaDB | 10.11   | 127.0.0.1:3324   | vsh-mariadb1011.vsh:3324    |
+| MariaDB | 11.4    | 127.0.0.1:3329   | vsh-mariadb114.vsh:3329     |
+| MariaDB | 11.8    | 127.0.0.1:3333   | vsh-mariadb118.vsh:3333     |
+| MariaDB | 12.3    | 127.0.0.1:3337   | vsh-mariadb123.vsh:3337     |
 
 !!! Warning
     MariaDB 10.4 is deprecated and disabled - it can no longer be installed.

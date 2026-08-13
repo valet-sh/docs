@@ -8,6 +8,11 @@ hide:
 Most services are **optional**: valet.sh only installs a small, essential baseline on every machine, everything else
 you install and uninstall yourself as needed, via *[install](../commands/install.md)* and *[uninstall](../commands/uninstall.md)*.
 
+The data services (MySQL, MariaDB, Elasticsearch, OpenSearch, Redis, Valkey, RabbitMQ, Mailpit) run in containers -
+Apple Containers on macOS, Podman with systemd user units on Ubuntu. Nginx, PHP, dnsmasq, Composer, NodeJS and
+Magerun still run natively. If you are coming from 2.x, see
+*[Upgrade from 2.x to 3.x](../getting-started/upgrade-from-2x.md)*.
+
 ## Essential (always installed)
 
 * *[Mailpit](mailpit.md)*
