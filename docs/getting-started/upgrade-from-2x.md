@@ -31,7 +31,6 @@ hide:
 | Your existing data | - | not migrated |
 | Operating systems | Intel + Apple Silicon, older releases | Apple Silicon only, macOS 26+, Ubuntu 24.04 / 26.04 |
 | Mail catcher | Mailhog | *[Mailpit](../services/mailpit.md)* (`mailpit.test`) |
-| MariaDB 10.4 | available | deprecated and disabled |
 | RabbitMQ web interface | `rabbitmq.test` | one host per version, e.g. `rabbitmq313.test` |
 
 ### Data services now run in containers
@@ -168,10 +167,6 @@ done
 The internal schemas (`information_schema`, `performance_schema`, `mysql`, `sys`) are skipped on purpose - they must
 not be restored into a fresh 3.x service. For MariaDB, use the matching client and port, e.g.
 `mariadump10.6 -h127.0.0.1 -P3319 ...`.
-
-!!! warning
-    MariaDB 10.4 can no longer be installed in 3.x. If you still run databases on 10.4, export them now and restore
-    them into a newer MariaDB version afterwards.
 
 ### Verify your dumps
 
