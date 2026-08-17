@@ -45,82 +45,104 @@ elasticsearch version via valet.sh.
 ```bash
 # stop and disable elasticsearch 5
 valet.sh service disable elasticsearch5
- 
+
 # start and enable elasticsearch 5
 valet.sh service enable elasticsearch5
 ```
 
-## Update Elasticsearch (Ubuntu only!)
+## Update Elasticsearch
 
-We do not have any update mechanism for minor or patch level releases at this point of time. To enforce an update simply stop the daemon and remove the package directory, ``valet.sh install`` will reinstall deleted elasticsearch version. 
+Each Elasticsearch/OpenSearch version is shipped as a container with a fixed image tag pinned by valet.sh itself
+(e.g. `elasticsearch:8.19.18`) - there is no automatic or forced update mechanism for minor or patch level releases.
+A newer patch/minor version only becomes available once a valet.sh release bumps that pinned tag.
+
+To pick up such an update, first update valet.sh itself via *[self-upgrade](../commands/self-upgrade.md)*, then
+re-run *[install](../commands/install.md)* for the affected version - since the service is already installed, this
+re-pulls the (now updated) image and recreates the container.
+
+Example commands for updating <strong>elasticsearch 5</strong>
+```bash
+valet.sh self-upgrade
+valet.sh install elasticsearch5
+```
+
+!!! Info
+    The service's data lives in a dedicated container volume, not in the container image, so updating to a newer
+    pinned version does not delete your data.
+
+If you want to fully reset a version instead, including its data, uninstall it with `--purge` and reinstall it:
+```bash
+valet.sh uninstall elasticsearch5 --purge
+valet.sh install elasticsearch5
+```
 
 !!! Warning
-    all data in the affected version will be lost!
-
-
-Example commands for reinstalling <strong>elasticsearch 5</strong>
-```bash
-valet.sh service disable elasticsearch5
-rm -r /usr/local/valet-sh/packages/elasticsearch5
-valet.sh install
-```
+    `--purge` removes the container volume, deleting all indexed data for the affected version irreversibly!
 
 ## Plugins
 
-The plugins <strong>analysis-phonetic</strong> and <strong>analysis-icu</strong> are installed by default for every Elasticsearch version. More plugins can be installed by the default plugin install executable.
+The plugins <strong>analysis-phonetic</strong> and <strong>analysis-icu</strong> are installed by default for every
+Elasticsearch and OpenSearch version. Since both services run as containers, additional plugins are installed by
+executing the plugin binary inside the running service container, and the container needs to be restarted
+afterwards for the change to take effect (e.g. `valet.sh service restart elasticsearch7`).
 
-elasticsearch pugin installation on Ubuntu
+elasticsearch/opensearch plugin installation on Ubuntu (via `podman exec`)
 ```bash
 # elasticsearch 1
-/usr/local/valet-sh/packages/elasticsearch1/bin/plugin install <pluginname>
- 
+podman exec vsh-elasticsearch1 /usr/share/elasticsearch/bin/plugin install <pluginname>
+
 # elasticsearch 2
-/usr/local/valet-sh/packages/elasticsearch2/bin/plugin install <pluginname>
- 
+podman exec vsh-elasticsearch2 /usr/share/elasticsearch/bin/plugin install <pluginname>
+
 # elasticsearch 5
-/usr/local/valet-sh/packages/elasticsearch5/bin/elasticsearch-plugin install <pluginname>
- 
+podman exec vsh-elasticsearch5 /usr/share/elasticsearch/bin/elasticsearch-plugin install <pluginname>
+
 # elasticsearch 6
-/usr/local/valet-sh/packages/elasticsearch6/bin/elasticsearch-plugin install <pluginname>
- 
+podman exec vsh-elasticsearch6 /usr/share/elasticsearch/bin/elasticsearch-plugin install <pluginname>
+
 # elasticsearch 7
-/usr/local/valet-sh/packages/elasticsearch7/bin/elasticsearch-plugin install <pluginname>
- 
+podman exec vsh-elasticsearch7 /usr/share/elasticsearch/bin/elasticsearch-plugin install <pluginname>
+
 # elasticsearch 8
-/usr/local/valet-sh/packages/elasticsearch8/bin/elasticsearch-plugin install <pluginname>
- 
+podman exec vsh-elasticsearch8 /usr/share/elasticsearch/bin/elasticsearch-plugin install <pluginname>
+
 # opensearch 1
-/usr/local/valet-sh/packages/opensearch1/bin/opensearch-plugin install <pluginname>
+podman exec vsh-opensearch1 /usr/share/opensearch/bin/opensearch-plugin install <pluginname>
 
 # opensearch 2
-/usr/local/valet-sh/packages/opensearch2/bin/opensearch-plugin install <pluginname>
+podman exec vsh-opensearch2 /usr/share/opensearch/bin/opensearch-plugin install <pluginname>
+
+# opensearch 3
+podman exec vsh-opensearch3 /usr/share/opensearch/bin/opensearch-plugin install <pluginname>
 ```
 
 
-elasticsearch pugin installation on MacOS
+elasticsearch/opensearch plugin installation on macOS (via `container exec`)
 ```bash
 # elasticsearch 1
-/usr/local/opt/vsh-elasticsearch1/libexec/bin/plugin install <pluginname>
- 
+container exec --user root vsh-elasticsearch1 /usr/share/elasticsearch/bin/plugin install <pluginname>
+
 # elasticsearch 2
-/usr/local/opt/vsh-elasticsearch2/libexec/bin/plugin install <pluginname>
- 
+container exec --user root vsh-elasticsearch2 /usr/share/elasticsearch/bin/plugin install <pluginname>
+
 # elasticsearch 5
-/usr/local/opt/vsh-elasticsearch5/libexec/bin/elasticsearch-plugin install <pluginname>
- 
+container exec --user root vsh-elasticsearch5 /usr/share/elasticsearch/bin/elasticsearch-plugin install <pluginname>
+
 # elasticsearch 6
-/usr/local/opt/vsh-elasticsearch6/libexec/bin/elasticsearch-plugin install <pluginname>
- 
+container exec --user root vsh-elasticsearch6 /usr/share/elasticsearch/bin/elasticsearch-plugin install <pluginname>
+
 # elasticsearch 7
-/usr/local/opt/vsh-elasticsearch7/libexec/bin/elasticsearch-plugin install <pluginname>
- 
+container exec --user root vsh-elasticsearch7 /usr/share/elasticsearch/bin/elasticsearch-plugin install <pluginname>
+
 # elasticsearch 8
-/usr/local/opt/vsh-elasticsearch8/libexec/bin/elasticsearch-plugin install <pluginname>
- 
+container exec --user root vsh-elasticsearch8 /usr/share/elasticsearch/bin/elasticsearch-plugin install <pluginname>
+
 # opensearch 1
-/usr/local/opt/vsh-opensearch1/libexec/bin/opensearch-plugin install <pluginname>
+container exec --user root vsh-opensearch1 /usr/share/opensearch/bin/opensearch-plugin install <pluginname>
 
 # opensearch 2
-/usr/local/opt/vsh-opensearch2/libexec/bin/opensearch-plugin install <pluginname>
-```
+container exec --user root vsh-opensearch2 /usr/share/opensearch/bin/opensearch-plugin install <pluginname>
 
+# opensearch 3
+container exec --user root vsh-opensearch3 /usr/share/opensearch/bin/opensearch-plugin install <pluginname>
+```
