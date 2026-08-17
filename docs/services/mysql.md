@@ -27,8 +27,6 @@ address and is reachable via its DNS name in the `.vsh` domain, using the same p
 | MariaDB | 11.8    | 127.0.0.1:3333   | vsh-mariadb118.vsh:3333     |
 | MariaDB | 12.3    | 127.0.0.1:3337   | vsh-mariadb123.vsh:3337     |
 
-!!! Warning
-    MariaDB 10.4 is deprecated and disabled - it can no longer be installed.
 
 !!! Warning
     The default MySQL/MariaDB is also accessed via TCP port <strong>3306</strong>!
@@ -43,19 +41,19 @@ each installed version via valet.sh.
 ```bash
 # stop and disable MySQL 5.7
 valet.sh service disable mysql57
- 
+
 # start and enable MySQL 5.7
 valet.sh service enable mysql57
- 
+
 # stop and disable MySQL 8.0
 valet.sh service disable mysql80
- 
+
 # start and enable MySQL 8.0
 valet.sh service enable mysql80
- 
+
 # stop and disable MariaDB 10.6
 valet.sh service disable mariadb106
- 
+
 # start and enable MariaDB 10.6
 valet.sh service enable mariadb106
 ```
