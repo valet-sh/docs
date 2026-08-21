@@ -49,9 +49,7 @@ data services run as containers, everything else runs natively:
 
 !!! note
     On Ubuntu the containers are started by systemd user units and are removed again when they stop, so `podman ps`
-    only ever shows the services that are currently running - not even `podman ps -a` lists the stopped ones. Use
-    `systemctl --user list-units 'vsh-*'` if you want to see the state of every managed service.
-
+    only ever shows the services that are currently running
 
 ### enable
 
@@ -108,5 +106,3 @@ valet.sh service default mysql80
 !!! warning
 
     Setting the default version to a disabled service will not change the state of it! You have to enable the service if you want to use it
-
-

@@ -7,9 +7,9 @@ hide:
 
 ## Description
 
-Upgrade to the newest available version of valet.sh.
+Upgrade to the newest available version of valet.sh (Code-Base, CLI & Runtime).
 
-You should also execute *[install](install.md)* afterwards, as self-upgrade only updates the code-base of valet.sh itself.
+You should also execute *[install](install.md)* afterwards, as self-upgrade only updates the code-base, cli & runtime but not the services installed via `valet.sh install`.
 
 ## Usage
 

@@ -33,7 +33,7 @@ drops an existing database
 ``` bash
 valet.sh db drop projectX
 ```
-dops and creates a database
+drops and creates a database
 ``` bash
 valet.sh db reset projectX
 ```
@@ -45,4 +45,3 @@ export a mysql database into given db-filename
 ``` bash
 valet.sh db export database projectX
 ```
-
