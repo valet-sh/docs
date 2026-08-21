@@ -694,10 +694,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#update-elasticsearch-ubuntu-only" class="md-nav__link">
+  <a href="#update-elasticsearch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Update Elasticsearch (Ubuntu only!)
+        Update Elasticsearch
       
     </span>
   </a>
@@ -1078,6 +1078,8 @@
       
         
       
+        
+      
     
     
     
@@ -1254,6 +1256,34 @@
     
   
     Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/limit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limit
   
 
     
@@ -1885,10 +1915,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#update-elasticsearch-ubuntu-only" class="md-nav__link">
+  <a href="#update-elasticsearch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Update Elasticsearch (Ubuntu only!)
+        Update Elasticsearch
       
     </span>
   </a>
@@ -2018,68 +2048,90 @@ valet.sh<span class="w"> </span>service<span class="w"> </span>disable<span clas
 <span class="c1"># start and enable elasticsearch 5</span>
 valet.sh<span class="w"> </span>service<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>elasticsearch5
 </code></pre></div>
-<h2 id="update-elasticsearch-ubuntu-only">Update Elasticsearch (Ubuntu only!)</h2>
-<p>We do not have any update mechanism for minor or patch level releases at this point of time. To enforce an update simply stop the daemon and remove the package directory, <code>valet.sh install</code> will reinstall deleted elasticsearch version. </p>
+<h2 id="update-elasticsearch">Update Elasticsearch</h2>
+<p>Each Elasticsearch/OpenSearch version is shipped as a container with a fixed image tag pinned by valet.sh itself
+(e.g. <code>elasticsearch:8.19.18</code>) - there is no automatic or forced update mechanism for minor or patch level releases.
+A newer patch/minor version only becomes available once a valet.sh release bumps that pinned tag.</p>
+<p>To pick up such an update, first update valet.sh itself via <em><a href="../../commands/self-upgrade/">self-upgrade</a></em>, then
+re-run <em><a href="../../commands/install/">install</a></em> for the affected version - since the service is already installed, this
+re-pulls the (now updated) image and recreates the container.</p>
+<p>Example commands for updating <strong>elasticsearch 5</strong>
+<div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>self-upgrade
+valet.sh<span class="w"> </span>install<span class="w"> </span>elasticsearch5
+</code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The service's data lives in a dedicated container volume, not in the container image, so updating to a newer
+pinned version does not delete your data.</p>
+</div>
+<p>If you want to fully reset a version instead, including its data, uninstall it with <code>--purge</code> and reinstall it:
+<div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>uninstall<span class="w"> </span>elasticsearch5<span class="w"> </span>--purge
+valet.sh<span class="w"> </span>install<span class="w"> </span>elasticsearch5
+</code></pre></div></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>all data in the affected version will be lost!</p>
+<p><code>--purge</code> removes the container volume, deleting all indexed data for the affected version irreversibly!</p>
 </div>
-<p>Example commands for reinstalling <strong>elasticsearch 5</strong>
-<div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>service<span class="w"> </span>disable<span class="w"> </span>elasticsearch5
-rm<span class="w"> </span>-r<span class="w"> </span>/usr/local/valet-sh/packages/elasticsearch5
-valet.sh<span class="w"> </span>install
-</code></pre></div></p>
 <h2 id="plugins">Plugins</h2>
-<p>The plugins <strong>analysis-phonetic</strong> and <strong>analysis-icu</strong> are installed by default for every Elasticsearch version. More plugins can be installed by the default plugin install executable.</p>
-<p>elasticsearch pugin installation on Ubuntu
+<p>The plugins <strong>analysis-phonetic</strong> and <strong>analysis-icu</strong> are installed by default for every
+Elasticsearch and OpenSearch version. Since both services run as containers, additional plugins are installed by
+executing the plugin binary inside the running service container, and the container needs to be restarted
+afterwards for the change to take effect (e.g. <code>valet.sh service restart elasticsearch7</code>).</p>
+<p>elasticsearch/opensearch plugin installation on Ubuntu (via <code>podman exec</code>)
 <div class="highlight"><pre><span></span><code><span class="c1"># elasticsearch 1</span>
-/usr/local/valet-sh/packages/elasticsearch1/bin/plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+podman<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>vsh-elasticsearch1<span class="w"> </span>/usr/share/elasticsearch/bin/plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 
 <span class="c1"># elasticsearch 2</span>
-/usr/local/valet-sh/packages/elasticsearch2/bin/plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+podman<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>vsh-elasticsearch2<span class="w"> </span>/usr/share/elasticsearch/bin/plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 
 <span class="c1"># elasticsearch 5</span>
-/usr/local/valet-sh/packages/elasticsearch5/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+podman<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>vsh-elasticsearch5<span class="w"> </span>/usr/share/elasticsearch/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 
 <span class="c1"># elasticsearch 6</span>
-/usr/local/valet-sh/packages/elasticsearch6/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+podman<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>vsh-elasticsearch6<span class="w"> </span>/usr/share/elasticsearch/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 
 <span class="c1"># elasticsearch 7</span>
-/usr/local/valet-sh/packages/elasticsearch7/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+podman<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>vsh-elasticsearch7<span class="w"> </span>/usr/share/elasticsearch/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 
 <span class="c1"># elasticsearch 8</span>
-/usr/local/valet-sh/packages/elasticsearch8/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+podman<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>vsh-elasticsearch8<span class="w"> </span>/usr/share/elasticsearch/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 
 <span class="c1"># opensearch 1</span>
-/usr/local/valet-sh/packages/opensearch1/bin/opensearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+podman<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>vsh-opensearch1<span class="w"> </span>/usr/share/opensearch/bin/opensearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 
 <span class="c1"># opensearch 2</span>
-/usr/local/valet-sh/packages/opensearch2/bin/opensearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+podman<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>vsh-opensearch2<span class="w"> </span>/usr/share/opensearch/bin/opensearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+
+<span class="c1"># opensearch 3</span>
+podman<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>vsh-opensearch3<span class="w"> </span>/usr/share/opensearch/bin/opensearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 </code></pre></div></p>
-<p>elasticsearch pugin installation on MacOS
+<p>elasticsearch/opensearch plugin installation on macOS (via <code>container exec</code>)
 <div class="highlight"><pre><span></span><code><span class="c1"># elasticsearch 1</span>
-/usr/local/opt/vsh-elasticsearch1/libexec/bin/plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+container<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>root<span class="w"> </span>vsh-elasticsearch1<span class="w"> </span>/usr/share/elasticsearch/bin/plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 
 <span class="c1"># elasticsearch 2</span>
-/usr/local/opt/vsh-elasticsearch2/libexec/bin/plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+container<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>root<span class="w"> </span>vsh-elasticsearch2<span class="w"> </span>/usr/share/elasticsearch/bin/plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 
 <span class="c1"># elasticsearch 5</span>
-/usr/local/opt/vsh-elasticsearch5/libexec/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+container<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>root<span class="w"> </span>vsh-elasticsearch5<span class="w"> </span>/usr/share/elasticsearch/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 
 <span class="c1"># elasticsearch 6</span>
-/usr/local/opt/vsh-elasticsearch6/libexec/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+container<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>root<span class="w"> </span>vsh-elasticsearch6<span class="w"> </span>/usr/share/elasticsearch/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 
 <span class="c1"># elasticsearch 7</span>
-/usr/local/opt/vsh-elasticsearch7/libexec/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+container<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>root<span class="w"> </span>vsh-elasticsearch7<span class="w"> </span>/usr/share/elasticsearch/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 
 <span class="c1"># elasticsearch 8</span>
-/usr/local/opt/vsh-elasticsearch8/libexec/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+container<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>root<span class="w"> </span>vsh-elasticsearch8<span class="w"> </span>/usr/share/elasticsearch/bin/elasticsearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 
 <span class="c1"># opensearch 1</span>
-/usr/local/opt/vsh-opensearch1/libexec/bin/opensearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+container<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>root<span class="w"> </span>vsh-opensearch1<span class="w"> </span>/usr/share/opensearch/bin/opensearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 
 <span class="c1"># opensearch 2</span>
-/usr/local/opt/vsh-opensearch2/libexec/bin/opensearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+container<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>root<span class="w"> </span>vsh-opensearch2<span class="w"> </span>/usr/share/opensearch/bin/opensearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
+
+<span class="c1"># opensearch 3</span>
+container<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--user<span class="w"> </span>root<span class="w"> </span>vsh-opensearch3<span class="w"> </span>/usr/share/opensearch/bin/opensearch-plugin<span class="w"> </span>install<span class="w"> </span>&lt;pluginname&gt;
 </code></pre></div></p>
 
 

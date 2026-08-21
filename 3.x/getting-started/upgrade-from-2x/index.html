@@ -1338,6 +1338,8 @@
       
         
       
+        
+      
     
     
     
@@ -1514,6 +1516,34 @@
     
   
     Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/limit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limit
   
 
     
@@ -2516,11 +2546,6 @@ there is no upgrade path and no 3.x support for your machine. See <em><a href=".
 <td><em><a href="../../services/mailpit/">Mailpit</a></em> (<code>mailpit.test</code>)</td>
 </tr>
 <tr>
-<td>MariaDB 10.4</td>
-<td>available</td>
-<td>deprecated and disabled</td>
-</tr>
-<tr>
 <td>RabbitMQ web interface</td>
 <td><code>rabbitmq.test</code></td>
 <td>one host per version, e.g. <code>rabbitmq313.test</code></td>
@@ -2703,28 +2728,23 @@ only talks to the <strong>default</strong> database service. For every other ver
 below.</p>
 </div>
 <p>To export <strong>all</strong> databases of one specific version - here MySQL 8.0 on port 3308 - into one file per database:</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>db<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>mysql8.0<span class="w"> </span>-h127.0.0.1<span class="w"> </span>-P3308<span class="w"> </span>-uroot<span class="w"> </span>-proot<span class="w"> </span>-N<span class="w"> </span>-B<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;SHOW DATABASES&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-Ev<span class="w"> </span><span class="s1">&#39;^(information_schema|performance_schema|mysql|sys)$&#39;</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;dumping </span><span class="si">${</span><span class="nv">db</span><span class="si">}</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>db<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>mysql8.0<span class="w"> </span>-h127.0.0.1<span class="w"> </span>-P3308<span class="w"> </span>-uroot<span class="w"> </span>-proot<span class="w"> </span>-N<span class="w"> </span>-B<span class="w"> </span>-e<span class="w"> </span><span class="s2">"SHOW DATABASES"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-Ev<span class="w"> </span><span class="s1">'^(information_schema|performance_schema|mysql|sys)$'</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"dumping </span><span class="si">${</span><span class="nv">db</span><span class="si">}</span><span class="s2">"</span>
 <span class="w">  </span>mysqldump8.0<span class="w"> </span>-h127.0.0.1<span class="w"> </span>-P3308<span class="w"> </span>-uroot<span class="w"> </span>-proot<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--single-transaction<span class="w"> </span>--no-tablespaces<span class="w"> </span>--routines<span class="w"> </span>--events<span class="w"> </span>--triggers<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">db</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>gzip<span class="w"> </span>&gt;<span class="w"> </span>~/valet-sh-2x-backup/mysql80-<span class="s2">&quot;</span><span class="si">${</span><span class="nv">db</span><span class="si">}</span><span class="s2">&quot;</span>.sql.gz
+<span class="w">    </span><span class="s2">"</span><span class="si">${</span><span class="nv">db</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>gzip<span class="w"> </span>&gt;<span class="w"> </span>~/valet-sh-2x-backup/mysql80-<span class="s2">"</span><span class="si">${</span><span class="nv">db</span><span class="si">}</span><span class="s2">"</span>.sql.gz
 <span class="k">done</span>
 </code></pre></div>
 <p>The internal schemas (<code>information_schema</code>, <code>performance_schema</code>, <code>mysql</code>, <code>sys</code>) are skipped on purpose - they must
 not be restored into a fresh 3.x service. For MariaDB, use the matching client and port, e.g.
 <code>mariadump10.6 -h127.0.0.1 -P3319 ...</code>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>MariaDB 10.4 can no longer be installed in 3.x. If you still run databases on 10.4, export them now and restore
-them into a newer MariaDB version afterwards.</p>
-</div>
 <h3 id="verify-your-dumps">Verify your dumps</h3>
 <p>A broken dump is only noticed once you need it, so check the archives before you continue:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># all archives readable?</span>
 gzip<span class="w"> </span>-t<span class="w"> </span>~/valet-sh-2x-backup/*.sql.gz
 
-<span class="c1"># every dump should end with &quot;Dump completed&quot;</span>
+<span class="c1"># every dump should end with "Dump completed"</span>
 zcat<span class="w"> </span>~/valet-sh-2x-backup/mysql80-projectx.sql.gz<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-3
 
 <span class="c1"># and it should not be suspiciously small</span>
@@ -2798,7 +2818,7 @@ valet.sh<span class="w"> </span>service<span class="w"> </span>default<span clas
 <div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>db<span class="w"> </span>import<span class="w"> </span>~/valet-sh-2x-backup/mysql80-projectx.sql.gz<span class="w"> </span>projectx
 </code></pre></div>
 <p>Into a specific version - the clients run inside the container, so no host or port is needed:</p>
-<div class="highlight"><pre><span></span><code>mysql8.0<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;CREATE DATABASE IF NOT EXISTS projectx&quot;</span>
+<div class="highlight"><pre><span></span><code>mysql8.0<span class="w"> </span>-e<span class="w"> </span><span class="s2">"CREATE DATABASE IF NOT EXISTS projectx"</span>
 zcat<span class="w"> </span>~/valet-sh-2x-backup/mysql80-projectx.sql.gz<span class="w"> </span><span class="p">|</span><span class="w"> </span>mysql8.0<span class="w"> </span>projectx
 </code></pre></div>
 <div class="admonition note">
@@ -2809,8 +2829,8 @@ zcat<span class="w"> </span>~/valet-sh-2x-backup/mysql80-projectx.sql.gz<span cl
 <h3 id="rabbitmq_1">RabbitMQ</h3>
 <p>Import the definitions you exported, using the web interface of the version you installed (e.g.
 <code>rabbitmq313.test</code> for RabbitMQ 3.13):</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-u<span class="w"> </span>guest:guest<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;@</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/valet-sh-2x-backup/rabbitmq-definitions.json&quot;</span><span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-u<span class="w"> </span>guest:guest<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s2">"@</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/valet-sh-2x-backup/rabbitmq-definitions.json"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>https://rabbitmq313.test/api/definitions
 </code></pre></div>
 <h3 id="search-indexes-and-caches">Search indexes and caches</h3>

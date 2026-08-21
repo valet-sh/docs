@@ -985,6 +985,8 @@
       
         
       
+        
+      
     
     
     
@@ -1161,6 +1163,34 @@
     
   
     Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/limit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limit
   
 
     
@@ -2111,12 +2141,12 @@ brew<span class="w"> </span>install<span class="w"> </span>graphviz
 <span class="gh">index f21d32f..71c89e7 100644</span>
 <span class="gd">--- a/xhprof_html/index.php</span>
 <span class="gi">+++ b/xhprof_html/index.php</span>
-<span class="gu">@@ -80,7 +80,7 @@ $vbbar = &#39; class=&quot;vbbar&quot;&#39;;</span>
-<span class="w"> </span>$vrbar = &#39; class=&quot;vrbar&quot;&#39;;
-<span class="w"> </span>$vgbar = &#39; class=&quot;vgbar&quot;&#39;;
+<span class="gu">@@ -80,7 +80,7 @@ $vbbar = ' class="vbbar"';</span>
+<span class="w"> </span>$vrbar = ' class="vrbar"';
+<span class="w"> </span>$vgbar = ' class="vgbar"';
 
 <span class="gd">-$xhprof_runs_impl = new XHProfRuns_Default();</span>
-<span class="gi">+$xhprof_runs_impl = new XHProfRuns_Default(__DIR__.&#39;/files&#39;);</span>
+<span class="gi">+$xhprof_runs_impl = new XHProfRuns_Default(__DIR__.'/files');</span>
 
 <span class="w"> </span>displayXHProfReport($xhprof_runs_impl, $params, $source, $run, $wts,
 <span class="w"> </span>                    $symbol, $sort, $run1, $run2);
@@ -2127,18 +2157,18 @@ brew<span class="w"> </span>install<span class="w"> </span>graphviz
 <span class="gu">@@ -908,7 +908,7 @@ function xhprof_param_init($params) {</span>
 <span class="w"> </span>    }
 
-<span class="w"> </span>    if ($k === &#39;run&#39;) {
-<span class="gd">-      $p = implode(&#39;,&#39;, array_filter(explode(&#39;,&#39;, $p), &#39;ctype_xdigit&#39;));</span>
-<span class="gi">+      #$p = implode(&#39;,&#39;, array_filter(explode(&#39;,&#39;, $p), &#39;ctype_xdigit&#39;));</span>
+<span class="w"> </span>    if ($k === 'run') {
+<span class="gd">-      $p = implode(',', array_filter(explode(',', $p), 'ctype_xdigit'));</span>
+<span class="gi">+      #$p = implode(',', array_filter(explode(',', $p), 'ctype_xdigit'));</span>
 <span class="w"> </span>    }
 
-<span class="w"> </span>    if ($k == &#39;symbol&#39;) {
+<span class="w"> </span>    if ($k == 'symbol') {
 </code></pre></div>
 <h3 id="usage">Usage</h3>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
 
 <span class="c1">// check if we need to profile this page using xhprof</span>
-<span class="nv">$useXhprof</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;XHPROF_ENABLE&#39;</span><span class="p">]);</span>
+<span class="nv">$useXhprof</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'XHPROF_ENABLE'</span><span class="p">]);</span>
 
 <span class="c1">// enable xhprof</span>
 <span class="k">if</span> <span class="p">(</span><span class="nv">$useXhprof</span><span class="p">)</span> <span class="p">{</span>
@@ -2152,10 +2182,10 @@ brew<span class="w"> </span>install<span class="w"> </span>graphviz
     <span class="nb">file_put_contents</span><span class="p">(</span>
         <span class="nb">sys_get_temp_dir</span><span class="p">()</span> <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span>
         <span class="nb">sprintf</span><span class="p">(</span>
-            <span class="s1">&#39;profiling_%s_%s.%s.xhprof&#39;</span><span class="p">,</span>
-            <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;Y-m-d-His&#39;</span><span class="p">),</span>
-            <span class="nb">trim</span><span class="p">(</span><span class="nb">preg_replace</span><span class="p">(</span><span class="s1">&#39;/[^a-z0-9]/i&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REQUEST_URI&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;_&#39;</span><span class="p">),</span>
-            <span class="nb">trim</span><span class="p">(</span><span class="nb">preg_replace</span><span class="p">(</span><span class="s1">&#39;/[^a-z0-9]/i&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_HOST&#39;</span><span class="p">]),</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span>
+            <span class="s1">'profiling_%s_%s.%s.xhprof'</span><span class="p">,</span>
+            <span class="nb">date</span><span class="p">(</span><span class="s1">'Y-m-d-His'</span><span class="p">),</span>
+            <span class="nb">trim</span><span class="p">(</span><span class="nb">preg_replace</span><span class="p">(</span><span class="s1">'/[^a-z0-9]/i'</span><span class="p">,</span> <span class="s1">'_'</span><span class="p">,</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">'?'</span><span class="p">,</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_URI'</span><span class="p">])[</span><span class="mi">0</span><span class="p">]),</span> <span class="s1">'_'</span><span class="p">),</span>
+            <span class="nb">trim</span><span class="p">(</span><span class="nb">preg_replace</span><span class="p">(</span><span class="s1">'/[^a-z0-9]/i'</span><span class="p">,</span> <span class="s1">'_'</span><span class="p">,</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'HTTP_HOST'</span><span class="p">]),</span> <span class="s1">'_'</span><span class="p">)</span>
         <span class="p">),</span>
         <span class="nb">serialize</span><span class="p">(</span><span class="nb">xhprof_disable</span><span class="p">())</span>
     <span class="p">);</span>

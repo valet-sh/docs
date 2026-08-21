@@ -987,6 +987,8 @@
       
         
       
+        
+      
     
     
     
@@ -1163,6 +1165,34 @@
     
   
     Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../limit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limit
   
 
     
@@ -2108,8 +2138,7 @@ data services run as containers, everything else runs natively:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>On Ubuntu the containers are started by systemd user units and are removed again when they stop, so <code>podman ps</code>
-only ever shows the services that are currently running - not even <code>podman ps -a</code> lists the stopped ones. Use
-<code>systemctl --user list-units 'vsh-*'</code> if you want to see the state of every managed service.</p>
+only ever shows the services that are currently running</p>
 </div>
 <h3 id="enable">enable</h3>
 <p>start the service and put in autostart

@@ -1056,6 +1056,8 @@
       
         
       
+        
+      
     
     
     
@@ -1232,6 +1234,34 @@
     
   
     Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/limit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limit
   
 
     
@@ -1900,13 +1930,13 @@ search engine, cache or anything else is installed yet. Install only what you ac
 </code></pre></div>
 <p>Once a service is installed, use <strong>valet.sh service list</strong> to see all installed services and their
 state. Use <strong>valet.sh service enable <service></strong> respectively <strong>valet.sh service disable <service></strong> to enable or disable one, and <strong>valet.sh service default <service></strong> to set a service as the default for its family, e.g.:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># select php81 as default version. If you run &quot;PHP&quot; on the console you will automatically get PHP 8.1. All other installed versions can still be reached via the version e.g. php7.4</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># select php81 as default version. If you run "PHP" on the console you will automatically get PHP 8.1. All other installed versions can still be reached via the version e.g. php7.4</span>
 valet.sh<span class="w"> </span>service<span class="w"> </span>default<span class="w"> </span>php81
 
 <span class="c1"># select elasticsearch7 as default version. Elasticsearch 7 now running on port 9200, but all other version can still be reached via their own ports</span>
 valet.sh<span class="w"> </span>service<span class="w"> </span>default<span class="w"> </span>elasticsearch7
 
-<span class="c1"># select mysql57 as default version. MySQL 5.7 now running on port 3306 and you will reach it on CLI automatically via &quot;mysql&quot;</span>
+<span class="c1"># select mysql57 as default version. MySQL 5.7 now running on port 3306 and you will reach it on CLI automatically via "mysql"</span>
 valet.sh<span class="w"> </span>service<span class="w"> </span>default<span class="w"> </span>mysql57
 </code></pre></div>
 <p>If you have any questions about the available services or versions, please check out the <em><a href="../../services/">service documentation</a></em>.</p>
