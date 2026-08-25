@@ -30,3 +30,14 @@
     color: green;
     font-size: 1.5em;
 }
+
+/* Announcement bar (see overrides/main.html) */
+.md-banner {
+    background-color: #56BCAB;
+    color: rgba(0, 0, 0, .87);
+}
+
+.md-banner .md-typeset a {
+    color: rgba(0, 0, 0, .87);
+    text-decoration: underline;
+}
