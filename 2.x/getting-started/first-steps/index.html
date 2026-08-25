@@ -83,6 +83,19 @@
     </div>
     <div data-md-component="announce">
       
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  A new major release is on its way: <strong>valet.sh 3.x</strong> is under active development.
+  <a href="../../../3.x/">
+    <strong>Take a look at the 3.x documentation.</strong>
+  </a>
+
+          </div>
+          
+        </aside>
+      
     </div>
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
@@ -1825,13 +1838,13 @@
 <p>valet.sh comes with a bunch of services that can require a lot amount of RAM and CPU.
 Therefore you should disable/enable only the services you really need. Use <strong>valet.sh service list</strong> to get a list of all services and their states. Use <strong>valet.sh service enable <service></strong> respectively <strong>valet.sh service disable <service></strong>  enable or disable a service.</p>
 <p>You can find more information about handling service status <em><a href="../../services/">here</a></em>.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># select php7.4 as default version. If you run &quot;PHP&quot; on the console you will automatically get PHP 7.4. All other versions can still be reached via the version e.g. php7.2</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># select php7.4 as default version. If you run "PHP" on the console you will automatically get PHP 7.4. All other versions can still be reached via the version e.g. php7.2</span>
 valet.sh<span class="w"> </span>service<span class="w"> </span>default<span class="w"> </span>php74
 
 <span class="c1"># select elasticsearch7 as default version. Elasticsearch 7 now running on port 9200, but all other version can still be reached via their own ports</span>
 valet.sh<span class="w"> </span>service<span class="w"> </span>default<span class="w"> </span>elasticsearch7
 
-<span class="c1"># select mysql80 as default version. MySQL 8.0 now running on port 3306 and you will reach it on CLI automatically via &quot;mysql&quot;</span>
+<span class="c1"># select mysql80 as default version. MySQL 8.0 now running on port 3306 and you will reach it on CLI automatically via "mysql"</span>
 valet.sh<span class="w"> </span>service<span class="w"> </span>default<span class="w"> </span>mysql80
 </code></pre></div>
 <p>If you have any questions about the available services or versions, please check out the <em><a href="../../services/">service documentation</a></em>.</p>

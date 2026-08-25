@@ -83,6 +83,19 @@
     </div>
     <div data-md-component="announce">
       
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  A new major release is on its way: <strong>valet.sh 3.x</strong> is under active development.
+  <a href="../../../3.x/">
+    <strong>Take a look at the 3.x documentation.</strong>
+  </a>
+
+          </div>
+          
+        </aside>
+      
     </div>
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
@@ -1735,14 +1748,14 @@
 Please create backups for the databases you need and delete all databases before proceeding.</p>
 </div>
 <p>Ensure Command Line Tools are installed
-<div class="highlight"><pre><span></span><code>xcode-select<span class="w"> </span>--install<span class="w"> </span><span class="c1"># if this fails, download and install &quot;Command Line Tools for Xcode 12&quot; (or whatever version your OS needs) via https://developer.apple.com/download/more/</span>
+<div class="highlight"><pre><span></span><code>xcode-select<span class="w"> </span>--install<span class="w"> </span><span class="c1"># if this fails, download and install "Command Line Tools for Xcode 12" (or whatever version your OS needs) via https://developer.apple.com/download/more/</span>
 </code></pre></div></p>
 <p>Uninstall valet-plus
 <div class="highlight"><pre><span></span><code>valet<span class="w"> </span>stop
 composer<span class="w"> </span>global<span class="w"> </span>remove<span class="w"> </span>techdivision/valet-plus
 rm<span class="w"> </span>-rf<span class="w"> </span>~/.valet
 rm<span class="w"> </span>-f<span class="w"> </span>/usr/local/var/log/php-fpm.log
-sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/^conf-file=/#conf-file=/g&#39;</span><span class="w"> </span>/usr/local/etc/dnsmasq.conf
+sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">'s/^conf-file=/#conf-file=/g'</span><span class="w"> </span>/usr/local/etc/dnsmasq.conf
 unsetopt<span class="w"> </span>NOMATCH<span class="p">;</span><span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>/Library/LaunchDaemons/homebrew.mxcl.php*<span class="w"> </span><span class="m">2</span><span class="p">&amp;</span>&gt;1<span class="p">;</span><span class="w"> </span>setopt<span class="w"> </span>NOMATCH
 </code></pre></div></p>
 <p>Uninstall valet.sh 1.x
@@ -1770,7 +1783,7 @@ brew<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&
 brew<span class="w"> </span>doctor
 brew<span class="w"> </span>cleanup
 
-/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/valet-sh/install/master/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/valet-sh/install/master/install.sh<span class="k">)</span><span class="s2">"</span>
 valet.sh<span class="w"> </span>self-upgrade
 valet.sh<span class="w"> </span>install
 </code></pre></div></p>
