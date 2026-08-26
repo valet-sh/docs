@@ -257,7 +257,7 @@ valet.sh install
 Use the list from *[step 1](#1-take-stock-of-your-current-setup)* and install the same set of services again:
 
 ```bash
-valet.sh install php83,mysql80,elasticsearch7
+valet.sh install php83,composer2,mysql80,elasticsearch7
 ```
 
 For a project with a *[.valet-sh.yml](../how-to-articles/project-configuration-via-valet-sh-yml.md)* you can let
