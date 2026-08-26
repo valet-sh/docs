@@ -2,194 +2,194 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://valet.sh/3.x/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/changelog/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/imprint/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/privacy/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/commands/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/commands/config/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/commands/db/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/commands/init-instance/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/commands/init/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/commands/install/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/commands/limit/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/commands/link/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/commands/links/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/commands/self-upgrade/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/commands/service/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/commands/uninstall/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/commands/unlink/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/commands/update-dev-ca/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/commands/xdebug/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/getting-started/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/getting-started/first-steps/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/getting-started/installation/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/getting-started/support-matrix/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/getting-started/upgrade-from-2x/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/getting-started/whats-new/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/how-to-articles/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/how-to-articles/how-to-use-the-development-branch-of-valet-sh/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/how-to-articles/install-and-use-profiler-xhprof-or-blackfire/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/how-to-articles/install-ioncube-loader/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/how-to-articles/migrate-from-valet-plus-to-valet-sh/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/how-to-articles/migration-cheatsheet-from-valet-plus-to-valet-sh/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/how-to-articles/project-configuration-via-valet-sh-yml/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/how-to-articles/setup-a-magento-project/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/how-to-articles/upgrade-valet-sh/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/services/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/services/composer/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/services/elasticsearch/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/services/mailhog/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/services/mailpit/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/services/mariadb/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/services/mysql/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/services/nginx/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/services/nodejs/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/services/opensearch/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/services/php/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/services/rabbitmq/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/services/redis/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
     <url>
          <loc>https://valet.sh/3.x/services/valkey/</loc>
-         <lastmod>2026-08-21</lastmod>
+         <lastmod>2026-08-26</lastmod>
     </url>
 </urlset>
