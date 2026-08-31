@@ -344,18 +344,44 @@ search client configuration of your own. `localhost` still does not work - use `
 
 ## Clean up 2.x leftovers
 
-Your 2.x data directories are not deleted by the upgrade. Once you have verified that everything works again, you
-can reclaim that disk space. Typical locations:
+Your 2.x data directories are not deleted by the upgrade. Once you have verified that everything works again,
+you can reclaim that disk space by safely removing these directories:
+
+!!! warning
+    Deleting these directories is irreversible. Only proceed after you have:
+        - Restored your data to the new 3.x installation
+        - Confirmed that all your projects work with the new version
+        - Backed up any critical data you may need
+
 
 | Service | macOS | Ubuntu |
 |---------|-------|--------|
 | MySQL 8.0 | /usr/local/var/vsh-mysql80 | /usr/local/valet-sh/packages/mysql80/data |
 | MariaDB 10.6 | /usr/local/var/vsh-mariadb106 | /usr/local/valet-sh/packages/mariadb106/data |
-| Elasticsearch 7 | /usr/local/valet-sh/packages/elasticsearch7/data | /usr/local/valet-sh/packages/elasticsearch7/data |
+| Elasticsearch 7 | /usr/local/var/elasticsearch7/data | /usr/local/valet-sh/packages/elasticsearch7/data |
 
-!!! warning
-    Deleting these directories is irreversible. Only do it after you have restored your data and confirmed that your
-    projects work.
+### Cleanup instructions
+
+#### macOS cleanup
+
+```bash
+rm -rf /usr/local/var/vsh-mysql80
+rm -rf /usr/local/var/vsh-mariadb106
+
+# or remove all vsh-* directories at once with wildcard
+sudo rm -rf /usr/local/var/vsh-*
+```
+
+#### Ubuntu cleanup
+
+```bash
+rm -rf /usr/local/valet-sh/packages-migrated-v2/mysql80/data
+rm -rf /usr/local/valet-sh/packages-migrated-v2/mariadb106/data
+
+# or remove all data directories at once with wildcard
+rm -rf /usr/local/valet-sh/packages-migrated-v2
+```
+
 
 ## Troubleshooting
 
