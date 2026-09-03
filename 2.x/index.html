@@ -1866,6 +1866,30 @@
 
 
 <h1 id="welcome-to-valetsh">Welcome to valet.sh</h1>
+<div class="admonition danger">
+<p class="admonition-title">macOS: valet.sh 2.x has reached the end of its technical life</p>
+<p>valet.sh 2.x builds its whole macOS environment on the <strong>x86_64 build of Homebrew</strong> - natively on Intel Macs,
+and through Rosetta 2 on Apple Silicon. In September 2026 Homebrew moved macOS Intel <code>x86_64</code> to
+<em><a href="https://docs.brew.sh/Support-Tiers">Tier 3</a></em> and <strong>stopped building new bottles</strong> (pre-compiled packages)
+for it.</p>
+<p>Central dependencies of valet.sh - among them <code>openssl@3</code>, <code>curl</code> and <code>pcre2</code> - already have no Intel package
+left. They now have to be compiled from source on every machine, which is slow and increasingly likely to
+fail. Packages that still resolve today only do so because an old bottle is left over; none of them will ever
+be rebuilt.</p>
+<p>This is outside our control and it cannot be solved within 2.x. Homebrew will
+<strong>remove the ability to run on Intel <code>x86_64</code> altogether in or after September 2027</strong>, and Apple will largely
+drop Rosetta 2 with macOS 28. <strong>valet.sh 2.x therefore receives no further maintenance on macOS.</strong></p>
+<p><strong>What this means for you</strong></p>
+<ul>
+<li><strong>Apple Silicon</strong> - switch to <em><a href="https://valet.sh/3.x/">valet.sh 3.x</a></em>. It runs natively on arm64, no longer
+  needs Rosetta 2 and runs its data services in containers instead of Homebrew packages. See the
+  <em><a href="https://valet.sh/3.x/getting-started/upgrade-from-2x/">Upgrade guide</a></em>.</li>
+<li><strong>Intel Mac</strong> - there is no upgrade path, valet.sh 3.x supports Apple Silicon only. An existing 2.x
+  installation keeps working as long as its installed packages do, but avoid <code>brew upgrade</code> and expect
+  installations of additional services to fail.</li>
+<li><strong>Ubuntu</strong> - not affected. The Linux side of valet.sh 2.x does not use Homebrew.</li>
+</ul>
+</div>
 <h2 id="why-valetsh">Why valet.sh?</h2>
 <p>valet.sh supports software developers to concentrate fully on their daily challenges without having to worry about how to install and properly configure the necessary services on various operating systems for many different projects and requirements. Unlike other tools which provides development environments, valet.sh provides all necessary services such as PHP, MySQL and Elasticsearch in all important versions in parallel without having to make sluggish and error-prone system-side changes.</p>
 <h2 id="how-valetsh-works">How valet.sh Works</h2>
