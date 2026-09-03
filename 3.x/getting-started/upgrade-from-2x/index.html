@@ -716,6 +716,51 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Clean up 2.x leftovers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cleanup-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleanup instructions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cleanup instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macos-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        macOS cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubuntu-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ubuntu cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2432,6 +2477,51 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Clean up 2.x leftovers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cleanup-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleanup instructions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cleanup instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macos-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        macOS cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubuntu-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ubuntu cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2885,8 +2975,15 @@ search client configuration of your own. <code>localhost</code> still does not w
 already contain the correct host.</p>
 </div>
 <h2 id="clean-up-2x-leftovers">Clean up 2.x leftovers</h2>
-<p>Your 2.x data directories are not deleted by the upgrade. Once you have verified that everything works again, you
-can reclaim that disk space. Typical locations:</p>
+<p>Your 2.x data directories are not deleted by the upgrade. Once you have verified that everything works again,
+you can reclaim that disk space by safely removing these directories:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Deleting these directories is irreversible. Only proceed after you have:
+    - Restored your data to the new 3.x installation
+    - Confirmed that all your projects work with the new version
+    - Backed up any critical data you may need</p>
+</div>
 <table>
 <thead>
 <tr>
@@ -2908,16 +3005,26 @@ can reclaim that disk space. Typical locations:</p>
 </tr>
 <tr>
 <td>Elasticsearch 7</td>
-<td>/usr/local/valet-sh/packages/elasticsearch7/data</td>
+<td>/usr/local/var/elasticsearch7/data</td>
 <td>/usr/local/valet-sh/packages/elasticsearch7/data</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Deleting these directories is irreversible. Only do it after you have restored your data and confirmed that your
-projects work.</p>
-</div>
+<h3 id="cleanup-instructions">Cleanup instructions</h3>
+<h4 id="macos-cleanup">macOS cleanup</h4>
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-rf<span class="w"> </span>/usr/local/var/vsh-mysql80
+rm<span class="w"> </span>-rf<span class="w"> </span>/usr/local/var/vsh-mariadb106
+
+<span class="c1"># or remove all vsh-* directories at once with wildcard</span>
+sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/usr/local/var/vsh-*
+</code></pre></div>
+<h4 id="ubuntu-cleanup">Ubuntu cleanup</h4>
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-rf<span class="w"> </span>/usr/local/valet-sh/packages-migrated-v2/mysql80/data
+rm<span class="w"> </span>-rf<span class="w"> </span>/usr/local/valet-sh/packages-migrated-v2/mariadb106/data
+
+<span class="c1"># or remove all data directories at once with wildcard</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>/usr/local/valet-sh/packages-migrated-v2
+</code></pre></div>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p><strong>A client reports that the container is not running.</strong>
 Check the state of your services with <code>valet.sh service list</code> and start the one you need,
