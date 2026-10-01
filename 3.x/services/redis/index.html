@@ -971,6 +971,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Access Redis/Valkey">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version-specific-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version specific CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1890,6 +1918,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Access Redis/Valkey">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version-specific-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version specific CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1936,14 +1992,14 @@ address and is reachable via its DNS name in the <code>.vsh</code> domain, using
 <tr>
 <td>Redis</td>
 <td>6</td>
-<td>127.0.0.1:6379</td>
-<td>vsh-redis6.vsh:6379</td>
+<td>127.0.0.1:6380</td>
+<td>vsh-redis6.vsh:6380</td>
 </tr>
 <tr>
 <td>Redis</td>
 <td>7</td>
-<td>127.0.0.1:6380</td>
-<td>vsh-redis7.vsh:6380</td>
+<td>127.0.0.1:6381</td>
+<td>vsh-redis7.vsh:6381</td>
 </tr>
 <tr>
 <td>Valkey</td>
@@ -1959,6 +2015,17 @@ address and is reachable via its DNS name in the <code>.vsh</code> domain, using
 </tr>
 </tbody>
 </table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>On macOS every installed cache version is additionally proxied to <code>127.0.0.1</code> on the same port (e.g.
+<code>127.0.0.1:6389</code> for Valkey 8), and the current default of the <code>cache</code> family is reachable via TCP port
+<strong>6379</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unlike in 2.x, no cache service listens on port <strong>6379</strong> on Ubuntu - always use the version
+specific port there.</p>
+</div>
 <h2 id="manage-services">Manage services</h2>
 <p>Whichever version you install first becomes the default within the <code>cache</code> family unless you set a different one
 via <em><a href="../../commands/service/">service default</a></em>. You can start/stop and enable/disable each installed version via
@@ -1976,10 +2043,72 @@ valet.sh<span class="w"> </span>service<span class="w"> </span>disable<span clas
 valet.sh<span class="w"> </span>service<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>valkey8
 </code></pre></div>
 <h2 id="access-redisvalkey">Access Redis/Valkey</h2>
-<p>You can also use the cli tools to connect</p>
-<div class="highlight"><pre><span></span><code>redis-cli
-valkey-cli
+<h3 id="version-specific-cli">Version specific CLI</h3>
+<p>For every installed version valet.sh provides a version specific CLI command. It runs <code>redis-cli</code>/<code>valkey-cli</code>
+inside the corresponding container and already points at the right port, so you don't have to pass <code>-h</code>/<code>-p</code>
+yourself.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Version</th>
+<th>CLI command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Redis</td>
+<td>6</td>
+<td><code>redis6-cli</code></td>
+</tr>
+<tr>
+<td>Redis</td>
+<td>7</td>
+<td><code>redis7-cli</code></td>
+</tr>
+<tr>
+<td>Valkey</td>
+<td>8</td>
+<td><code>valkey8-cli</code></td>
+</tr>
+<tr>
+<td>Valkey</td>
+<td>9</td>
+<td><code>valkey9-cli</code></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="c1"># open an interactive session on Valkey 8</span>
+valkey8-cli
+
+<span class="c1"># run a single command against Redis 7</span>
+redis7-cli<span class="w"> </span>ping
+
+<span class="c1"># the commands take all redis-cli/valkey-cli arguments</span>
+valkey8-cli<span class="w"> </span>--scan<span class="w"> </span>--pattern<span class="w"> </span><span class="s1">'zend_cache*'</span>
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The commands execute inside the running container. If the service is stopped or disabled, they abort with
+<code>Error: vsh-valkey8 is not running</code> - start it first, e.g. via <code>valet.sh service enable valkey8</code>.</p>
+</div>
+<h3 id="default-cli">Default CLI</h3>
+<p>In addition there are the plain <code>redis-cli</code> and <code>valkey-cli</code> commands. They do not connect on their own but
+forward to one of the version specific commands above:</p>
+<ol>
+<li>if a <code>.valet-sh.yml</code> exists in the current or parent directory and declares a
+   <em><a href="../../how-to-articles/project-configuration-via-valet-sh-yml/">services &gt; redis &gt; version</a></em> resp.
+   <code>services &gt; valkey &gt; version</code>, the CLI of exactly that version is used</li>
+<li>otherwise the current default of the <code>cache</code> family is used</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/projects/myproject<span class="w">   </span><span class="c1"># .valet-sh.yml declares services &gt; valkey &gt; version: "8"</span>
+valkey-cli<span class="w">                </span><span class="c1"># → valkey8-cli</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Use the version specific command (<code>valkey8-cli</code>, <code>redis6-cli</code>, ...) whenever you want to be sure which
+instance you are talking to - <code>valet.sh service list</code> shows which version is currently the default.</p>
+</div>
 
 
 

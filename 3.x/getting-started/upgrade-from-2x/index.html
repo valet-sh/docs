@@ -2702,8 +2702,13 @@ Every other version is reachable via its container name only:</p>
 </tr>
 <tr>
 <td>Redis 6</td>
-<td>127.0.0.1:6379</td>
-<td>vsh-redis6.vsh:6379</td>
+<td>127.0.0.1:6380</td>
+<td>vsh-redis6.vsh:6380</td>
+</tr>
+<tr>
+<td>Valkey 8</td>
+<td>127.0.0.1:6389</td>
+<td>vsh-valkey8.vsh:6389</td>
 </tr>
 <tr>
 <td>RabbitMQ 3.13 (AMQP)</td>
@@ -2853,6 +2858,15 @@ by valet.sh.</p>
 fills up again. If you do store non-reproducible data in Redis, save it while you are still on 2.x:</p>
 <div class="highlight"><pre><span></span><code>redis-cli<span class="w"> </span>-h<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>-p<span class="w"> </span><span class="m">6379</span><span class="w"> </span>--rdb<span class="w"> </span>~/valet-sh-2x-backup/redis6.rdb
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The ports changed with 3.x: each version now has its own port (Redis 6: 6380, Redis 7: 6381, Valkey 8: 6389,
+Valkey 9: 6390), and on Ubuntu nothing listens on 6379 any more. If your project configuration points at
+<code>127.0.0.1:6379</code>, update it to the port of the version you installed
+(see <em><a href="../../services/redis/">Redis service documentation</a></em>).</p>
+</div>
+<p>On CLI, use the version specific commands <code>redis6-cli</code>, <code>redis7-cli</code>, <code>valkey8-cli</code> or <code>valkey9-cli</code> - they connect
+to the right container and port without any <code>-h</code>/<code>-p</code> arguments.</p>
 <h3 id="rabbitmq">RabbitMQ</h3>
 <p>Queue contents are not worth preserving, but your definitions (vhosts, users, permissions, exchanges, queues,
 bindings) are. Export them from the management interface:</p>
@@ -2958,8 +2972,8 @@ on <code>127.0.0.1</code>. Every other version has to be addressed by its contai
 <td>vsh-elasticsearch7.vsh:9207</td>
 </tr>
 <tr>
-<td>127.0.0.1:6379</td>
-<td>vsh-redis6.vsh:6379</td>
+<td>127.0.0.1:6379 (Redis)</td>
+<td>vsh-redis6.vsh:6380</td>
 </tr>
 <tr>
 <td>127.0.0.1:5674</td>
