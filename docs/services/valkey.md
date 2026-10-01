@@ -7,3 +7,6 @@ hide:
 
 !!! Info
     Valkey is part of the Redis service handling → Please see the Docs for *[Redis](redis.md)*
+
+!!! Info
+    Use `valkey8-cli` or `valkey9-cli` to work with a specific Valkey version on CLI!

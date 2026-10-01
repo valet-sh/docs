@@ -101,6 +101,7 @@ valet.sh service default mysql80
 * PHP: setting a default php only changes the default php on cli. You can still use any other installed PHP versions by appending the version number, e.g. "php7.0"
 * Elasticsearch: the default elasticsearch is listening on port 9200. You can still use any other installed Elasticsearch version by accessing the version specific port (see *[Elasticsearch service documentation](../services/elasticsearch.md)*)
 * MySQL: changes the default mysql command on cli and the version listening on port 3306. You can still access any other installed MySQL versions by appending the version number, e.g "mysql5.7", or using the version specific port (see *[MySQL service documentation](../services/mysql.md)*)
+* Redis/Valkey: changes which version the plain `redis-cli`/`valkey-cli` commands connect to. You can still access any other installed version via its version specific cli command, e.g "valkey8-cli", or its version specific port (see *[Redis service documentation](../services/redis.md)*)
 
 
 !!! warning

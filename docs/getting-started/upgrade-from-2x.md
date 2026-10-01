@@ -75,7 +75,8 @@ Every other version is reachable via its container name only:
 | MySQL 5.7 | 127.0.0.1:3307 | vsh-mysql57.vsh:3307 |
 | MySQL 8.0 | 127.0.0.1:3308 | vsh-mysql80.vsh:3308 |
 | Elasticsearch 7 | 127.0.0.1:9207 | vsh-elasticsearch7.vsh:9207 |
-| Redis 6 | 127.0.0.1:6379 | vsh-redis6.vsh:6379 |
+| Redis 6 | 127.0.0.1:6380 | vsh-redis6.vsh:6380 |
+| Valkey 8 | 127.0.0.1:6389 | vsh-valkey8.vsh:6389 |
 | RabbitMQ 3.13 (AMQP) | 127.0.0.1:5674 | vsh-rabbitmq313.vsh:5674 |
 
 If you are on macOS and your projects address a version-specific port on `127.0.0.1` (e.g. `127.0.0.1:3308`), you
@@ -205,6 +206,15 @@ fills up again. If you do store non-reproducible data in Redis, save it while yo
 redis-cli -h 127.0.0.1 -p 6379 --rdb ~/valet-sh-2x-backup/redis6.rdb
 ```
 
+!!! Warning
+    The ports changed with 3.x: each version now has its own port (Redis 6: 6380, Redis 7: 6381, Valkey 8: 6389,
+    Valkey 9: 6390), and on Ubuntu nothing listens on 6379 any more. If your project configuration points at
+    `127.0.0.1:6379`, update it to the port of the version you installed
+    (see *[Redis service documentation](../services/redis.md)*).
+
+On CLI, use the version specific commands `redis6-cli`, `redis7-cli`, `valkey8-cli` or `valkey9-cli` - they connect
+to the right container and port without any `-h`/`-p` arguments.
+
 ### RabbitMQ
 
 Queue contents are not worth preserving, but your definitions (vhosts, users, permissions, exchanges, queues,
@@ -332,7 +342,7 @@ on `127.0.0.1`. Every other version has to be addressed by its container name:
 | 127.0.0.1:9200 (default search engine) | unchanged |
 | 127.0.0.1:3308 | vsh-mysql80.vsh:3308 |
 | 127.0.0.1:9207 | vsh-elasticsearch7.vsh:9207 |
-| 127.0.0.1:6379 | vsh-redis6.vsh:6379 |
+| 127.0.0.1:6379 (Redis) | vsh-redis6.vsh:6380 |
 | 127.0.0.1:5674 | vsh-rabbitmq313.vsh:5674 |
 
 Typical places to check: Magento's `app/etc/env.php`, Neos' `Settings.yaml`, `.env` files and any database or
