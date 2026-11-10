@@ -7,7 +7,7 @@ hide:
 
 ## Versions
 PHP is optional and not installed by default - install the version(s) you need via *[install](../commands/install.md)*,
-e.g. `valet.sh install php81`. Versions 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3, 8.4 and 8.5 are supported and
+e.g. `valet.sh install php81`. Versions 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3, 8.4, 8.5 and 8.6 are supported and
 can be installed/run at the same time.
 
 
@@ -25,6 +25,7 @@ can be installed/run at the same time.
 | php-8.3 | /var/run/php/php8.3-fpm.sock | /tmp/vsh-php83.sock | php83       | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } |
 | php-8.4 | /var/run/php/php8.4-fpm.sock | /tmp/vsh-php84.sock | php84       | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } |
 | php-8.5 | /var/run/php/php8.5-fpm.sock | /tmp/vsh-php85.sock | php85       | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } |
+| php-8.6 | /var/run/php/php8.6-fpm.sock | /tmp/vsh-php86.sock | php86       | :fontawesome-solid-xmark:{ .cross-mark } | :fontawesome-solid-check:{ .check-mark } |
 
 
 ## manage services
