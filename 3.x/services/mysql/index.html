@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
     
     
       
@@ -29,10 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -861,6 +861,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#custom-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1585,12 +1596,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
     
     
     
@@ -1683,90 +1688,6 @@
     
   
     Install and use Profiler XHProf or Blackfire
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../how-to-articles/install-ioncube-loader/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Install IonCube Loader
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../how-to-articles/migrate-from-valet-plus-to-valet-sh/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migrate from valet-plus to valet.sh
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../how-to-articles/migration-cheatsheet-from-valet-plus-to-valet-sh/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migration-Cheatsheet from valet-plus to valet.sh
   
 
     
@@ -2004,6 +1925,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#custom-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2171,6 +2103,52 @@ valet.sh<span class="w"> </span>service<span class="w"> </span><span class="nb">
 <p class="admonition-title">Info</p>
 <p>Use <code>mariadb10.6</code>,<code>mariadump10.6</code> or <code>mariadb10.11</code>,<code>mariadump10.11</code> to work with a specific MariaDB version on CLI!</p>
 </div>
+<h2 id="custom-configuration">Custom configuration</h2>
+<p>valet.sh writes its own defaults for every installed MySQL/MariaDB version to a <code>valet-sh.cnf</code> file. Do not edit
+that file - it is regenerated whenever valet.sh (re-)provisions the service and your changes would be lost.</p>
+<p>Instead, every installed version gets an additional, user-writable <code>zz-custom.cnf</code>. valet.sh creates this file once
+on installation and never overwrites it. It is read <strong>after</strong> <code>valet-sh.cnf</code>, so every option you set
+there overrides the valet.sh defaults. The path is the same on Ubuntu and macOS:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MySQL</td>
+<td><code>/usr/local/valet-sh/packages/mysql&lt;version&gt;/etc/conf.d/zz-custom.cnf</code></td>
+</tr>
+<tr>
+<td>MariaDB</td>
+<td><code>/usr/local/valet-sh/packages/mariadb&lt;version&gt;/etc/mariadb.conf.d/zz-custom.cnf</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>&lt;version&gt;</code> is the version part of the service name, e.g. <code>/usr/local/valet-sh/packages/mysql80/etc/conf.d/zz-custom.cnf</code>
+for <code>mysql80</code> or <code>/usr/local/valet-sh/packages/mariadb106/etc/mariadb.conf.d/zz-custom.cnf</code> for <code>mariadb106</code>.</p>
+<p>The file already contains a <code>[mysqld]</code> section - just add your options below it:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># /usr/local/valet-sh/packages/mysql80/etc/conf.d/zz-custom.cnf</span>
+<span class="k">[mysqld]</span>
+<span class="na">innodb_buffer_pool_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1G</span>
+<span class="na">max_allowed_packet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">512M</span>
+<span class="na">sql-mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION"</span>
+</code></pre></div>
+<p>Changes are not picked up automatically - restart the service afterwards via <em><a href="../../commands/service/">service</a></em>:</p>
+<div class="highlight"><pre><span></span><code>valet.sh<span class="w"> </span>service<span class="w"> </span>restart<span class="w"> </span>mysql80
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The file is specific to one version. Options set for <code>mysql80</code> do not apply to <code>mysql84</code> or <code>mariadb106</code> -
+each of them has its own <code>zz-custom.cnf</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><em><a href="../../commands/uninstall/">uninstall</a></em> removes the whole package directory of a service, including your
+<code>zz-custom.cnf</code> - even without <code>--purge</code>. Back the file up first if you want to keep your settings.</p>
+</div>
 
 
 
@@ -2232,10 +2210,10 @@ valet.sh<span class="w"> </span>service<span class="w"> </span><span class="nb">
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   </body>
