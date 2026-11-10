@@ -36,7 +36,7 @@ valet.sh install
 ```
 
 ---
-### MacOs (Intel)
+### MacOS
 
 ```bash
 
@@ -46,19 +46,3 @@ brew upgrade
 valet.sh self-upgrade
 valet.sh install
 ```
-
----
-### MacOs (M1)
-
-```bash
-
-brew_x86 update
-brew_x86 upgrade
-brew update
-brew upgrade
-
-valet.sh self-upgrade
-valet.sh install
-```
-
-

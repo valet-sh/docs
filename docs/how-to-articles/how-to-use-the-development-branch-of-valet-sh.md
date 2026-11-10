@@ -10,8 +10,7 @@ Each new version is first tested in the "next" branch. Follow the steps to switc
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/valet-sh/install/3.x/install.sh)
 
-/usr/local/valet-sh/installer/valet-sh-installer release-channel next
-valet.sh self-upgrade
+valet.sh release-channel 3.x
 valet.sh install
 ```
 
@@ -21,9 +20,3 @@ Updates can be executed with the standard upgrade command
 valet.sh self-upgrade
 ```
 
-use the following commands to switch back to the stable release branch
-```bash
-/usr/local/valet-sh/installer/valet-sh-installer release-channel 2.x
-valet.sh self-upgrade
-valet.sh install
-```

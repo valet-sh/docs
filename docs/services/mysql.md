@@ -85,3 +85,45 @@ MySQL via valet.sh only uses TCP for the connection. Unix sockets are deactivate
 
 !!! Info
     Use `mariadb10.6`,`mariadump10.6` or `mariadb10.11`,`mariadump10.11` to work with a specific MariaDB version on CLI!
+
+
+## Custom configuration
+
+valet.sh writes its own defaults for every installed MySQL/MariaDB version to a `valet-sh.cnf` file. Do not edit
+that file - it is regenerated whenever valet.sh (re-)provisions the service and your changes would be lost.
+
+Instead, every installed version gets an additional, user-writable `zz-custom.cnf`. valet.sh creates this file once
+on installation and never overwrites it. It is read <strong>after</strong> `valet-sh.cnf`, so every option you set
+there overrides the valet.sh defaults. The path is the same on Ubuntu and macOS:
+
+| Type    | File                                                                             |
+|---------|----------------------------------------------------------------------------------|
+| MySQL   | `/usr/local/valet-sh/packages/mysql<version>/etc/conf.d/zz-custom.cnf`           |
+| MariaDB | `/usr/local/valet-sh/packages/mariadb<version>/etc/mariadb.conf.d/zz-custom.cnf` |
+
+`<version>` is the version part of the service name, e.g. `/usr/local/valet-sh/packages/mysql80/etc/conf.d/zz-custom.cnf`
+for `mysql80` or `/usr/local/valet-sh/packages/mariadb106/etc/mariadb.conf.d/zz-custom.cnf` for `mariadb106`.
+
+The file already contains a `[mysqld]` section - just add your options below it:
+
+```ini
+# /usr/local/valet-sh/packages/mysql80/etc/conf.d/zz-custom.cnf
+[mysqld]
+innodb_buffer_pool_size = 1G
+max_allowed_packet = 512M
+sql-mode = "STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION"
+```
+
+Changes are not picked up automatically - restart the service afterwards via *[service](../commands/service.md)*:
+
+```bash
+valet.sh service restart mysql80
+```
+
+!!! Info
+    The file is specific to one version. Options set for `mysql80` do not apply to `mysql84` or `mariadb106` -
+    each of them has its own `zz-custom.cnf`.
+
+!!! Warning
+    *[uninstall](../commands/uninstall.md)* removes the whole package directory of a service, including your
+    `zz-custom.cnf` - even without `--purge`. Back the file up first if you want to keep your settings.

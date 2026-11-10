@@ -27,6 +27,9 @@ being bundled with every installation:
 * *[init-instance](../commands/init-instance.md)* automatically installs whatever service versions your project's
   *[.valet-sh.yml](../how-to-articles/project-configuration-via-valet-sh-yml.md)* declares, if they aren't installed yet.
 * Mailhog has been fully replaced by *[Mailpit](../services/mailpit.md)*, which is now part of the essential baseline.
+* MySQL and MariaDB can be tuned via a user-writable `zz-custom.cnf` per installed version. It overrides the
+  valet.sh defaults and is never overwritten by valet.sh - see
+  *[MySQL > Custom configuration](../services/mysql.md#custom-configuration)*.
 
 See also *[Changelog](../changelog.md)*.
 
