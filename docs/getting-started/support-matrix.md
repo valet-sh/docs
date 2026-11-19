@@ -18,12 +18,12 @@ valet.sh is currently working on the following operating systems:
 | MacOS 11 (Intel)         | :fontawesome-solid-xmark:{ .cross-mark } |
 | MacOS 12 (Intel)         | :fontawesome-solid-xmark:{ .cross-mark } |
 | MacOS 12 (Apple Silicon) | :fontawesome-solid-xmark:{ .cross-mark } |
-| MacOS 13 (Intel)         | :fontawesome-solid-check:{ .cross-mark } |
-| MacOS 13 (Apple Silicon) | :fontawesome-solid-check:{ .cross-mark } |
+| MacOS 13 (Intel)         | :fontawesome-solid-xmark:{ .cross-mark } |
+| MacOS 13 (Apple Silicon) | :fontawesome-solid-xmark:{ .cross-mark } |
 | MacOS 14 (Intel)         | :fontawesome-solid-check:{ .check-mark } |
 | MacOS 14 (Apple Silicon) | :fontawesome-solid-check:{ .check-mark } |
 | MacOS 15 (Intel)         | :fontawesome-solid-check:{ .check-mark } |
 | MacOS 15 (Apple Silicon) | :fontawesome-solid-check:{ .check-mark } |
 | macOS 26 (Intel)         | :fontawesome-solid-check:{ .check-mark } |
 | macOS 26 (Apple Silicon) | :fontawesome-solid-check:{ .check-mark } |
-| macOS 27          | :fontawesome-solid-check:{ .cross-mark } |
+| macOS 27          | :fontawesome-solid-xmark:{ .cross-mark } |
