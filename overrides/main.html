@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
-{% block announce %}
-  A new major release is on its way: <strong>valet.sh 3.x</strong> is under active development.
-  <a href="{{ base_url }}/../3.x/">
-    <strong>Take a look at the 3.x documentation.</strong>
+{% block outdated %}
+  You're viewing the documentation for <strong>valet.sh 2.x</strong>. The current release is valet.sh 3.x.
+  <a href="{{ '../' ~ base_url }}">
+    <strong>Switch to the 3.x documentation.</strong>
   </a>
 {% endblock %}
