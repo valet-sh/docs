@@ -5,10 +5,6 @@ hide:
 
 # Upgrade from valet.sh 2.x to 3.x
 
-!!! warning
-    valet.sh 3.x is still under active development - this page and the rest of the 3.x documentation may change
-    without notice. Use the version selector above to switch back to the current stable 2.x documentation.
-
 !!! danger "No data is migrated"
     valet.sh 3.x runs all data services in containers, and those containers start with **empty** volumes. Your
     databases, search indexes, caches and message queues from 2.x are **not** taken over.
@@ -18,6 +14,7 @@ hide:
 !!! danger "Intel Macs must stay on valet.sh 2.x"
     valet.sh 3.x only supports Apple Silicon. If you are on an Intel Mac, do **not** switch the release channel -
     there is no upgrade path and no 3.x support for your machine. See *[Support-Matrix](support-matrix.md)*.
+    The *[valet.sh 2.x documentation](https://valet.sh/2.x/)* remains available.
 
 ## What changes in 3.x
 

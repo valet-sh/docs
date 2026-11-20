@@ -5,6 +5,19 @@ hide:
 
 # Changelog
 
+## *[3.0.0 (20/11/2026)](https://github.com/valet-sh/valet-sh/releases/tag/3.0.0)*
+
+<strong>Changes</strong>
+
+* Data services (MySQL, MariaDB, Elasticsearch, OpenSearch, Redis, Valkey, RabbitMQ, Mailpit) run as containers -
+  Apple Containers on macOS, Podman on Ubuntu
+* Only `nginx`, `dnsmasq` and `mailpit` are installed by default, all other services are installed on demand
+* New *[uninstall](commands/uninstall.md)* command
+* Supported operating systems: macOS 26+ on Apple Silicon, Ubuntu 24.04 and 26.04 - Intel Macs are no longer supported
+* No data is migrated from 2.x - see *[Upgrade from 2.x to 3.x](getting-started/upgrade-from-2x.md)*
+
+See *[What's new in valet.sh 3.x](getting-started/whats-new.md)* for details.
+
 ## *[2.11.0 (08/10/2025)](https://github.com/valet-sh/valet-sh/releases/tag/2.11.0)*
 
 <strong>Changes</strong>

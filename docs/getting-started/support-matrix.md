@@ -15,4 +15,5 @@ valet.sh is currently working on the following operating systems:
 | macOS 27 (Apple Silicon) | :fontawesome-solid-check:{ .check-mark } |
 
 !!! Info
-    valet.sh 3.x only supports Apple Silicon on macOS - Intel Macs are no longer supported.
+    valet.sh 3.x only supports Apple Silicon on macOS - Intel Macs are no longer supported. For Intel Macs, see the
+    *[valet.sh 2.x documentation](https://valet.sh/2.x/getting-started/support-matrix/)*.

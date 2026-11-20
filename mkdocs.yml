@@ -8,6 +8,7 @@ theme:
   custom_dir: overrides
   features:
     - navigation.indexes
+    - announce.dismiss
 extra:
   version:
     provider: mike
@@ -57,6 +58,6 @@ plugins:
         'display/VSH/%5BMacOS%5D+Profile+using+XHProf+or+Blackfire.md': 'how-to-articles/install-and-use-profiler-xhprof-or-blackfire.md'
 
 site_url: https://valet.sh
-edit_uri: https://github.com/valet-sh/docs/edit/master/docs
+edit_uri: https://github.com/valet-sh/docs/edit/3.x/docs
 repo_url: https://github.com/valet-sh/valet-sh
 copyright: Copyright &copy; 2022 - 2026 TechDivision GmbH

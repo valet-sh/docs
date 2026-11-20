@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
-{% block outdated %}
-  You're viewing the documentation for <strong>valet.sh 3.x</strong>, which is still under active development. Content may be incomplete or change without notice.
-  <a href="{{ '../' ~ base_url }}">
-    <strong>Switch to the current stable release (2.x).</strong>
-  </a>
+{% block announce %}
+  <strong>valet.sh 3.0 has been released!</strong>
+  See <a href="{{ base_url }}/getting-started/whats-new/"><strong>what's new</strong></a>
+  and how to <a href="{{ base_url }}/getting-started/upgrade-from-2x/"><strong>upgrade from 2.x</strong></a>.
+  Still using valet.sh 2.x? The <a href="{{ base_url }}/../2.x/"><strong>2.x documentation</strong></a> remains available.
 {% endblock %}

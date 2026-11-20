@@ -5,13 +5,10 @@ hide:
 
 # What's new in valet.sh 3.x
 
-!!! warning
-    valet.sh 3.x is still under active development - this page and the rest of the 3.x documentation may change
-    without notice. Use the version selector above to switch back to the current stable 2.x documentation.
-
 !!! Info "Coming from valet.sh 2.x?"
     3.x contains breaking changes and does not migrate any data. Follow the
     *[Upgrade from 2.x to 3.x](upgrade-from-2x.md)* guide before you switch.
+    Until then, the *[valet.sh 2.x documentation](https://valet.sh/2.x/)* remains available.
 
 Data services (MySQL, MariaDB, Elasticsearch, OpenSearch, Redis, Valkey, RabbitMQ, Mailpit) no longer run as native
 packages but as **containers** - Apple Containers on macOS, Podman with systemd user units on Ubuntu. PHP, Nginx,
